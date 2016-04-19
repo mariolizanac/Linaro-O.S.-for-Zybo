@@ -1,0 +1,154 @@
+2.
+
+export ARCH=arm
+export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
+source /opt/Xilinx/Vivado/2015.4/settings64.sh 
+export PATH=/home/mario/Dropbox/PROJECTS/LINARO/u-boot-Digilent-Dev-master-next/tools:$PATH   
+
+mario@mario ~ $ cd /home/mario/Dropbox/PROJECTS/LINARO/u-boot-Digilent-Dev-master-next/
+
+modificar el archivo zynq_zybo.h
+
+mario@mario ~/Dropbox/PROJECTS/LINARO/u-boot-Digilent-Dev-master-next $ make zynq_zybo_config
+
+
+
+renombrar u-boot a u-boot.elf
+
+
+
+http://askubuntu.com/questions/465729/ping-unknown-host-google-com-in-ubuntu-server
+
+
+https://www.garron.me/en/go2linux/how-to-install-startx.html
+
+passwd --> nueva contraseña
+
+
+
+Descargar xillinux, investigar por ahí
+
+https://www.96boards.org/forums/topic/root-access-via-ssh-on-ubuntu-410c/
+
+0. on your 96board login as root.
+1. if you dont have a /root/.ssh directory execute
+#ssh-keygen -t rsa
+2. on your host system if you dont have a ~/.ssh directory execute
+#ssh-keygen -t rsa
+3. copy/append your host ~/.ssh/id_rsa.pub to 96board /root/.ssh/authorized_keys
+4. on your host system now edit .ssh/config and add the following lines
+Host 410c
+Hostname 
+User root
+
+5. From your host you should now be able to login as root by executing
+$ ssh 410c
+
+October 2, 2015 at 4:27 pm #8643
+
+ldts-jro
+
+Participant
+um, It seems the editor cut part of bullet 4 in my previous comment (here is an example of my .ssh/config)
+
+Host 410c
+Hostname 192.168.211.177
+User root
+
+
+sudo apt-get install software-properties-common
+
+
+http://askubuntu.com/questions/148638/how-do-i-enable-the-universe-repository ---> AÑADIR UNIVERSE y otros
+
+
+GURadio no trbaja con armhf por falta de dependencias:
+https://bugs.launchpad.net/ubuntu/+source/gnuradio/+bug/1476475
+
+
+https://launchpad.net/ubuntu/trusty/armhf/gnuradio/3.7.2.1-5ubuntu0.1
+
+
+dpkg -i gnuradio-deb
+
+apt-get -f install
+
+
+ libuhd003:armhf conflicts with gnuradio (<< 3.7.2.2)     --> Hay que buscar un Gnuradio > 3.7.2.2
+
+
+https://launchpad.net/ubuntu/vivid/armhf/gnuradio/3.7.5-5ubuntu0.1
+
+falta reunir dependencias
+
+dpkg: dependency problems prevent configuration of gnuradio:
+ gnuradio depends on libgnuradio-analog3.7.5; however:
+  Package libgnuradio-analog3.7.5 is not installed.
+ gnuradio depends on libgnuradio-atsc3.7.5; however:
+  Package libgnuradio-atsc3.7.5 is not installed.
+ gnuradio depends on libgnuradio-audio3.7.5; however:
+  Package libgnuradio-audio3.7.5 is not installed.
+ gnuradio depends on libgnuradio-blocks3.7.5; however:
+  Package libgnuradio-blocks3.7.5 is not installed.
+ gnuradio depends on libgnuradio-channels3.7.5; however:
+  Package libgnuradio-channels3.7.5 is not installed.
+ gnuradio depends on libgnuradio-comedi3.7.5; however:
+  Package libgnuradio-comedi3.7.5 is not installed.
+ gnuradio depends on libgnuradio-digital3.7.5; however:
+  Package libgnuradio-digital3.7.5 is not installed.
+ gnuradio depends on libgnuradio-dtv3.7.5; however:
+  Package libgnuradio-dtv3.7.5 is not installed.
+ gnuradio depends on libgnuradio-fcd3.7.5; however:
+  Package libgnuradio-fcd3.7.5 is not installed.
+
+
+dpkg -i *.deb *.ddeb
+
+Errors were encountered while processing:
+ libgnuradio-audio3.7.5:armhf
+ libgnuradio-fcd3.7.5:armhf
+ libgnuradio-qtgui3.7.5:armhf
+ libgnuradio-video-sdl3.7.5:armhf
+ libgnuradio-zeromq3.7.5:armhf
+ libgnuradio-audio3.7.5-dbgsym:armhf
+ libgnuradio-channels3.7.5-dbgsym:armhf
+ libgnuradio-fcd3.7.5-dbgsym:armhf
+ libgnuradio-qtgui3.7.5-dbgsym:armhf
+ libgnuradio-video-sdl3.7.5-dbgsym:armhf
+ libgnuradio-zeromq3.7.5-dbgsym:armhf
+ gnuradio
+ gnuradio-dbgsym
+ gnuradio-dev
+root@linaro-gnome:/home/linaro/Dependencias#
+
+apt-get -f install
+
+dpkg -i *.deb *.ddeb
+
+Errors were encountered while processing:
+ libgnuradio-channels3.7.5-dbgsym:armhf
+
+apt-get install python-cairo
+apt-get install python-gtk2
+pt-get install python-numpy
+
+apt-get -y install git-core cmake g++ python-dev swig \
+pkg-config libfftw3-dev libboost1.55-all-dev libcppunit-dev libgsl0-dev \
+libusb-dev libsdl1.2-dev python-wxgtk2.8 python-numpy \
+python-cheetah python-lxml doxygen libxi-dev python-sip \
+libqt4-opengl-dev libqwt-dev libfontconfig1-dev libxrender-dev \
+python-sip python-sip-dev
+
+
+
+
+gnuradio funciona, falta rtl-sdr.
+
+
+
+
+
+
+
+
+
