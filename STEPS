@@ -1,4 +1,8 @@
 
+IMPORTANT
+
+The commands are writing in such a way that you should only copy and paste them.
+
 
 REQUIREMENTS
 
@@ -18,6 +22,7 @@ STEPS
 1. Download the u-boot Repository for Digilent FPGA Boards from GitHub:
 
 #COPY FROM HERE:
+
 wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master-next.zip' -O u-boot-Digilent-Dev-master-next.zip
 unzip u-boot-Digilent-Dev-master-next.zip -d unzip_folder	
 cd unzip_folder/
