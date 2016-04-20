@@ -9,3 +9,43 @@ The following equipment have been employed:
 2. Zybo board
 
 3. Vivado v2015.4 (64 bits)
+
+
+
+
+STEPS
+
+1. Download the u-boot Repository for Digilent FPGA Boards from GitHub:
+
+#COPY FROM HERE:
+wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master-next.zip' -O u-boot-Digilent-Dev-master-next.zip
+unzip u-boot-Digilent-Dev-master-next.zip -d unzip_folder	
+cd unzip_folder/
+mv u-boot-Digilent-Dev-master-next/ ../
+cd ..
+rm -rf unzip_folder/
+rm u-boot-Digilent-Dev-master-next.zip
+
+#TO HERE
+
+
+
+2. Set necessary variables on the bash shell
+
+export ARCH=arm
+export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
+source /opt/Xilinx/Vivado/2015.4/settings64.sh 
+export echo PATH=$PWD/u-boot-Digilent-Dev-master-next/tools:$PATH
+
+
+
+3. 
+
+
+
+
+
+
+
+
+
