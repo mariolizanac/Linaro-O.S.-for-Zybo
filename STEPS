@@ -35,7 +35,25 @@ rm u-boot-Digilent-Dev-master-next.zip
 
 
 
-2. Set necessary variables on the bash shell
+2. Download the Zybo base system for Vivado from the Digilent website 
+
+#COPY FROM HERE:
+
+wget 'https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip' -O zybo_base_system.zip
+unzip zybo_base_system.zip -d unzip_folder	
+cd unzip_folder/
+mv zybo_base_system/ ../
+cd ..
+rm -rf unzip_folder/
+rm zybo_base_system.zip
+
+#TO HERE
+
+### Corregir esto con mi propio github
+
+
+
+3. Set necessary variables on the bash shell
 
 export ARCH=arm
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
@@ -43,8 +61,6 @@ source /opt/Xilinx/Vivado/2015.4/settings64.sh
 export echo PATH=$PWD/u-boot-Digilent-Dev-master-next/tools:$PATH
 
 
-
-3. 
 
 
 
