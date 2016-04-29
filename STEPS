@@ -66,6 +66,23 @@ source /opt/Xilinx/Vivado/2015.4/settings64.sh
 export echo PATH=$PWD/u-boot-Digilent-Dev-master-next/tools:$PATH
 
 
+4. Modify zynq_zybo.h, which is inside u-boot-Digilent-Dev folder. We should have the following lines:
+
+	"sdboot=if mmcinfo; then " \
+			"run uenvboot; " \
+			"echo Copying Linux from SD to RAM... && " \
+			"fatload mmc 0 0x3000000 ${kernel_image} && " \
+			"fatload mmc 0 0x2A00000 ${devicetree_image} && " \
+			"bootm 0x3000000 - 0x2A00000; " \
+		"fi\0" \
+
+
+5. Compile u-boot file
+
+
+
+
+
 
 
 
