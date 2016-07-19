@@ -23,13 +23,13 @@ STEPS
 
 #COPY FROM HERE:
 
-wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master-next.zip' -O u-boot-Digilent-Dev-master-next.zip
-unzip u-boot-Digilent-Dev-master-next.zip -d unzip_folder	
+wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master.zip' -O u-boot-Digilent-Dev-master.zip
+unzip u-boot-Digilent-Dev-master.zip -d unzip_folder	
 cd unzip_folder/
-mv u-boot-Digilent-Dev-master-next/ ../
+mv u-boot-Digilent-Dev-master/ ../
 cd ..
 rm -rf unzip_folder/
-rm u-boot-Digilent-Dev-master-next.zip
+rm u-boot-Digilent-Dev-master.zip
 
 #TO HERE
 
@@ -50,11 +50,11 @@ rm zybo_base_system.zip
 #TO HERE
 
 #Otra forma mas directa:
-git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
+git clone -b master https://github.com/DigilentInc/u-boot-Digilent-Dev.git
 git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
 
 
-### Corregir esto con mi propio github, haciendo un repo nuevo, voy por el paso 2 de http://www.dbrss.org/zybo/tutorial4.html
+
 
 
 
@@ -62,11 +62,12 @@ git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
 
 export ARCH=arm
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-source /opt/Xilinx/Vivado/2015.4/settings64.sh 
+#source /home/mario/Xilinx/Vivado/2016.2/settings64.sh 
+export PATH=$PATH:/home/mario/Xilinx/SDK/2016.2/gnu/arm/lin/bin
 export echo PATH=$PWD/u-boot-Digilent-Dev-master-next/tools:$PATH
 
 
-4. Modify zynq_zybo.h, which is inside u-boot-Digilent-Dev folder. We should have the following lines:
+4. Modify zynq_zybo.h, which is inside "u-boot-Digilent-Dev-master-next" folder. We should have the following lines:
 
 	"sdboot=if mmcinfo; then " \
 			"run uenvboot; " \
@@ -79,14 +80,17 @@ export echo PATH=$PWD/u-boot-Digilent-Dev-master-next/tools:$PATH
 
 5. Compile u-boot file
 
+mkdir sd_boot
+cd u-boot-Digilent-Dev-master
+make zynq_zybo_config
+make
+cp u-boot ../sd_boot/u-boot.elf
 
 
 
 
 
-
-
-
+### Corregir esto con mi propio github, haciendo un repo nuevo, voy por el paso 3 de http://www.dbrss.org/zybo/tutorial4.html
 
 
 
