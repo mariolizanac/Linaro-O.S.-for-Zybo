@@ -113,12 +113,12 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_sg_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_sg_pkg.all;
 
 library lib_pkg_v1_0_2;
-library lib_fifo_v1_0_5;
-use lib_fifo_v1_0_5.sync_fifo_fg;
+library lib_fifo_v1_0_4;
+use lib_fifo_v1_0_4.sync_fifo_fg;
 use lib_pkg_v1_0_2.lib_pkg.all;
 
 -------------------------------------------------------------------------------

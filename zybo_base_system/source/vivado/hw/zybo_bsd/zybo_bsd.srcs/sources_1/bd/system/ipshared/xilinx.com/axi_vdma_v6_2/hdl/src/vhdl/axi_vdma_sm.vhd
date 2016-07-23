@@ -136,8 +136,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 library lib_cdc_v1_0_2;
 library lib_pkg_v1_0_2;
@@ -956,7 +956,7 @@ GEN_FOR_ASYNC : if C_PRMRY_IS_ACLK_ASYNC = 1 generate
 begin
 
 
-----    FSIZE_MISMATCH_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    FSIZE_MISMATCH_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1

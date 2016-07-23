@@ -68,8 +68,8 @@
   use IEEE.std_logic_1164.all;
   use IEEE.numeric_std.all;
 
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_strb_gen2;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_strb_gen2;
 
   -------------------------------------------------------------------------------
 
@@ -1148,7 +1148,7 @@
     -- to be transfered (for that data beat).    
     --
     ------------------------------------------------------------
-    I_STRT_STRB_GEN : entity axi_datamover_v5_1_11.axi_datamover_strb_gen2
+    I_STRT_STRB_GEN : entity axi_datamover_v5_1_9.axi_datamover_strb_gen2
     generic map (
                           
       C_OP_MODE            =>  0                         , -- 0 = Offset/Length mode
@@ -1184,7 +1184,7 @@
     -- bits from byte offset 0 to the ending byte offset.    
     --
     ------------------------------------------------------------
-    I_END_STRB_GEN : entity axi_datamover_v5_1_11.axi_datamover_strb_gen2
+    I_END_STRB_GEN : entity axi_datamover_v5_1_9.axi_datamover_strb_gen2
     generic map (
                           
       C_OP_MODE            =>  1                        , -- 0 = Offset/Length mode

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2016.2" bd:top="system" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2015.4" bd:top="system" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -137,12 +137,6 @@
         <spirit:master/>
         <spirit:busType spirit:library="interface" spirit:name="iic" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="iic_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>LEDs_4Bits</spirit:name>
-        <spirit:master/>
-        <spirit:busType spirit:library="interface" spirit:name="gpio" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="gpio_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
         <spirit:name>SWs_4Bits</spirit:name>
@@ -322,6 +316,16 @@
             </spirit:vector>
           </spirit:wire>
         </spirit:port>
+        <spirit:port>
+          <spirit:name>led</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>3</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
       </spirit:ports>
     </spirit:model>
   </spirit:component>
@@ -375,15 +379,6 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_BTNs_4Bits_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_GPIO_WIDTH">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_ALL_INPUTS">1</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>LEDs_4Bits</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="axi_gpio" spirit:vendor="xilinx.com" spirit:version="2.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_LEDs_4Bits_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_GPIO_WIDTH">4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_ALL_OUTPUTS">1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -507,6 +502,13 @@
           <spirit:configurableElementValue spirit:referenceId="CONST_VAL">0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>myLED_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="myLED" spirit:vendor="MarioLizanaC.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_myLED_0_1</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
       <spirit:interconnection>
@@ -560,11 +562,6 @@
         <spirit:activeInterface spirit:busRef="M_AXI_GP0" spirit:componentRef="processing_system7_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
-        <spirit:name>processing_system7_0_axi_periph_M00_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="LEDs_4Bits"/>
-        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
         <spirit:name>processing_system7_0_axi_periph_M01_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="BTNs_4Bits"/>
         <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
@@ -603,6 +600,11 @@
         <spirit:name>S01_AXI_1</spirit:name>
         <spirit:activeInterface spirit:busRef="S01_AXI" spirit:componentRef="axi_mem_intercon"/>
         <spirit:activeInterface spirit:busRef="M_AXI_MM2S" spirit:componentRef="axi_vdma_1"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>processing_system7_0_axi_periph_M00_AXI</spirit:name>
+        <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="myLED_0"/>
+        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -781,7 +783,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_i2s_adi_1" spirit:portRef="DMA_REQ_TX_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_i2s_adi_1" spirit:portRef="S_AXI_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="BTNs_4Bits" spirit:portRef="s_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="LEDs_4Bits" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="SWs_4Bits" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_protocol_converter_0" spirit:portRef="aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_vdma_0" spirit:portRef="s_axi_lite_aclk"/>
@@ -799,6 +800,7 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M06_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M07_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="myLED_0" spirit:portRef="s_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_CLK1</spirit:name>
@@ -835,7 +837,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_i2s_adi_1" spirit:portRef="DMA_REQ_TX_RSTN"/>
         <spirit:internalPortReference spirit:componentRef="axi_i2s_adi_1" spirit:portRef="S_AXI_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="BTNs_4Bits" spirit:portRef="s_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="LEDs_4Bits" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="SWs_4Bits" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_mem_intercon" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_mem_intercon" spirit:portRef="M00_ARESETN"/>
@@ -851,6 +852,7 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M06_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M07_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="myLED_0" spirit:portRef="s_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>vdd_const</spirit:name>
@@ -869,6 +871,11 @@
         <spirit:internalPortReference spirit:componentRef="axi_vdma_0" spirit:portRef="mm2s_frame_ptr_in"/>
         <spirit:internalPortReference spirit:componentRef="axi_vdma_1" spirit:portRef="mm2s_frame_ptr_in"/>
       </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>myLED_0_led</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="myLED_0" spirit:portRef="led"/>
+        <spirit:externalPortReference spirit:portRef="led"/>
+      </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
       <spirit:hierConnection spirit:interfaceRef="BTNs_4Bits/BTNs_4Bits_GPIO">
@@ -882,9 +889,6 @@
       </spirit:hierConnection>
       <spirit:hierConnection spirit:interfaceRef="IIC_0/processing_system7_0_IIC_0">
         <spirit:activeInterface spirit:busRef="IIC_0" spirit:componentRef="processing_system7_0"/>
-      </spirit:hierConnection>
-      <spirit:hierConnection spirit:interfaceRef="LEDs_4Bits/LEDs_4Bits_GPIO">
-        <spirit:activeInterface spirit:busRef="GPIO" spirit:componentRef="LEDs_4Bits"/>
       </spirit:hierConnection>
       <spirit:hierConnection spirit:interfaceRef="SWs_4Bits/SWs_4Bits_GPIO">
         <spirit:activeInterface spirit:busRef="GPIO" spirit:componentRef="SWs_4Bits"/>
@@ -4747,12 +4751,6 @@
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_LEDs_4Bits_Reg</spirit:name>
-            <spirit:displayName>/LEDs_4Bits/S_AXI/Reg</spirit:displayName>
-            <spirit:addressOffset>0x41210000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
             <spirit:name>SEG_SWs_4Bits_Reg</spirit:name>
             <spirit:displayName>/SWs_4Bits/S_AXI/Reg</spirit:displayName>
             <spirit:addressOffset>0x41220000</spirit:addressOffset>
@@ -4768,6 +4766,12 @@
             <spirit:name>SEG_axi_vdma_1_Reg</spirit:name>
             <spirit:displayName>/axi_vdma_1/S_AXI_LITE/Reg</spirit:displayName>
             <spirit:addressOffset>0x43010000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_myLED_0_S_AXI_reg</spirit:name>
+            <spirit:displayName>/myLED_0/S_AXI/S_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
         </spirit:segments>

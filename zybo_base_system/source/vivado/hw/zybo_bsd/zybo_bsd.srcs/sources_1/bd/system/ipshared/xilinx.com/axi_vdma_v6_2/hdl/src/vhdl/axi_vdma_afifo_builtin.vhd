@@ -58,8 +58,8 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-library fifo_generator_v13_1_1;
-use fifo_generator_v13_1_1.all;
+library fifo_generator_v13_0_1;
+use fifo_generator_v13_0_1.all;
 
 library lib_pkg_v1_0_2;
 use lib_pkg_v1_0_2.lib_pkg.all;
@@ -67,8 +67,8 @@ use lib_pkg_v1_0_2.lib_pkg.all;
 --use proc_common_v4_0_2.family_support.all;
 
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 
 -- synopsys translate_off
@@ -681,7 +681,7 @@ end generate FAMILY_7;
 ZERO_pntr <= (others => '0');
 GND <= '0';
 
-  fg_builtin_fifo_inst : entity fifo_generator_v13_1_1.fifo_generator_v13_1_1
+  fg_builtin_fifo_inst : entity fifo_generator_v13_0_1.fifo_generator_v13_0_1
   GENERIC MAP (
     C_COMMON_CLOCK                      => 0,
 --    C_COUNT_TYPE                        => C_COUNT_TYPE,
@@ -704,7 +704,7 @@ GND <= '0';
 --    C_HAS_RD_DATA_COUNT                 => C_HAS_RD_DATA_COUNT,
 --    C_HAS_RD_RST                        => C_HAS_RD_RST,
 
-    C_EN_SAFETY_CKT                     => 1,
+    C_EN_SAFETY_CKT                     => 0,
     C_HAS_RST                           => ASYNC_RST_PORT,
     C_HAS_SRST                          => SYNC_RST_PORT,
 

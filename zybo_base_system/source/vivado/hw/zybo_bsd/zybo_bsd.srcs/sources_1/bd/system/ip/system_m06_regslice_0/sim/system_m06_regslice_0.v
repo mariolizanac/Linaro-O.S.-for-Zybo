@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:ip:axi_register_slice:2.1
-// IP Revision: 9
+// IP Revision: 7
 
 `timescale 1ns/1ps
 
@@ -101,7 +101,7 @@ input wire aclk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST RST" *)
 input wire aresetn;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *)
-input wire [5 : 0] s_axi_awaddr;
+input wire [31 : 0] s_axi_awaddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWPROT" *)
 input wire [2 : 0] s_axi_awprot;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *)
@@ -123,7 +123,7 @@ output wire s_axi_bvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *)
 input wire s_axi_bready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *)
-input wire [5 : 0] s_axi_araddr;
+input wire [31 : 0] s_axi_araddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI ARPROT" *)
 input wire [2 : 0] s_axi_arprot;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *)
@@ -139,7 +139,7 @@ output wire s_axi_rvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *)
 input wire s_axi_rready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI AWADDR" *)
-output wire [5 : 0] m_axi_awaddr;
+output wire [31 : 0] m_axi_awaddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI AWPROT" *)
 output wire [2 : 0] m_axi_awprot;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI AWVALID" *)
@@ -161,7 +161,7 @@ input wire m_axi_bvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI BREADY" *)
 output wire m_axi_bready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI ARADDR" *)
-output wire [5 : 0] m_axi_araddr;
+output wire [31 : 0] m_axi_araddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI ARPROT" *)
 output wire [2 : 0] m_axi_arprot;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI ARVALID" *)
@@ -177,11 +177,11 @@ input wire m_axi_rvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI RREADY" *)
 output wire m_axi_rready;
 
-  axi_register_slice_v2_1_9_axi_register_slice #(
+  axi_register_slice_v2_1_7_axi_register_slice #(
     .C_FAMILY("zynq"),
     .C_AXI_PROTOCOL(2),
     .C_AXI_ID_WIDTH(1),
-    .C_AXI_ADDR_WIDTH(6),
+    .C_AXI_ADDR_WIDTH(32),
     .C_AXI_DATA_WIDTH(32),
     .C_AXI_SUPPORTS_USER_SIGNALS(0),
     .C_AXI_AWUSER_WIDTH(1),
@@ -201,7 +201,7 @@ output wire m_axi_rready;
     .s_axi_awaddr(s_axi_awaddr),
     .s_axi_awlen(8'H00),
     .s_axi_awsize(3'H0),
-    .s_axi_awburst(2'H1),
+    .s_axi_awburst(2'H0),
     .s_axi_awlock(1'H0),
     .s_axi_awcache(4'H0),
     .s_axi_awprot(s_axi_awprot),
@@ -226,7 +226,7 @@ output wire m_axi_rready;
     .s_axi_araddr(s_axi_araddr),
     .s_axi_arlen(8'H00),
     .s_axi_arsize(3'H0),
-    .s_axi_arburst(2'H1),
+    .s_axi_arburst(2'H0),
     .s_axi_arlock(1'H0),
     .s_axi_arcache(4'H0),
     .s_axi_arprot(s_axi_arprot),

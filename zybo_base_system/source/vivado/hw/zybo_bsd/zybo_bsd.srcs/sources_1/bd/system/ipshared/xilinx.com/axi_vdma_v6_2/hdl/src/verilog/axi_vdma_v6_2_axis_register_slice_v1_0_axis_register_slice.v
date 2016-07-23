@@ -62,7 +62,7 @@
 `timescale 1ps/1ps
 `default_nettype none
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axi_vdma_v6_2_8_axis_register_slice_v1_0_axis_register_slice #
+module axi_vdma_v6_2_6_axis_register_slice_v1_0_axis_register_slice #
 (
 ///////////////////////////////////////////////////////////////////////////////
 // Parameter Definitions
@@ -128,7 +128,7 @@ module axi_vdma_v6_2_8_axis_register_slice_v1_0_axis_register_slice #
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
-`include "axi_vdma_v6_2_8_axis_infrastructure_v1_0_axis_infrastructure.vh"
+`include "axi_vdma_v6_2_6_axis_infrastructure_v1_0_axis_infrastructure.vh"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Local parameters
@@ -151,7 +151,7 @@ always @(posedge ACLK) begin
   areset_r <= ~ARESETN;
 end
 
-  axi_vdma_v6_2_8_axis_infrastructure_v1_0_util_axis2vector #(
+  axi_vdma_v6_2_6_axis_infrastructure_v1_0_util_axis2vector #(
     .C_TDATA_WIDTH    ( C_AXIS_TDATA_WIDTH ) ,
     .C_TID_WIDTH      ( C_AXIS_TID_WIDTH   ) ,
     .C_TDEST_WIDTH    ( C_AXIS_TDEST_WIDTH ) ,
@@ -170,7 +170,7 @@ end
     .TPAYLOAD ( S_AXIS_TPAYLOAD )
   );
 
-  axi_vdma_v6_2_8_axis_register_slice_v1_0_axisc_register_slice #(
+  axi_vdma_v6_2_6_axis_register_slice_v1_0_axisc_register_slice #(
     .C_FAMILY     ( C_FAMILY         ) ,
     .C_DATA_WIDTH ( P_TPAYLOAD_WIDTH ) ,
     .C_REG_CONFIG ( C_REG_CONFIG     ) 
@@ -188,7 +188,7 @@ end
     .M_PAYLOAD_DATA ( M_AXIS_TPAYLOAD ) 
   );
 
-  axi_vdma_v6_2_8_axis_infrastructure_v1_0_util_vector2axis #(
+  axi_vdma_v6_2_6_axis_infrastructure_v1_0_util_vector2axis #(
     .C_TDATA_WIDTH    ( C_AXIS_TDATA_WIDTH ) ,
     .C_TID_WIDTH      ( C_AXIS_TID_WIDTH   ) ,
     .C_TDEST_WIDTH    ( C_AXIS_TDEST_WIDTH ) ,

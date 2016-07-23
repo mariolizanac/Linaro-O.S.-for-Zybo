@@ -200,7 +200,7 @@ function find_ard_id (id_array : INTEGER_ARRAY_TYPE;
 function find_id_dwidth (id_array    : INTEGER_ARRAY_TYPE; 
                          dwidth_array: INTEGER_ARRAY_TYPE;
                          id          : integer;
-                         default_i   : integer) 
+                         default     : integer) 
                          return integer;
 
 
@@ -1011,12 +1011,12 @@ function find_ard_id (id_array : INTEGER_ARRAY_TYPE;
 function find_id_dwidth (id_array    : INTEGER_ARRAY_TYPE; 
                         dwidth_array: INTEGER_ARRAY_TYPE;
                         id          : integer;
-                        default_i   : integer) return integer is
+                        default     : integer) return integer is
 
 
      Variable id_present   : Boolean := false;
      Variable array_index  : Integer := 0;
-     Variable dwidth       : Integer := default_i;
+     Variable dwidth       : Integer := default;
 
  begin
 

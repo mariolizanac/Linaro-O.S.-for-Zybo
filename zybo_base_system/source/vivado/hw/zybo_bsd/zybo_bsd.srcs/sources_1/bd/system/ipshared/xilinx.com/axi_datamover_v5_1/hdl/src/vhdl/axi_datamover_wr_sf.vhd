@@ -82,8 +82,8 @@
   
  
 
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_sfifo_autord;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_sfifo_autord;
 
   
   -------------------------------------------------------------------------------
@@ -1192,7 +1192,7 @@
     --  Implements the Store and Forward data FIFO (synchronous)   
     --
     ------------------------------------------------------------
-    I_DATA_FIFO : entity axi_datamover_v5_1_11.axi_datamover_sfifo_autord
+    I_DATA_FIFO : entity axi_datamover_v5_1_9.axi_datamover_sfifo_autord
     generic map (
 
       C_DWIDTH                =>  DATA_FIFO_WIDTH       ,  

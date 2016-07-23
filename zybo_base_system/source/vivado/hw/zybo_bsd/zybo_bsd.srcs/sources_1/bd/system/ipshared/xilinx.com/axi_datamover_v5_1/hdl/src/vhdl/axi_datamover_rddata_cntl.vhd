@@ -69,8 +69,8 @@
   use IEEE.numeric_std.all;
   
   
-  library axi_datamover_v5_1_11; 
-  use axi_datamover_v5_1_11.axi_datamover_rdmux;  
+  library axi_datamover_v5_1_9; 
+  use axi_datamover_v5_1_9.axi_datamover_rdmux;  
   
   
   -------------------------------------------------------------------------------
@@ -765,7 +765,7 @@ end generate GEN_MM2S_TKEEP_DISABLE5;
     --  Instance of the MM2S Read Data Channel Read Mux   
     --
     ------------------------------------------------------------
-    I_READ_MUX : entity axi_datamover_v5_1_11.axi_datamover_rdmux
+    I_READ_MUX : entity axi_datamover_v5_1_9.axi_datamover_rdmux
     generic map (
   
       C_SEL_ADDR_WIDTH     =>  C_SEL_ADDR_WIDTH ,   
@@ -949,7 +949,7 @@ end generate GEN_MM2S_TKEEP_DISABLE5;
          -- Instance for the Command Qualifier FIFO
          --
          ------------------------------------------------------------
-          I_DATA_CNTL_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+          I_DATA_CNTL_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
           generic map (
         
             C_DWIDTH             =>  DCTL_FIFO_WIDTH        ,  

@@ -60,7 +60,7 @@
 `timescale 1ps/1ps
 `default_nettype none
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axi_vdma_v6_2_8_axis_infrastructure_v1_0_util_axis2vector #
+module axi_vdma_v6_2_6_axis_infrastructure_v1_0_util_axis2vector #
 (
 ///////////////////////////////////////////////////////////////////////////////
 // Parameter Definitions
@@ -101,7 +101,7 @@ module axi_vdma_v6_2_8_axis_infrastructure_v1_0_util_axis2vector #
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
-`include "axi_vdma_v6_2_8_axis_infrastructure_v1_0_axis_infrastructure.vh"
+`include "axi_vdma_v6_2_6_axis_infrastructure_v1_0_axis_infrastructure.vh"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Local parameters

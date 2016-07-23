@@ -115,8 +115,8 @@ use ieee.std_logic_misc.all;
 --library proc_common_base_v5_0;
 --use proc_common_base_v5_0.ipif_pkg.all;
 
-library axi_lite_ipif_v3_0_4;
-    use axi_lite_ipif_v3_0_4.ipif_pkg.all;
+library axi_lite_ipif_v3_0_3;
+    use axi_lite_ipif_v3_0_3.ipif_pkg.all;
 
 -------------------------------------------------------------------------------
 --                     Definition of Generics
@@ -262,7 +262,7 @@ begin
 -- Slave Attachment
 -------------------------------------------------------------------------------
 
-I_SLAVE_ATTACHMENT:  entity axi_lite_ipif_v3_0_4.slave_attachment
+I_SLAVE_ATTACHMENT:  entity axi_lite_ipif_v3_0_3.slave_attachment
     generic map(
         C_ARD_ADDR_RANGE_ARRAY    => C_ARD_ADDR_RANGE_ARRAY,
         C_ARD_NUM_CE_ARRAY        => C_ARD_NUM_CE_ARRAY,

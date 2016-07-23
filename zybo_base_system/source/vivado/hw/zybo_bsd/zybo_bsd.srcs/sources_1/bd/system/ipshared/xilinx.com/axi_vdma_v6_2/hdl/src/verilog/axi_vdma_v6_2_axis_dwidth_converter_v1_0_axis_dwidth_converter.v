@@ -63,7 +63,7 @@
 `timescale 1ps/1ps
 `default_nettype none
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axis_dwidth_converter #
+module axi_vdma_v6_2_6_axis_dwidth_converter_v1_0_axis_dwidth_converter #
 (
 ///////////////////////////////////////////////////////////////////////////////
 // Parameter Definitions
@@ -123,7 +123,7 @@ module axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axis_dwidth_converter #
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
-`include "axi_vdma_v6_2_8_axis_infrastructure_v1_0_axis_infrastructure.vh"
+`include "axi_vdma_v6_2_6_axis_infrastructure_v1_0_axis_infrastructure.vh"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Local parameters
@@ -233,7 +233,7 @@ assign tdata_in = C_AXIS_SIGNAL_SET[G_INDX_SS_TDATA] ? S_AXIS_TDATA : {C_S_AXIS_
 assign tkeep_in = C_AXIS_SIGNAL_SET[G_INDX_SS_TKEEP] ? S_AXIS_TKEEP : {(C_S_AXIS_TDATA_WIDTH/8){1'b1}};
 assign tuser_in = C_AXIS_SIGNAL_SET[G_INDX_SS_TUSER] ? S_AXIS_TUSER : {P_D1_TUSER_WIDTH{1'b1}};
 
-axi_vdma_v6_2_8_axis_register_slice_v1_0_axis_register_slice #(
+axi_vdma_v6_2_6_axis_register_slice_v1_0_axis_register_slice #(
   .C_FAMILY           ( C_FAMILY               ) ,
   .C_AXIS_TDATA_WIDTH ( C_S_AXIS_TDATA_WIDTH   ) ,
   .C_AXIS_TID_WIDTH   ( C_AXIS_TID_WIDTH       ) ,
@@ -270,7 +270,7 @@ axis_register_slice_0
 
 generate
   if (P_S_RATIO > 1) begin : gen_upsizer_conversion
-    axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axisc_upsizer #(
+    axi_vdma_v6_2_6_axis_dwidth_converter_v1_0_axisc_upsizer #(
       .C_FAMILY             ( C_FAMILY             ) ,
       .C_S_AXIS_TDATA_WIDTH ( C_S_AXIS_TDATA_WIDTH ) ,
       .C_M_AXIS_TDATA_WIDTH ( P_D2_TDATA_WIDTH     ) ,
@@ -317,7 +317,7 @@ generate
     assign d2_user  = d1_user;
   end
   if (P_M_RATIO > 1) begin : gen_downsizer_conversion
-    axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axisc_downsizer #(
+    axi_vdma_v6_2_6_axis_dwidth_converter_v1_0_axisc_downsizer #(
       .C_FAMILY             ( C_FAMILY             ) ,
       .C_S_AXIS_TDATA_WIDTH ( P_D2_TDATA_WIDTH     ) ,
       .C_M_AXIS_TDATA_WIDTH ( C_M_AXIS_TDATA_WIDTH ) ,
@@ -365,7 +365,7 @@ generate
   end
 endgenerate
 
-axi_vdma_v6_2_8_axis_register_slice_v1_0_axis_register_slice #(
+axi_vdma_v6_2_6_axis_register_slice_v1_0_axis_register_slice #(
   .C_FAMILY           ( C_FAMILY             ) ,
   .C_AXIS_TDATA_WIDTH ( C_M_AXIS_TDATA_WIDTH ) ,
   .C_AXIS_TID_WIDTH   ( C_AXIS_TID_WIDTH     ) ,

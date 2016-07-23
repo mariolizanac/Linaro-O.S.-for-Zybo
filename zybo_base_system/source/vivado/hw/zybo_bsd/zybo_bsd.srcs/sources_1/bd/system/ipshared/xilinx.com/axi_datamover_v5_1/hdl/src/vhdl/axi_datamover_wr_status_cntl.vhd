@@ -68,8 +68,8 @@
   use IEEE.std_logic_1164.all;
   use IEEE.numeric_std.all;
   
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_fifo;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_fifo;
   
   -------------------------------------------------------------------------------
   
@@ -627,7 +627,7 @@
     -- Instance for the AXI Write Response FIFO
     --
     ------------------------------------------------------------
-     I_WRESP_STATUS_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+     I_WRESP_STATUS_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
      generic map (
    
        C_DWIDTH             =>  WRESP_SFIFO_WIDTH         ,  
@@ -843,7 +843,7 @@
          -- Instance for the Command Qualifier FIFO
          --
          ------------------------------------------------------------
-          I_DATA_CNTL_STATUS_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+          I_DATA_CNTL_STATUS_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
           generic map (
         
             C_DWIDTH             =>  DCNTL_SFIFO_WIDTH         , 
@@ -1080,7 +1080,7 @@
          -- Forward is included.
          --
          ------------------------------------------------------------
-          I_SF_DATA_CNTL_STATUS_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+          I_SF_DATA_CNTL_STATUS_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
           generic map (
         
             C_DWIDTH             =>  SF_DCNTL_SFIFO_WIDTH      ,  

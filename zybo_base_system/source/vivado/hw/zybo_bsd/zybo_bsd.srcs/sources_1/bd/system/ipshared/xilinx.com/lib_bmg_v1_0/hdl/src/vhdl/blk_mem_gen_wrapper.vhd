@@ -60,8 +60,8 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
-library blk_mem_gen_v8_3_3;
-use blk_mem_gen_v8_3_3.all;
+library blk_mem_gen_v8_3_1;
+use blk_mem_gen_v8_3_1.all;
 
 
 ------------------------------------------------------------------------------
@@ -325,7 +325,7 @@ begin
     -- for new IP BRAM implementations.
     --
     -------------------------------------------------------------------------------
-    I_TRUE_DUAL_PORT_BLK_MEM_GEN : entity blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3
+    I_TRUE_DUAL_PORT_BLK_MEM_GEN : entity blk_mem_gen_v8_3_1.blk_mem_gen_v8_3_1
       generic map
         (
         --C_CORENAME                => c_corename              ,                                       

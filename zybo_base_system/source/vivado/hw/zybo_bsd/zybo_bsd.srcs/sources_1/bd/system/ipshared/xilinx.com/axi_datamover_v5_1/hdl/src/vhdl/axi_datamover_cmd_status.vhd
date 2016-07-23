@@ -68,8 +68,8 @@
   use IEEE.std_logic_1164.all;
   use IEEE.numeric_std.all;
   
-  library axi_datamover_v5_1_11;
-  Use axi_datamover_v5_1_11.axi_datamover_fifo;
+  library axi_datamover_v5_1_9;
+  Use axi_datamover_v5_1_9.axi_datamover_fifo;
   
   -------------------------------------------------------------------------------
   
@@ -343,7 +343,7 @@
     -- The Internal Interface is the Read side    
     --
     ------------------------------------------------------------
-     I_CMD_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+     I_CMD_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
      generic map (
    
        C_DWIDTH            =>  C_CMD_WIDTH          ,  
@@ -381,7 +381,7 @@
 CACHE_ENABLE : if C_ENABLE_CACHE_USER = 1 generate
 begin
    
-     I_CACHE_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+     I_CACHE_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
      generic map (
    
        C_DWIDTH            =>  8          ,  
@@ -456,7 +456,7 @@ end generate CACHE_DISABLE;
          -- The User Interface is the Read side    
          --
          ------------------------------------------------------------
-         I_STS_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+         I_STS_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
          generic map (
        
            C_DWIDTH            =>  C_STS_WIDTH            ,  

@@ -73,8 +73,8 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-library axi_datamover_v5_1_11; 
-use axi_datamover_v5_1_11.axi_datamover_wr_demux;
+library axi_datamover_v5_1_9; 
+use axi_datamover_v5_1_9.axi_datamover_wr_demux;
 
 -------------------------------------------------------------------------------
 
@@ -487,7 +487,7 @@ begin --(architecture implementation)
     -- Instance for the Write Strobe DeMux.    
     --
     ------------------------------------------------------------
-     I_WSTRB_DEMUX : entity axi_datamover_v5_1_11.axi_datamover_wr_demux
+     I_WSTRB_DEMUX : entity axi_datamover_v5_1_9.axi_datamover_wr_demux
      generic map (
       
        C_SEL_ADDR_WIDTH     =>  C_ADDR_LSB_WIDTH   ,  

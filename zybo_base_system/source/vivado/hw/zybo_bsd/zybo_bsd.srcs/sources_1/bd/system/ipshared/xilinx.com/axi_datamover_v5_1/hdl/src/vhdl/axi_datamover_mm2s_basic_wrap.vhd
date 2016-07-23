@@ -71,14 +71,14 @@
   
   
   -- axi_datamover Library Modules
-  library axi_datamover_v5_1_11; 
-  use axi_datamover_v5_1_11.axi_datamover_reset;  
-  use axi_datamover_v5_1_11.axi_datamover_cmd_status;
-  use axi_datamover_v5_1_11.axi_datamover_scc;
-  use axi_datamover_v5_1_11.axi_datamover_addr_cntl;
-  use axi_datamover_v5_1_11.axi_datamover_rddata_cntl;
-  use axi_datamover_v5_1_11.axi_datamover_rd_status_cntl;
-  use axi_datamover_v5_1_11.axi_datamover_skid_buf;
+  library axi_datamover_v5_1_9; 
+  use axi_datamover_v5_1_9.axi_datamover_reset;  
+  use axi_datamover_v5_1_9.axi_datamover_cmd_status;
+  use axi_datamover_v5_1_9.axi_datamover_scc;
+  use axi_datamover_v5_1_9.axi_datamover_addr_cntl;
+  use axi_datamover_v5_1_9.axi_datamover_rddata_cntl;
+  use axi_datamover_v5_1_9.axi_datamover_rd_status_cntl;
+  use axi_datamover_v5_1_9.axi_datamover_skid_buf;
   
   
   -------------------------------------------------------------------------------
@@ -533,7 +533,7 @@
    --   Reset Block  
    --
    ------------------------------------------------------------
-    I_RESET : entity axi_datamover_v5_1_11.axi_datamover_reset
+    I_RESET : entity axi_datamover_v5_1_9.axi_datamover_reset
     generic map (
   
       C_STSCMD_IS_ASYNC    =>  MM2S_STSCMD_IS_ASYNC       
@@ -571,7 +571,7 @@
    --   Command and Status Interface Block  
    --
    ------------------------------------------------------------
-    I_CMD_STATUS : entity axi_datamover_v5_1_11.axi_datamover_cmd_status
+    I_CMD_STATUS : entity axi_datamover_v5_1_9.axi_datamover_cmd_status
     generic map (
   
       C_ADDR_WIDTH           =>  MM2S_ADDR_WIDTH           ,    
@@ -620,7 +620,7 @@
    -- Read Status Controller Block    
    --
    ------------------------------------------------------------
-    I_RD_STATUS_CNTLR : entity axi_datamover_v5_1_11.axi_datamover_rd_status_cntl
+    I_RD_STATUS_CNTLR : entity axi_datamover_v5_1_9.axi_datamover_rd_status_cntl
     generic map (
   
       C_STS_WIDTH            =>  MM2S_STS_WIDTH              , 
@@ -661,7 +661,7 @@
   -- Simple Command Calculator Block   
   --
   ------------------------------------------------------------
-   I_MSTR_SCC : entity axi_datamover_v5_1_11.axi_datamover_scc
+   I_MSTR_SCC : entity axi_datamover_v5_1_9.axi_datamover_scc
    generic map (
  
      C_SEL_ADDR_WIDTH     =>  SEL_ADDR_WIDTH           , 
@@ -718,7 +718,7 @@
    --   Address Controller Block  
    --
    ------------------------------------------------------------
-    I_ADDR_CNTL : entity axi_datamover_v5_1_11.axi_datamover_addr_cntl
+    I_ADDR_CNTL : entity axi_datamover_v5_1_9.axi_datamover_addr_cntl
     generic map (
   
       -- obsoleted   C_ENABlE_WAIT_FOR_DATA   =>  DISABLE_WAIT_FOR_DATA       ,  
@@ -783,7 +783,7 @@
     --     Read Data Controller Block
     --
     ------------------------------------------------------------
-     I_RD_DATA_CNTL : entity axi_datamover_v5_1_11.axi_datamover_rddata_cntl
+     I_RD_DATA_CNTL : entity axi_datamover_v5_1_9.axi_datamover_rddata_cntl
      generic map (
    
        C_INCLUDE_DRE           =>  INCLUDE_MM2S_DRE         ,  
@@ -891,7 +891,7 @@ begin
     -- throttling.  
     --
     ------------------------------------------------------------
-     I_MM2S_SKID_BUF : entity axi_datamover_v5_1_11.axi_datamover_skid_buf
+     I_MM2S_SKID_BUF : entity axi_datamover_v5_1_9.axi_datamover_skid_buf
      generic map (
         
        C_WDATA_WIDTH  =>  MM2S_SDATA_WIDTH        

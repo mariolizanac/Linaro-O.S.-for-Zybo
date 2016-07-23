@@ -108,8 +108,8 @@ use ieee.numeric_std.all;
 --use proc_common_base_v5_0.pselect_f;
 --use proc_common_base_v5_0.ipif_pkg.all;
 
-library axi_lite_ipif_v3_0_4;
-use axi_lite_ipif_v3_0_4.ipif_pkg.all;
+library axi_lite_ipif_v3_0_3;
+use axi_lite_ipif_v3_0_3.ipif_pkg.all;
 
 -------------------------------------------------------------------------------
 --                     Definition of Generics
@@ -388,7 +388,7 @@ begin
     -- -----------------
     GEN_FOR_MULTI_CS : if C_ARD_ADDR_RANGE_ARRAY'length > 2 generate
             -- Instantiate the basic Base Address Decoders
-            MEM_SELECT_I: entity axi_lite_ipif_v3_0_4.pselect_f
+            MEM_SELECT_I: entity axi_lite_ipif_v3_0_3.pselect_f
                 generic map
                 (
                     C_AB     => DECODE_BITS(bar_index),
@@ -437,7 +437,7 @@ begin
         constant BAR    : std_logic_vector(0 to CE_ADDR_SIZE-1) :=
                             std_logic_vector(to_unsigned(j,CE_ADDR_SIZE));
         begin
-            CE_I : entity axi_lite_ipif_v3_0_4.pselect_f
+            CE_I : entity axi_lite_ipif_v3_0_3.pselect_f
                 generic map (
                     C_AB        => CE_ADDR_SIZE                             ,
                     C_AW        => CE_ADDR_SIZE                             ,

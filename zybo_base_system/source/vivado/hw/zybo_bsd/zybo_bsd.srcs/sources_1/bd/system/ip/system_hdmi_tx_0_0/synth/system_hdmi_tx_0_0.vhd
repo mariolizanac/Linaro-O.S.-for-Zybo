@@ -80,8 +80,9 @@ ENTITY system_hdmi_tx_0_0 IS
 END system_hdmi_tx_0_0;
 
 ARCHITECTURE system_hdmi_tx_0_0_arch OF system_hdmi_tx_0_0 IS
-  ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
+  ATTRIBUTE DowngradeIPIdentifiedWarnings : string;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF system_hdmi_tx_0_0_arch: ARCHITECTURE IS "yes";
+
   COMPONENT hdmi_tx IS
     GENERIC (
       C_RED_WIDTH : INTEGER; -- Red Channel Width
@@ -110,7 +111,7 @@ ARCHITECTURE system_hdmi_tx_0_0_arch OF system_hdmi_tx_0_0 IS
     );
   END COMPONENT hdmi_tx;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF system_hdmi_tx_0_0_arch: ARCHITECTURE IS "hdmi_tx,Vivado 2016.2";
+  ATTRIBUTE X_CORE_INFO OF system_hdmi_tx_0_0_arch: ARCHITECTURE IS "hdmi_tx,Vivado 2015.4";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF system_hdmi_tx_0_0_arch : ARCHITECTURE IS "system_hdmi_tx_0_0,hdmi_tx,{}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;

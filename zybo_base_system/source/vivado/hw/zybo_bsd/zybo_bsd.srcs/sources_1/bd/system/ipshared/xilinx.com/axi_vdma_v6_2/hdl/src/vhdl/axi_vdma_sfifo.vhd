@@ -67,8 +67,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
-library fifo_generator_v13_1_1;
-use fifo_generator_v13_1_1.all;
+library fifo_generator_v13_0_1;
+use fifo_generator_v13_0_1.all;
 
 library lib_pkg_v1_0_2;
 use lib_pkg_v1_0_2.lib_pkg.all;
@@ -81,8 +81,8 @@ use lib_pkg_v1_0_2.lib_pkg.all;
 -- synopsys translate_on
 
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 
 
@@ -331,7 +331,7 @@ data_count <= sig_data_count(clog2(uw_fifo_depth)-1 downto 0);
 ZERO_pntr <= (others => '0');
 GND <= '0';
 
-  fg_inst : entity fifo_generator_v13_1_1.fifo_generator_v13_1_1
+  fg_inst : entity fifo_generator_v13_0_1.fifo_generator_v13_0_1
   GENERIC MAP (
     C_COMMON_CLOCK                      => 1,
 --    C_COUNT_TYPE                        => C_COUNT_TYPE,

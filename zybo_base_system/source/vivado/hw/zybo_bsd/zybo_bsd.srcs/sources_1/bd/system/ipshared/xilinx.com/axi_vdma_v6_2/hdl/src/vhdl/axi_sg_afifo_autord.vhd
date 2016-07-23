@@ -135,8 +135,8 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-library lib_fifo_v1_0_5;
-use lib_fifo_v1_0_5.async_fifo_fg;
+library lib_fifo_v1_0_4;
+use lib_fifo_v1_0_4.async_fifo_fg;
 
 -----------------------------------------------------------------------------
 -- Entity section
@@ -278,7 +278,7 @@ begin
    -- CoreGen FIFO Generator Async FIFO utility.
    --
    -------------------------------------------------------------------------------
-    I_ASYNC_FIFOGEN_FIFO : entity lib_fifo_v1_0_5.async_fifo_fg
+    I_ASYNC_FIFOGEN_FIFO : entity lib_fifo_v1_0_4.async_fifo_fg
        generic map (
           C_ALLOW_2N_DEPTH      =>  1 ,
           C_FAMILY              =>  C_FAMILY,
@@ -301,7 +301,6 @@ begin
           C_USE_BLOCKMEM        =>  C_USE_BLKMEM,
           C_WR_ACK_LOW          =>  0,
 --          C_WR_COUNT_WIDTH      =>  C_CNT_WIDTH,
-          C_EN_SAFETY_CKT       =>  1,  
           C_WR_COUNT_WIDTH      =>  C_CNT_WIDTH-1,
           C_WR_ERR_LOW          =>  0
           --C_WR_ERR_LOW          =>  0,

@@ -79,9 +79,9 @@ library lib_srl_fifo_v1_0_2;
 use lib_srl_fifo_v1_0_2.srl_fifo_f;
 
 
-library axi_datamover_v5_1_11;
-use axi_datamover_v5_1_11.axi_datamover_sfifo_autord;
-use axi_datamover_v5_1_11.axi_datamover_afifo_autord;
+library axi_datamover_v5_1_9;
+use axi_datamover_v5_1_9.axi_datamover_sfifo_autord;
+use axi_datamover_v5_1_9.axi_datamover_afifo_autord;
 
 
 -------------------------------------------------------------------------------
@@ -604,7 +604,7 @@ generate
       -- Implement the synchronous FIFO    
       --
       ------------------------------------------------------------
-       I_SYNC_FIFO : entity axi_datamover_v5_1_11.axi_datamover_sfifo_autord
+       I_SYNC_FIFO : entity axi_datamover_v5_1_9.axi_datamover_sfifo_autord
        generic map (
 
          C_DWIDTH                =>  C_DWIDTH          ,  
@@ -725,7 +725,7 @@ generate
       -- Implement the asynchronous FIFO    
       --
       ------------------------------------------------------------
-       I_ASYNC_FIFO : entity axi_datamover_v5_1_11.axi_datamover_afifo_autord
+       I_ASYNC_FIFO : entity axi_datamover_v5_1_9.axi_datamover_afifo_autord
        generic map (
 
          C_DWIDTH                   =>  C_DWIDTH          ,  

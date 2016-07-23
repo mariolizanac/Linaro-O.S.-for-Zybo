@@ -47,14 +47,14 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:axi_vdma:6.2
--- IP Revision: 8
+-- IP Revision: 6
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-LIBRARY axi_vdma_v6_2_8;
-USE axi_vdma_v6_2_8.axi_vdma;
+LIBRARY axi_vdma_v6_2_6;
+USE axi_vdma_v6_2_6.axi_vdma;
 
 ENTITY system_axi_vdma_0_0 IS
   PORT (
@@ -111,8 +111,9 @@ ENTITY system_axi_vdma_0_0 IS
 END system_axi_vdma_0_0;
 
 ARCHITECTURE system_axi_vdma_0_0_arch OF system_axi_vdma_0_0 IS
-  ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
+  ATTRIBUTE DowngradeIPIdentifiedWarnings : string;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF system_axi_vdma_0_0_arch: ARCHITECTURE IS "yes";
+
   COMPONENT axi_vdma IS
     GENERIC (
       C_S_AXI_LITE_ADDR_WIDTH : INTEGER;
@@ -176,7 +177,6 @@ ARCHITECTURE system_axi_vdma_0_0_arch OF system_axi_vdma_0_0 IS
       C_ENABLE_DEBUG_INFO_14 : INTEGER;
       C_ENABLE_DEBUG_INFO_15 : INTEGER;
       C_INSTANCE : STRING;
-      C_SELECT_XPM : INTEGER;
       C_FAMILY : STRING
     );
     PORT (
@@ -387,7 +387,6 @@ BEGIN
       C_ENABLE_DEBUG_INFO_14 => 0,
       C_ENABLE_DEBUG_INFO_15 => 0,
       C_INSTANCE => "axi_vdma",
-      C_SELECT_XPM => 0,
       C_FAMILY => "zynq"
     )
     PORT MAP (

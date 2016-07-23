@@ -134,8 +134,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 library lib_pkg_v1_0_2;
 use lib_pkg_v1_0_2.lib_pkg.clog2;
@@ -425,7 +425,7 @@ begin
         -- Phase 3 : Grey Encode
         -- Encode binary coded frame pointer
         ---------------------------------------------------------------------------
-        GREY_CODER_I : entity  axi_vdma_v6_2_8.axi_vdma_greycoder
+        GREY_CODER_I : entity  axi_vdma_v6_2_6.axi_vdma_greycoder
             generic map(
                 C_DWIDTH                    => FRAME_NUMBER_WIDTH
             )
@@ -702,7 +702,7 @@ begin
 
 
     -- Mux frame pointer in from Master based on master in control
-    GENLOCK_MUX_I : entity  axi_vdma_v6_2_8.axi_vdma_genlock_mux
+    GENLOCK_MUX_I : entity  axi_vdma_v6_2_6.axi_vdma_genlock_mux
         generic map(
             C_GENLOCK_NUM_MASTERS       => C_GENLOCK_NUM_MASTERS    ,
             C_INTERNAL_GENLOCK_ENABLE   => C_INTERNAL_GENLOCK_ENABLE
@@ -775,7 +775,7 @@ begin
             end case;
         end process ADJUST_4_FRM_STRS;
 
-    S_GREY_CODER_I : entity  axi_vdma_v6_2_8.axi_vdma_greycoder
+    S_GREY_CODER_I : entity  axi_vdma_v6_2_6.axi_vdma_greycoder
         generic map(
             C_DWIDTH                    => GREY_NUM_BITS
         )
@@ -1113,7 +1113,7 @@ begin
         -- Phase 3 : Grey Encode
         -- Encode binary coded frame pointer
         ---------------------------------------------------------------------------
-        GREY_CODER_I : entity  axi_vdma_v6_2_8.axi_vdma_greycoder
+        GREY_CODER_I : entity  axi_vdma_v6_2_6.axi_vdma_greycoder
             generic map(
                 C_DWIDTH                    => FRAME_NUMBER_WIDTH
             )
@@ -1421,7 +1421,7 @@ begin
 
 
     -- Mux frame pointer in from Master based on master in control
-    GENLOCK_MUX_I : entity  axi_vdma_v6_2_8.axi_vdma_genlock_mux
+    GENLOCK_MUX_I : entity  axi_vdma_v6_2_6.axi_vdma_genlock_mux
         generic map(
             C_GENLOCK_NUM_MASTERS       => C_GENLOCK_NUM_MASTERS    ,
             C_INTERNAL_GENLOCK_ENABLE   => C_INTERNAL_GENLOCK_ENABLE
@@ -1494,7 +1494,7 @@ begin
             end case;
         end process ADJUST_4_FRM_STRS;
 
-    GREY_CODER_I : entity  axi_vdma_v6_2_8.axi_vdma_greycoder
+    GREY_CODER_I : entity  axi_vdma_v6_2_6.axi_vdma_greycoder
         generic map(
             C_DWIDTH                    => GREY_NUM_BITS
         )
@@ -1820,7 +1820,7 @@ begin
         -- Phase 3 : Grey Encode
         -- Encode binary coded frame pointer
         ---------------------------------------------------------------------------
-        GREY_CODER_I : entity  axi_vdma_v6_2_8.axi_vdma_greycoder
+        GREY_CODER_I : entity  axi_vdma_v6_2_6.axi_vdma_greycoder
             generic map(
                 C_DWIDTH                    => FRAME_NUMBER_WIDTH
             )
@@ -2126,7 +2126,7 @@ begin
 
 
     -- Mux frame pointer in from Master based on master in control
-    GENLOCK_MUX_I : entity  axi_vdma_v6_2_8.axi_vdma_genlock_mux
+    GENLOCK_MUX_I : entity  axi_vdma_v6_2_6.axi_vdma_genlock_mux
         generic map(
             C_GENLOCK_NUM_MASTERS       => C_GENLOCK_NUM_MASTERS    ,
             C_INTERNAL_GENLOCK_ENABLE   => C_INTERNAL_GENLOCK_ENABLE
@@ -2199,7 +2199,7 @@ begin
             end case;
         end process ADJUST_4_FRM_STRS;
 
-    GREY_CODER_I : entity  axi_vdma_v6_2_8.axi_vdma_greycoder
+    GREY_CODER_I : entity  axi_vdma_v6_2_6.axi_vdma_greycoder
         generic map(
             C_DWIDTH                    => GREY_NUM_BITS
         )
@@ -2534,7 +2534,7 @@ begin
         -- Phase 3 : Grey Encode
         -- Encode binary coded frame pointer
         ---------------------------------------------------------------------------
-        GREY_CODER_I : entity  axi_vdma_v6_2_8.axi_vdma_greycoder
+        GREY_CODER_I : entity  axi_vdma_v6_2_6.axi_vdma_greycoder
             generic map(
                 C_DWIDTH                    => FRAME_NUMBER_WIDTH
             )

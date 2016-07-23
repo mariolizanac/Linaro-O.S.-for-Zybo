@@ -111,8 +111,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_sg_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_sg_pkg.all;
 
 -------------------------------------------------------------------------------
 entity  axi_sg_ftch_cmdsts_if is

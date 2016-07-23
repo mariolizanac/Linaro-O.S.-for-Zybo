@@ -12,7 +12,7 @@ The following equipment have been employed:
 
 2. Zybo board
 
-3. Vivado v2016.2 (64 bits)
+3. Vivado v2015.4 (64 bits)
 
 
 
@@ -90,7 +90,7 @@ cp u-boot ../sd_boot/u-boot.elf
 
 
 
-### Corregir esto con mi propio github, haciendo un repo nuevo, voy por el paso 3 de http://www.dbrss.org/zybo/tutorial4.html
+### Corregir esto con mi propio github, haciendo un repo nuevo, voy por el paso 4 de http://www.dbrss.org/zybo/tutorial4.html
 
 
 

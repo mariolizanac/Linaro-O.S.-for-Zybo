@@ -134,8 +134,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-library lib_bmg_v1_0_5;
-use lib_bmg_v1_0_5.blk_mem_gen_wrapper;
+library lib_bmg_v1_0_3;
+use lib_bmg_v1_0_3.blk_mem_gen_wrapper;
 --use proc_common_v4_0_2.family_support.all;
 
 -------------------------------------------------------------------------------
@@ -143,7 +143,6 @@ entity axi_vdma_blkmem is
     generic (
         C_DATA_WIDTH        : integer := 32;
         C_ADDR_WIDTH        : integer := 9;
-        C_SELECT_XPM        : integer := 1;
         C_FAMILY            : string  := "virtex7"
       );
     port(
@@ -172,67 +171,6 @@ attribute DowngradeIPIdentifiedWarnings: string;
 attribute DowngradeIPIdentifiedWarnings of implementation : architecture is "yes";
 
 
-component  xpm_memory_tdpram
-  generic (
-  MEMORY_SIZE         : integer :=  4096;
-  MEMORY_PRIMITIVE    : string  :=  "blockram";
-  CLOCKING_MODE       : string  :=  "common_clock";
-  ECC_MODE            : string  :=  "no_ecc";
-  MEMORY_INIT_FILE    : string  :=  "none";
-  WAKEUP_TIME         : string  :=  "disable_sleep";
-  MESSAGE_CONTROL     : integer :=  0;
-
-  WRITE_DATA_WIDTH_A  : integer :=  32;
-  READ_DATA_WIDTH_A   : integer :=  32;
-  BYTE_WRITE_WIDTH_A  : integer :=  32;
-  ADDR_WIDTH_A        : integer :=  12;
-  READ_RESET_VALUE_A  : string  := "0";
-  READ_LATENCY_A      : integer :=  1;
-  WRITE_MODE_A        : string  :=  "write_first";
-
-  WRITE_DATA_WIDTH_B  : integer :=  32;
-  READ_DATA_WIDTH_B   : integer :=  32;
-  BYTE_WRITE_WIDTH_B  : integer :=  32;
-  ADDR_WIDTH_B        : integer :=  12;
-  READ_RESET_VALUE_B  : string  := "0";
-  READ_LATENCY_B      : integer :=  1;
-  WRITE_MODE_B        : string  :=  "write_first"
-
-); 
-  port (
-
-  -- Common module ports
-   sleep              : in std_logic;
-
-  -- Port A module ports
-   clka               : in std_logic;
-   rsta               : in std_logic;
-   ena                : in std_logic;
-   regcea             : in std_logic;
-   wea                : in std_logic_vector (0 downto 0);
-   addra              : in std_logic_vector (0 to C_ADDR_WIDTH-1); 
-   dina               : in std_logic_vector (0 to C_DATA_WIDTH-1);
-   injectsbiterra     : in std_logic;
-   injectdbiterra     : in std_logic;
-   douta              : out std_logic_vector(0 to C_DATA_WIDTH-1);              
-   sbiterra           : out std_logic;
-   dbiterra           : out std_logic;
-
--- Port B module ports
-   clkb               : in std_logic;
-   rstb               : in std_logic;
-   enb                : in std_logic;
-   regceb             : in std_logic;
-   web                : in std_logic_vector (0 downto 0);
-   addrb              : in std_logic_vector (0 to C_ADDR_WIDTH-1);
-   dinb               : in std_logic_vector (0 to C_DATA_WIDTH-1); 
-   injectsbiterrb     : in std_logic;
-   injectdbiterrb     : in std_logic;
-   doutb              : out std_logic_vector(0 to C_DATA_WIDTH-1);               
-   sbiterrb           : out std_logic;
-   dbiterrb           : out std_logic
-  );
-end component;
 
 -------------------------------------------------------------------------------
 -- Function Declarations
@@ -335,72 +273,10 @@ port_b_enable           <= Rd_Enable;
 port_b_data_in          <= (others => '0');
 port_b_wr_enable        <= (others => '0');
 
-xpm_mem_gen : if (C_SELECT_XPM = 1) generate 
-xpm_memory_inst: xpm_memory_tdpram
 
-   generic map (
-      MEMORY_SIZE             =>  FIFO_DEPTH*C_DATA_WIDTH,
-      MEMORY_PRIMITIVE        =>  "blockram",
-      CLOCKING_MODE           =>  "common_clock",
-      ECC_MODE                =>  "no_ecc",
-      MEMORY_INIT_FILE        =>  "none",
-      WAKEUP_TIME             =>  "disable_sleep",
-      MESSAGE_CONTROL         =>  1,
-
-      WRITE_DATA_WIDTH_A      =>  C_DATA_WIDTH,
-      READ_DATA_WIDTH_A       =>  C_DATA_WIDTH,
-      BYTE_WRITE_WIDTH_A      =>  C_DATA_WIDTH,
-      ADDR_WIDTH_A            =>  C_ADDR_WIDTH, 
-      READ_RESET_VALUE_A      =>  "0",
-      READ_LATENCY_A          =>  1,
-      WRITE_MODE_A            =>  "write_first",
-
-      WRITE_DATA_WIDTH_B      =>  C_DATA_WIDTH,
-      READ_DATA_WIDTH_B       =>  C_DATA_WIDTH,
-      BYTE_WRITE_WIDTH_B      =>  C_DATA_WIDTH,
-      ADDR_WIDTH_B            =>  C_ADDR_WIDTH,
-      READ_RESET_VALUE_B      =>  "0",
-      READ_LATENCY_B          =>  1,
-      WRITE_MODE_B            =>  "write_first"
-      )
-      port map (
-       -- Common module ports
-      sleep                   =>  '0',
-    
-     -- Port A module ports
-      clka                    => Clk,
-      rsta                    => Rst, 
-      ena                     => port_a_enable, 
-      regcea                  => '0',
-      wea                     => port_a_wr_enable,
-      addra                   => port_a_addr,
-      dina                    => port_a_data_in,
-      injectsbiterra          => '0',
-      injectdbiterra          => '0',
-      douta                   => open,
-      sbiterra                => open,
-      dbiterra                => open,
-    
-     -- Port B module ports
-      clkb                    => Clk,
-      rstb                    => Rst,
-      enb                     => port_b_enable,
-      regceb                  => '0',
-      web                     => port_b_wr_enable,
-      addrb                   => port_b_addr,
-      dinb                    => port_b_data_in,
-      injectsbiterrb          => '0',
-      injectdbiterrb          => '0',
-      doutb                   => port_b_data_out,
-      sbiterrb                => open,
-      dbiterrb                => open
-      );
-end generate;
-
-blk_mem_gen : if (C_SELECT_XPM = 0) generate
 -- For V6 and S6 use block memory generator to
 -- generate BRAM
-I_BLK_MEM : entity lib_bmg_v1_0_5.blk_mem_gen_wrapper
+I_BLK_MEM : entity lib_bmg_v1_0_3.blk_mem_gen_wrapper
     generic map (
         c_family                  =>  C_FAMILY,
         c_xdevicefamily           =>  C_FAMILY,
@@ -478,5 +354,5 @@ I_BLK_MEM : entity lib_bmg_v1_0_5.blk_mem_gen_wrapper
         dbiterr   =>  open                      ,       -- No ECC
         sbiterr   =>  open                              -- No ECC
 );
-end generate;
+
 end implementation;

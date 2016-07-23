@@ -110,8 +110,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_sg_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_sg_pkg.all;
 
 
 -------------------------------------------------------------------------------
@@ -259,7 +259,7 @@ updt_error      <= updt_error_i;
 -------------------------------------------------------------------------------
 --  Scatter Gather Fetch State Machine
 -------------------------------------------------------------------------------
-I_UPDT_SG : entity  axi_vdma_v6_2_8.axi_sg_updt_sm
+I_UPDT_SG : entity  axi_vdma_v6_2_6.axi_sg_updt_sm
     generic map(
         C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
         C_INCLUDE_CH1               => C_INCLUDE_CH1                        ,
@@ -334,7 +334,7 @@ I_UPDT_SG : entity  axi_vdma_v6_2_8.axi_sg_updt_sm
 -------------------------------------------------------------------------------
 --  Scatter Gather Fetch Command / Status Interface
 -------------------------------------------------------------------------------
-I_UPDT_CMDSTS_IF : entity  axi_vdma_v6_2_8.axi_sg_updt_cmdsts_if
+I_UPDT_CMDSTS_IF : entity  axi_vdma_v6_2_6.axi_sg_updt_cmdsts_if
     generic map(
         C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH
     )

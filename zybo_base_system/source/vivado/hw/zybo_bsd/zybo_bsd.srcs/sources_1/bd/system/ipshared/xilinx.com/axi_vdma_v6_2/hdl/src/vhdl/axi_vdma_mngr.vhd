@@ -136,8 +136,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 -------------------------------------------------------------------------------
 entity  axi_vdma_mngr is
@@ -273,7 +273,7 @@ entity  axi_vdma_mngr is
             -- Include or exclude S2MM primary data path
             -- 0 = Exclude S2MM primary data path
             -- 1 = Include S2MM primary data path
-        C_SELECT_XPM                    : integer                       := 1;
+
         C_FAMILY                        : string                    	:= "virtex7"
             -- Target FPGA Device Family
     );
@@ -1952,7 +1952,7 @@ REG_DELAY_ERR : process(prmry_aclk)
 ---------------------------------------------------------------------------
 -- Primary DMA Controller State Machine
 ---------------------------------------------------------------------------
-I_SM : entity  axi_vdma_v6_2_8.axi_vdma_sm
+I_SM : entity  axi_vdma_v6_2_6.axi_vdma_sm
     generic map(
         C_M_AXI_ADDR_WIDTH              => C_M_AXI_ADDR_WIDTH           ,
         C_INCLUDE_SF                    => C_INCLUDE_SF                 ,
@@ -2024,7 +2024,7 @@ begin
     ---------------------------------------------------------------------------
     -- Scatter Gather State Machine
     ---------------------------------------------------------------------------
-    I_SG_IF : entity  axi_vdma_v6_2_8.axi_vdma_sg_if
+    I_SG_IF : entity  axi_vdma_v6_2_6.axi_vdma_sg_if
         generic map(
 
             -------------------------------------------------------------------
@@ -2087,7 +2087,7 @@ end generate GEN_NO_SG_INTERFACE;
 -------------------------------------------------------------------------------
 -- Primary DataMover command status interface
 -------------------------------------------------------------------------------
-I_CMDSTS : entity  axi_vdma_v6_2_8.axi_vdma_cmdsts_if
+I_CMDSTS : entity  axi_vdma_v6_2_6.axi_vdma_cmdsts_if
     generic map(
         C_M_AXI_ADDR_WIDTH              => C_M_AXI_ADDR_WIDTH           ,
         C_DM_STATUS_WIDTH               => C_DM_STATUS_WIDTH            ,
@@ -2164,7 +2164,7 @@ I_CMDSTS : entity  axi_vdma_v6_2_8.axi_vdma_cmdsts_if
 ---------------------------------------------------------------------------
 -- Halt / Idle Status Manager
 ---------------------------------------------------------------------------
-I_STS_MNGR : entity  axi_vdma_v6_2_8.axi_vdma_sts_mngr
+I_STS_MNGR : entity  axi_vdma_v6_2_6.axi_vdma_sts_mngr
     port map(
         prmry_aclk                      => prmry_aclk                   ,
         prmry_resetn                    => prmry_resetn                 ,
@@ -2198,13 +2198,12 @@ I_STS_MNGR : entity  axi_vdma_v6_2_8.axi_vdma_sts_mngr
 ---------------------------------------------------------------------------
 -- Video Register Bank
 ---------------------------------------------------------------------------
-VIDEO_REG_I : entity  axi_vdma_v6_2_8.axi_vdma_vidreg_module
+VIDEO_REG_I : entity  axi_vdma_v6_2_6.axi_vdma_vidreg_module
     generic map(
         C_INCLUDE_SG                    => C_INCLUDE_SG                 ,
         C_NUM_FSTORES                   => C_NUM_FSTORES                ,
         C_DYNAMIC_RESOLUTION            => C_DYNAMIC_RESOLUTION                ,
         C_ADDR_WIDTH                    => C_M_AXI_ADDR_WIDTH           ,
-        C_SELECT_XPM                    => C_SELECT_XPM                 ,
         C_FAMILY                        => C_FAMILY
     )
     port map(
@@ -2254,7 +2253,7 @@ VIDEO_REG_I : entity  axi_vdma_v6_2_8.axi_vdma_vidreg_module
 ---------------------------------------------------------------------------
 -- Gen Lock
 ---------------------------------------------------------------------------
-VIDEO_GENLOCK_I : entity axi_vdma_v6_2_8.axi_vdma_genlock_mngr
+VIDEO_GENLOCK_I : entity axi_vdma_v6_2_6.axi_vdma_genlock_mngr
     generic map(
         C_GENLOCK_MODE                  => C_GENLOCK_MODE               ,
         C_GENLOCK_NUM_MASTERS           => C_GENLOCK_NUM_MASTERS        ,

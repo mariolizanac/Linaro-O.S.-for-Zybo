@@ -135,8 +135,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 library lib_cdc_v1_0_2;
 library lib_pkg_v1_0_2;
@@ -809,7 +809,7 @@ prepare_wrce_pulse_lite <= prepare_wrce and not prepare_wrce_d1;
 --MM2S
 
 ----
-----      	LITE_WVALID_MM2S_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----      	LITE_WVALID_MM2S_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----      	    generic map(
 ----      	        C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----      	        C_VECTOR_WIDTH          => 1 
@@ -884,7 +884,7 @@ mm2s_axi2ip_wrce     <= mm2s_wrce_gen;
 --S2MM
 
 
-----      	LITE_WVALID_S2MM_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----      	LITE_WVALID_S2MM_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----      	    generic map(
 ----      	        C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----      	        C_VECTOR_WIDTH          => 1 
@@ -1214,7 +1214,7 @@ prepare_wrce_pulse_lite <= prepare_wrce and not prepare_wrce_d1;
 --S2MM
 
 
-----      	LITE_WVALID_S2MM_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----      	LITE_WVALID_S2MM_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----      	    generic map(
 ----      	        C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----      	        C_VECTOR_WIDTH          => 1 
@@ -1479,7 +1479,7 @@ prepare_wrce_pulse_lite <= prepare_wrce and not prepare_wrce_d1;
 --MM2S
 
 
-----      	LITE_WVALID_MM2S_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----      	LITE_WVALID_MM2S_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----      	    generic map(
 ----      	        C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----      	        C_VECTOR_WIDTH          => 1 

@@ -105,8 +105,9 @@ ENTITY system_axi_i2s_adi_1_0 IS
 END system_axi_i2s_adi_1_0;
 
 ARCHITECTURE system_axi_i2s_adi_1_0_arch OF system_axi_i2s_adi_1_0 IS
-  ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
+  ATTRIBUTE DowngradeIPIdentifiedWarnings : string;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF system_axi_i2s_adi_1_0_arch: ARCHITECTURE IS "yes";
+
   COMPONENT axi_i2s_adi IS
     GENERIC (
       C_SLOT_WIDTH : INTEGER;

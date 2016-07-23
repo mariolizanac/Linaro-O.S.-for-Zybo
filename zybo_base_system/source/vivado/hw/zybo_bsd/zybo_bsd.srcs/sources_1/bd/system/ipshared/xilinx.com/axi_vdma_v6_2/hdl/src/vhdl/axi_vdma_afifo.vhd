@@ -58,16 +58,16 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
-library fifo_generator_v13_1_1;
-use fifo_generator_v13_1_1.all;
+library fifo_generator_v13_0_1;
+use fifo_generator_v13_0_1.all;
 
 library lib_pkg_v1_0_2;
 use lib_pkg_v1_0_2.lib_pkg.all;
 --use proc_common_v4_0_2.coregen_comp_defs.all;
 --use proc_common_v4_0_2.family_support.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 
 -- synopsys translate_off
@@ -274,7 +274,7 @@ BEGIN
 ZERO_pntr <= (others => '0');
 GND <= '0';
 
-  fg_inst : entity fifo_generator_v13_1_1.fifo_generator_v13_1_1
+  fg_inst : entity fifo_generator_v13_0_1.fifo_generator_v13_0_1
   GENERIC MAP (
     C_COMMON_CLOCK                      => 0,
 --    C_COUNT_TYPE                        => C_COUNT_TYPE,
@@ -293,7 +293,6 @@ GND <= '0';
 --    C_HAS_ALMOST_EMPTY                  => C_HAS_ALMOST_EMPTY,
 --    C_HAS_ALMOST_FULL                   => C_HAS_ALMOST_FULL,
 --    C_HAS_BACKUP                        => C_HAS_BACKUP,
-    C_EN_SAFETY_CKT                     =>  1,  
     C_HAS_DATA_COUNT                    => 0,					--my
 --    C_HAS_DATA_COUNT                    => C_HAS_DATA_COUNT,
 --    C_HAS_INT_CLK                       => C_HAS_INT_CLK,
@@ -302,6 +301,7 @@ GND <= '0';
     C_HAS_RD_DATA_COUNT                 => 1,					--my
 --    C_HAS_RD_DATA_COUNT                 => C_HAS_RD_DATA_COUNT,
 --    C_HAS_RD_RST                        => C_HAS_RD_RST,
+    C_EN_SAFETY_CKT                     => 0,
     C_HAS_RST                           => 1,
     C_HAS_SRST                          => 0,
 --    C_HAS_UNDERFLOW                     => C_HAS_UNDERFLOW,

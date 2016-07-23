@@ -112,12 +112,12 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_sg_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_sg_pkg.all;
 
 library lib_pkg_v1_0_2;
-library lib_fifo_v1_0_5;
-use lib_fifo_v1_0_5.sync_fifo_fg;
+library lib_fifo_v1_0_4;
+use lib_fifo_v1_0_4.sync_fifo_fg;
 use lib_pkg_v1_0_2.lib_pkg.all;
 
 -------------------------------------------------------------------------------
@@ -309,7 +309,7 @@ begin
     GEN_CH1_QUEUE : if  C_SG_UPDT_DESC2QUEUE  /= 0 generate
     begin
         -------------------------------------------------------------------------------
-        I_CH1_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_8.axi_sg_updt_queue
+        I_CH1_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_6.axi_sg_updt_queue
             generic map(
                 C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
                 C_M_AXIS_UPDT_DATA_WIDTH    => C_M_AXI_SG_DATA_WIDTH                ,
@@ -380,7 +380,7 @@ begin
     GEN_CH1_NO_QUEUE : if C_SG_UPDT_DESC2QUEUE = 0 generate
     begin
 
-        I_NO_CH1_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_8.axi_sg_updt_noqueue
+        I_NO_CH1_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_6.axi_sg_updt_noqueue
             generic map(
                 C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
                 C_M_AXIS_UPDT_DATA_WIDTH    => C_M_AXI_SG_DATA_WIDTH                ,
@@ -480,7 +480,7 @@ begin
     GEN_CH2_QUEUE : if  C_SG_UPDT_DESC2QUEUE  /= 0 generate
     begin
     ---------------------------------------------------------------------------
-        I_CH2_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_8.axi_sg_updt_queue
+        I_CH2_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_6.axi_sg_updt_queue
             generic map(
                 C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH        ,
                 C_M_AXIS_UPDT_DATA_WIDTH    => C_M_AXI_SG_DATA_WIDTH        ,
@@ -550,7 +550,7 @@ begin
     -- No update queue enabled, therefore map internal stream logic
     -- directly to channel port.
     GEN_CH2_NO_QUEUE : if C_SG_UPDT_DESC2QUEUE = 0 generate
-        I_NO_CH2_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_8.axi_sg_updt_noqueue
+        I_NO_CH2_UPDT_DESC_QUEUE : entity  axi_vdma_v6_2_6.axi_sg_updt_noqueue
             generic map(
                 C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH        ,
                 C_M_AXIS_UPDT_DATA_WIDTH    => C_M_AXI_SG_DATA_WIDTH        ,

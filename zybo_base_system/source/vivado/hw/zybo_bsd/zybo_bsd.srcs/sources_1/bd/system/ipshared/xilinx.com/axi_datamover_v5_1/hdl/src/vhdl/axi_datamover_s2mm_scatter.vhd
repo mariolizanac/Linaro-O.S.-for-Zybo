@@ -70,11 +70,11 @@
   use IEEE.numeric_std.all;
   
   
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_strb_gen2;
-  use axi_datamover_v5_1_11.axi_datamover_mssai_skid_buf;
-  use axi_datamover_v5_1_11.axi_datamover_fifo;
-  use axi_datamover_v5_1_11.axi_datamover_slice;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_strb_gen2;
+  use axi_datamover_v5_1_9.axi_datamover_mssai_skid_buf;
+  use axi_datamover_v5_1_9.axi_datamover_fifo;
+  use axi_datamover_v5_1_9.axi_datamover_slice;
   
   
   -------------------------------------------------------------------------------
@@ -583,7 +583,7 @@
     -- S2MM.    
     --
     ------------------------------------------------------------
-    I_MSSAI_SKID_BUF : entity axi_datamover_v5_1_11.axi_datamover_mssai_skid_buf
+    I_MSSAI_SKID_BUF : entity axi_datamover_v5_1_9.axi_datamover_mssai_skid_buf
     generic map (
   
       C_WDATA_WIDTH  =>  C_STREAM_DWIDTH   ,   
@@ -805,7 +805,7 @@
     -- to be transfered (for that data beat).    
     --
     ------------------------------------------------------------
-     I_SCATTER_STROBE_GEN : entity axi_datamover_v5_1_11.axi_datamover_strb_gen2
+     I_SCATTER_STROBE_GEN : entity axi_datamover_v5_1_9.axi_datamover_strb_gen2
      generic map (
                            
        C_OP_MODE            =>  0                     , -- 0 = Offset/Length mode
@@ -1225,7 +1225,7 @@ end generate GEN_S2MM_TKEEP_DISABLE4;
 --HIGHER_DATAWIDTH : if TSTRB_FIFO_DWIDTH > 40 generate
 --begin    
     
-    SLICE_INSERTION : entity axi_datamover_v5_1_11.axi_datamover_slice
+    SLICE_INSERTION : entity axi_datamover_v5_1_9.axi_datamover_slice
          generic map (
              C_DATA_WIDTH => TSTRB_FIFO_DWIDTH
          )
@@ -1253,7 +1253,7 @@ end generate GEN_S2MM_TKEEP_DISABLE4;
     -- Instance for the TSTRB FIFO
     --
     ------------------------------------------------------------
-    I_TSTRB_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+    I_TSTRB_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
     generic map (
   
       C_DWIDTH             =>  TSTRB_FIFO_DWIDTH      , 
@@ -1301,7 +1301,7 @@ end generate GEN_S2MM_TKEEP_DISABLE4;
     -- Instance for the TSTRB FIFO
     --
     ------------------------------------------------------------
---    I_TSTRB_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+--    I_TSTRB_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
 --    generic map (
 --  
 --      C_DWIDTH             =>  TSTRB_FIFO_DWIDTH      , 

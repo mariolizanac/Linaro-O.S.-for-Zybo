@@ -70,10 +70,10 @@
   use IEEE.std_logic_1164.all;
   use IEEE.numeric_std.all;
 
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_fifo;
-  use axi_datamover_v5_1_11.axi_datamover_s2mm_dre;
-  use axi_datamover_v5_1_11.axi_datamover_s2mm_scatter;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_fifo;
+  use axi_datamover_v5_1_9.axi_datamover_s2mm_dre;
+  use axi_datamover_v5_1_9.axi_datamover_s2mm_scatter;
 
   -------------------------------------------------------------------------------
 
@@ -541,7 +541,7 @@
     -- Instance for the DRE Control FIFO
     --
     ------------------------------------------------------------
-     I_DRE_CNTL_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+     I_DRE_CNTL_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
      generic map (
 
        C_DWIDTH             =>  DRECTL_FIFO_WIDTH      , 
@@ -830,7 +830,7 @@
         --  Instance for the S2MM Data Realignment Engine (DRE)
         --
         ------------------------------------------------------------
-        I_S2MM_DRE_BLOCK : entity axi_datamover_v5_1_11.axi_datamover_s2mm_dre
+        I_S2MM_DRE_BLOCK : entity axi_datamover_v5_1_9.axi_datamover_s2mm_dre
         generic map (
 
           C_DWIDTH          =>  C_STREAM_DWIDTH            , 
@@ -1252,7 +1252,7 @@
        --  input stream per commands loaded.
        --
        ------------------------------------------------------------
-       I_S2MM_SCATTER : entity axi_datamover_v5_1_11.axi_datamover_s2mm_scatter
+       I_S2MM_SCATTER : entity axi_datamover_v5_1_9.axi_datamover_s2mm_scatter
        generic map (
 
          C_ENABLE_INDET_BTT       =>  C_ENABLE_INDET_BTT        , 

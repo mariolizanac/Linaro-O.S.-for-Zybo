@@ -113,12 +113,12 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_sg_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_sg_pkg.all;
 
 library lib_pkg_v1_0_2;
-library lib_fifo_v1_0_5;
-use lib_fifo_v1_0_5.sync_fifo_fg;
+library lib_fifo_v1_0_4;
+use lib_fifo_v1_0_4.sync_fifo_fg;
 use lib_pkg_v1_0_2.lib_pkg.all;
 
 -------------------------------------------------------------------------------
@@ -422,7 +422,7 @@ begin
 GEN_Q_FOR_SYNC : if C_AXIS_IS_ASYNC = 0 generate
 begin
     -- Channel Pointer Queue (Generate Synchronous FIFO)
-    I_UPDT_DATA_FIFO : entity lib_fifo_v1_0_5.sync_fifo_fg
+    I_UPDT_DATA_FIFO : entity lib_fifo_v1_0_4.sync_fifo_fg
     generic map (
         C_FAMILY                =>  C_FAMILY                    ,
         C_MEMORY_TYPE           =>  UPD_Q_MEMORY_TYPE           ,
@@ -465,7 +465,7 @@ begin
     );
 
     -- Channel Status Queue (Generate Synchronous FIFO)
-    I_UPDT_STS_FIFO : entity lib_fifo_v1_0_5.sync_fifo_fg
+    I_UPDT_STS_FIFO : entity lib_fifo_v1_0_4.sync_fifo_fg
     generic map (
         C_FAMILY                =>  C_FAMILY                        ,
         C_MEMORY_TYPE           =>  STS_Q_MEMORY_TYPE               ,
@@ -515,7 +515,7 @@ begin
 
 
     -- Generate Asynchronous FIFO
-    I_UPDT_DATA_FIFO : entity axi_vdma_v6_2_8.axi_sg_afifo_autord
+    I_UPDT_DATA_FIFO : entity axi_vdma_v6_2_6.axi_sg_afifo_autord
       generic map(
          C_DWIDTH        => C_S_AXIS_UPDPTR_TDATA_WIDTH         ,
          C_DEPTH         => UPDATE_QUEUE_DEPTH                  ,
@@ -549,7 +549,7 @@ begin
 
 
     -- Generate Asynchronous FIFO
-    I_UPDT_STS_FIFO : entity axi_vdma_v6_2_8.axi_sg_afifo_autord
+    I_UPDT_STS_FIFO : entity axi_vdma_v6_2_6.axi_sg_afifo_autord
       generic map(
          C_DWIDTH        => C_S_AXIS_UPDSTS_TDATA_WIDTH + 1     ,
          C_DEPTH         => UPDATE_STS_QUEUE_DEPTH              ,

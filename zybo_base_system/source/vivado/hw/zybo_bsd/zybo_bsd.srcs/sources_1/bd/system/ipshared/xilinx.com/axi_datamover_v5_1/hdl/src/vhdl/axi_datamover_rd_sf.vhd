@@ -75,9 +75,9 @@
   use lib_pkg_v1_0_2.lib_pkg.all;
   use lib_pkg_v1_0_2.lib_pkg.clog2;
 
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_sfifo_autord;
-  use axi_datamover_v5_1_11.axi_datamover_fifo;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_sfifo_autord;
+  use axi_datamover_v5_1_9.axi_datamover_fifo;
 
   
   -------------------------------------------------------------------------------
@@ -1325,7 +1325,7 @@ end generate GEN_MM2S_TKEEP_DISABLE4;
           -- Forward data FIFO.
           --
           ------------------------------------------------------------
-          I_DRE_CNTL_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+          I_DRE_CNTL_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
           generic map (
 
             C_DWIDTH             =>  SF_OFFSET_FIFO_WIDTH   , 
@@ -1494,7 +1494,7 @@ end generate GEN_MM2S_TKEEP_DISABLE4;
           -- Instance for the DRE Control FIFO
           --
           ------------------------------------------------------------
-          I_DRE_CNTL_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+          I_DRE_CNTL_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
           generic map (
 
             C_DWIDTH             =>  DRECNTL_FIFO_WIDTH     , 
@@ -1899,7 +1899,7 @@ end generate GEN_MM2S_TKEEP_DISABLE2;
     --  Implements the Store and Forward data FIFO (synchronous)   
     --
     ------------------------------------------------------------
-    I_DATA_FIFO : entity axi_datamover_v5_1_11.axi_datamover_sfifo_autord
+    I_DATA_FIFO : entity axi_datamover_v5_1_9.axi_datamover_sfifo_autord
     generic map (
 
       C_DWIDTH                =>  DATA_FIFO_WIDTH       ,  

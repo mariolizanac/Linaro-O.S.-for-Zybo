@@ -80,7 +80,7 @@
 --                   |   |- proc_common_v4_0_2.axi_sg_afifo_autord.vhd
 --                   |   |- axi_sg_updt_noqueue.vhd
 --                   |- axi_sg_intrpt.vhd
---                   |- axi_datamover_v5_1_11.axi_datamover.vhd
+--                   |- axi_datamover_v5_1_9.axi_datamover.vhd
 --
 -------------------------------------------------------------------------------
 -- Author:      Gary Burch
@@ -142,11 +142,11 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_sg_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_sg_pkg.all;
 
-library axi_datamover_v5_1_11;
-use axi_datamover_v5_1_11.all;
+library axi_datamover_v5_1_9;
+use axi_datamover_v5_1_9.all;
 
 library lib_pkg_v1_0_2;
 use lib_pkg_v1_0_2.lib_pkg.max2;
@@ -591,7 +591,7 @@ ch2_dma_decerr_set      <= ch2_dma_decerr_set_i;
 -------------------------------------------------------------------------------
 -- Scatter Gather Fetch Manager
 -------------------------------------------------------------------------------
-I_SG_FETCH_MNGR : entity  axi_vdma_v6_2_8.axi_sg_ftch_mngr
+I_SG_FETCH_MNGR : entity  axi_vdma_v6_2_6.axi_sg_ftch_mngr
     generic map(
         C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
         C_INCLUDE_CH1               => C_INCLUDE_CH1                        ,
@@ -679,7 +679,7 @@ I_SG_FETCH_MNGR : entity  axi_vdma_v6_2_8.axi_sg_ftch_mngr
 -------------------------------------------------------------------------------
 -- Scatter Gather Fetch Queue
 -------------------------------------------------------------------------------
-I_SG_FETCH_QUEUE : entity  axi_vdma_v6_2_8.axi_sg_ftch_q_mngr
+I_SG_FETCH_QUEUE : entity  axi_vdma_v6_2_6.axi_sg_ftch_q_mngr
     generic map(
         C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
         C_M_AXIS_SG_TDATA_WIDTH     => C_M_AXIS_SG_TDATA_WIDTH              ,
@@ -762,7 +762,7 @@ begin
     -------------------------------------------------------------------------------
     -- Scatter Gather Update Manager
     -------------------------------------------------------------------------------
-    I_SG_UPDATE_MNGR : entity  axi_vdma_v6_2_8.axi_sg_updt_mngr
+    I_SG_UPDATE_MNGR : entity  axi_vdma_v6_2_6.axi_sg_updt_mngr
         generic map(
             C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
             C_INCLUDE_CH1               => C_INCLUDE_CH1                        ,
@@ -835,7 +835,7 @@ begin
     -------------------------------------------------------------------------------
     -- Scatter Gather Update Queue
     -------------------------------------------------------------------------------
-    I_SG_UPDATE_QUEUE : entity  axi_vdma_v6_2_8.axi_sg_updt_q_mngr
+    I_SG_UPDATE_QUEUE : entity  axi_vdma_v6_2_6.axi_sg_updt_q_mngr
         generic map(
             C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
             C_M_AXI_SG_DATA_WIDTH       => C_M_AXI_SG_DATA_WIDTH                ,
@@ -989,7 +989,7 @@ end generate GEN_NO_DESC_UPDATE;
 -------------------------------------------------------------------------------
 GEN_INTERRUPT_LOGIC : if C_INCLUDE_INTRPT = 1 generate
 begin
-    I_AXI_SG_INTRPT : entity  axi_vdma_v6_2_8.axi_sg_intrpt
+    I_AXI_SG_INTRPT : entity  axi_vdma_v6_2_6.axi_sg_intrpt
         generic map(
 
             C_INCLUDE_CH1              => C_INCLUDE_CH1                     ,
@@ -1049,7 +1049,7 @@ end generate GEN_NO_INTRPT_LOGIC;
 -------------------------------------------------------------------------------
 -- Scatter Gather DataMover Lite
 -------------------------------------------------------------------------------
-I_SG_AXI_DATAMOVER : entity axi_datamover_v5_1_11.axi_datamover
+I_SG_AXI_DATAMOVER : entity axi_datamover_v5_1_9.axi_datamover
     generic map(
         C_INCLUDE_MM2S              => INCLUDE_DESC_FETCH,          -- Lite
         C_M_AXI_MM2S_ADDR_WIDTH     => C_M_AXI_SG_ADDR_WIDTH,       -- 32 or 64

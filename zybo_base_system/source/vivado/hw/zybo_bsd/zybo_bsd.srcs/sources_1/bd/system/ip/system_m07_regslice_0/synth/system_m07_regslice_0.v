@@ -48,12 +48,11 @@
 
 
 // IP VLNV: xilinx.com:ip:axi_register_slice:2.1
-// IP Revision: 9
+// IP Revision: 7
 
-(* X_CORE_INFO = "axi_register_slice_v2_1_9_axi_register_slice,Vivado 2016.2" *)
-(* CHECK_LICENSE_TYPE = "system_m07_regslice_0,axi_register_slice_v2_1_9_axi_register_slice,{}" *)
-(* CORE_GENERATION_INFO = "system_m07_regslice_0,axi_register_slice_v2_1_9_axi_register_slice,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_register_slice,x_ipVersion=2.1,x_ipCoreRevision=9,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_AXI_PROTOCOL=2,C_AXI_ID_WIDTH=1,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=32,C_AXI_SUPPORTS_USER_SIGNALS=0,C_AXI_AWUSER_WIDTH=1,C_AXI_ARUSER_WIDTH=1,C_AXI_WUSER_WIDTH=1,C_AXI_RUSER_WIDTH=1,C_AXI_BUSER_WIDTH=1,C_REG_CONFIG_AW=7,C_REG_CONFIG_W=7,C_REG_CO\
-NFIG_B=7,C_REG_CONFIG_AR=7,C_REG_CONFIG_R=7}" *)
+(* X_CORE_INFO = "axi_register_slice_v2_1_7_axi_register_slice,Vivado 2015.4" *)
+(* CHECK_LICENSE_TYPE = "system_m07_regslice_0,axi_register_slice_v2_1_7_axi_register_slice,{}" *)
+(* CORE_GENERATION_INFO = "system_m07_regslice_0,axi_register_slice_v2_1_7_axi_register_slice,{x_ipProduct=Vivado 2015.4,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_register_slice,x_ipVersion=2.1,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_AXI_PROTOCOL=2,C_AXI_ID_WIDTH=1,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=32,C_AXI_SUPPORTS_USER_SIGNALS=0,C_AXI_AWUSER_WIDTH=1,C_AXI_ARUSER_WIDTH=1,C_AXI_WUSER_WIDTH=1,C_AXI_RUSER_WIDTH=1,C_AXI_BUSER_WIDTH=1,C_REG_CONFIG_AW=7,C_REG_CONFIG_W=7,C_REG_CONFIG_B=7,C_REG_CONFIG_AR=7,C_REG_CONFIG_R=7}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_m07_regslice_0 (
   aclk,
@@ -179,7 +178,7 @@ input wire m_axi_rvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI RREADY" *)
 output wire m_axi_rready;
 
-  axi_register_slice_v2_1_9_axi_register_slice #(
+  axi_register_slice_v2_1_7_axi_register_slice #(
     .C_FAMILY("zynq"),
     .C_AXI_PROTOCOL(2),
     .C_AXI_ID_WIDTH(1),
@@ -203,7 +202,7 @@ output wire m_axi_rready;
     .s_axi_awaddr(s_axi_awaddr),
     .s_axi_awlen(8'H00),
     .s_axi_awsize(3'H0),
-    .s_axi_awburst(2'H1),
+    .s_axi_awburst(2'H0),
     .s_axi_awlock(1'H0),
     .s_axi_awcache(4'H0),
     .s_axi_awprot(s_axi_awprot),
@@ -228,7 +227,7 @@ output wire m_axi_rready;
     .s_axi_araddr(s_axi_araddr),
     .s_axi_arlen(8'H00),
     .s_axi_arsize(3'H0),
-    .s_axi_arburst(2'H1),
+    .s_axi_arburst(2'H0),
     .s_axi_arlock(1'H0),
     .s_axi_arcache(4'H0),
     .s_axi_arprot(s_axi_arprot),

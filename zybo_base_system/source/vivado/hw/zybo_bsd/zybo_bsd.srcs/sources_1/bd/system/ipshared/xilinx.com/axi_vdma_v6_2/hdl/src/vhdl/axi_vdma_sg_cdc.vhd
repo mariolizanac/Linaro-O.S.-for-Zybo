@@ -136,8 +136,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 library lib_cdc_v1_0_2;
 -------------------------------------------------------------------------------
@@ -240,7 +240,7 @@ begin
 
     -- From register module (primary clock domain) to
     -- scatter gather engine (secondary clock domain)
-----    CUR_DESC_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    CUR_DESC_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_VECTR_P_S                           ,
 ----            C_VECTOR_WIDTH          => C_M_AXI_SG_ADDR_WIDTH
@@ -310,7 +310,7 @@ CUR_DESC_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
     -- From register module (primary clock domain) to
     -- scatter gather engine (secondary clock domain)
-----    TAIL_DESC_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    TAIL_DESC_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => C_M_AXI_SG_ADDR_WIDTH
@@ -364,7 +364,7 @@ TAIL_DESC_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
     -- From register module (primary clock domain) to
     -- scatter gather engine (secondary clock domain)
-----    TAIL_DESC_VECT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    TAIL_DESC_VECT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_VECTR_P_S                           ,
 ----            C_VECTOR_WIDTH          => C_M_AXI_SG_ADDR_WIDTH
@@ -430,7 +430,7 @@ TAIL_DESC_VECT_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
     -- From register module (primary clock domain) to
     -- scatter gather engine (secondary clock domain)
-----    RUNSTOP_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    RUNSTOP_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -484,7 +484,7 @@ RUNSTOP_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
     -- From register module (primary clock domain) to
     -- scatter gather engine (secondary clock domain)
-----    STOP_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    STOP_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -538,7 +538,7 @@ STOP_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
     -- From SG Engine (secondary clock domain) to
     -- DMA Controller (primary clock domain)
-----    FTCH_IDLE_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    FTCH_IDLE_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_S_P                           ,
 ----            C_VECTOR_WIDTH          => 1                                        ,
@@ -594,7 +594,7 @@ FTCH_IDLE_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
     --sg to reg
     -- From SG Engine (secondary clock domain) to
     -- Register Block (primary clock domain)
-----    FTCH_INTERR_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    FTCH_INTERR_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_S_P                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -647,7 +647,7 @@ FTCH_INTERR_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    FTCH_SLVERR_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    FTCH_SLVERR_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_S_P                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -700,7 +700,7 @@ FTCH_SLVERR_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    FTCH_DECERR_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    FTCH_DECERR_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_S_P                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -757,7 +757,7 @@ FTCH_DECERR_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    ERR_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    ERR_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_S_P                           ,
 ----            C_VECTOR_WIDTH          => C_M_AXI_SG_ADDR_WIDTH
@@ -811,7 +811,7 @@ ERR_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    ERR_VECT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    ERR_VECT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_VECTR_S_P                           ,
 ----            C_VECTOR_WIDTH          => C_M_AXI_SG_ADDR_WIDTH

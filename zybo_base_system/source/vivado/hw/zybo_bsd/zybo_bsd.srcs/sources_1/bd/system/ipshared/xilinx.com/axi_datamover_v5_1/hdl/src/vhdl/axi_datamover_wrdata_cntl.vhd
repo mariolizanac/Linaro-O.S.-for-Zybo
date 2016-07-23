@@ -68,9 +68,9 @@
   use IEEE.std_logic_1164.all;
   use IEEE.numeric_std.all;
   
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_fifo;
-  use axi_datamover_v5_1_11.axi_datamover_strb_gen2;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_fifo;
+  use axi_datamover_v5_1_9.axi_datamover_strb_gen2;
   
   -------------------------------------------------------------------------------
   
@@ -1107,7 +1107,7 @@
       -- match the committed address offest for each transfer. 
       -- 
       ------------------------------------------------------------
-      I_STRT_STRB_GEN : entity axi_datamover_v5_1_11.axi_datamover_strb_gen2
+      I_STRT_STRB_GEN : entity axi_datamover_v5_1_9.axi_datamover_strb_gen2
       generic map (
                             
         C_OP_MODE            =>  0                         , -- 0 = Offset/Length mode
@@ -1623,7 +1623,7 @@
          -- Instance for the Command Qualifier FIFO
          --
          ------------------------------------------------------------
-          I_DATA_CNTL_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+          I_DATA_CNTL_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
           generic map (
         
             C_DWIDTH             =>  DCTL_FIFO_WIDTH        , 

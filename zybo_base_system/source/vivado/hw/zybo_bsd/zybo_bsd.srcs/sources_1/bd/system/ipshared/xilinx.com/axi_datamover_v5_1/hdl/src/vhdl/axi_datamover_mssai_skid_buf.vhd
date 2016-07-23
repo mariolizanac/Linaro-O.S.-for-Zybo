@@ -70,8 +70,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-library axi_datamover_v5_1_11;
-Use axi_datamover_v5_1_11.axi_datamover_ms_strb_set;
+library axi_datamover_v5_1_9;
+Use axi_datamover_v5_1_9.axi_datamover_ms_strb_set;
 
 -------------------------------------------------------------------------------
 
@@ -665,7 +665,7 @@ begin --(architecture implementation)
    -- and outputs the bit index of the strobe.  
    --
    ------------------------------------------------------------
-   I_MSSAI_DETECTION : entity axi_datamover_v5_1_11.axi_datamover_ms_strb_set
+   I_MSSAI_DETECTION : entity axi_datamover_v5_1_9.axi_datamover_ms_strb_set
    generic map (
  
      C_STRB_WIDTH  => STROBE_WIDTH  ,

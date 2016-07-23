@@ -133,8 +133,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 library lib_cdc_v1_0_2;
 
@@ -379,7 +379,7 @@ begin
     ---------------------------------------------------------------------------
     -- Minimum soft reset in lite domain
     ---------------------------------------------------------------------------
-----    LITE_RESET_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    LITE_RESET_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_PULSE_P_S_OPEN_ENDED_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -431,7 +431,7 @@ LITE_RESET_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    LITE_IDLE_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    LITE_IDLE_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_LEVEL_P_S_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -505,7 +505,7 @@ LITE_IDLE_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
         end process LITE_MIN_RESET_ASSERTION;
 
     -- Cross back to primary
-----    LITE_MIN_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    LITE_MIN_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_LEVEL_S_P_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -555,7 +555,7 @@ LITE_MIN_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    LITE_CLR_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    LITE_CLR_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_PULSE_P_S_OPEN_ENDED_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -611,7 +611,7 @@ LITE_CLR_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
     ---------------------------------------------------------------------------
     -- Minimum soft reset in axis domain
     ---------------------------------------------------------------------------
-----    AXIS_RESET_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    AXIS_RESET_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_PULSE_P_S_OPEN_ENDED_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -663,7 +663,7 @@ AXIS_RESET_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    AXIS_IDLE_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    AXIS_IDLE_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_LEVEL_P_S_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -732,7 +732,7 @@ AXIS_IDLE_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
         end process AXIS_MIN_RESET_ASSERTION;
 
     -- Cross back to primary
-----    AXIS_MIN_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    AXIS_MIN_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_LEVEL_S_P_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -782,7 +782,7 @@ AXIS_MIN_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    AXIS_CLR_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    AXIS_CLR_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_PULSE_P_S_OPEN_ENDED_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -839,7 +839,7 @@ AXIS_CLR_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
     GEN_FOR_SG : if C_INCLUDE_SG = 1 generate
     begin
 
-----        SG_RESET_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----        SG_RESET_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE          => CDC_TYPE_PULSE_P_S_OPEN_ENDED_NO_RST                   ,
 ----                C_VECTOR_WIDTH      => 1
@@ -890,7 +890,7 @@ SG_RESET_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----        SG_IDLE_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----        SG_IDLE_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE          => CDC_TYPE_LEVEL_P_S_NO_RST                   ,
 ----                C_VECTOR_WIDTH      => 1
@@ -962,7 +962,7 @@ SG_IDLE_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
             end process SG_MIN_RESET_ASSERTION;
 
         -- Cross back to primary
-----        SG_MIN_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----        SG_MIN_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE          => CDC_TYPE_LEVEL_S_P_NO_RST                   ,
 ----                C_VECTOR_WIDTH      => 1
@@ -1013,7 +1013,7 @@ SG_MIN_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----        SG_CLR_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----        SG_CLR_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE          => CDC_TYPE_PULSE_P_S_OPEN_ENDED_NO_RST                   ,
 ----                C_VECTOR_WIDTH      => 1
@@ -1274,7 +1274,7 @@ GEN_RESET_FOR_ASYNC : if C_PRMRY_IS_ACLK_ASYNC = 1 generate
 begin
 
     -- Cross top level hard reset in from axi_lite to primary (mm2s or s2mm)
-----    HARD_RESET_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    HARD_RESET_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_LEVEL_P_S_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1
@@ -1349,7 +1349,7 @@ HARD_RESET_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
     -- Scatter Gather Mode
     GEN_FOR_SG : if C_INCLUDE_SG = 1 generate
     begin
---        AXI_SG_RESET_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+--        AXI_SG_RESET_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 --            generic map(
 --                C_CDC_TYPE          => CDC_TYPE_LEVEL_P_S_NO_RST                   ,
 --                C_VECTOR_WIDTH      => 1
@@ -1423,7 +1423,7 @@ AXI_SG_RESET_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
         axi_sg_resetn    <= '1';
     end generate GEN_FOR_NO_SG;
 
-----    AXIS_RESET_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_cdc
+----    AXIS_RESET_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE          => CDC_TYPE_LEVEL_P_S_NO_RST                   ,
 ----            C_VECTOR_WIDTH      => 1

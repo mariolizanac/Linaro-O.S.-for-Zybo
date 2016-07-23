@@ -181,8 +181,8 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
-library axi_lite_ipif_v3_0_4;
-use axi_lite_ipif_v3_0_4.ipif_pkg.all;
+library axi_lite_ipif_v3_0_3;
+use axi_lite_ipif_v3_0_3.ipif_pkg.all;
 
 ----------------------------------------------------------------------
 

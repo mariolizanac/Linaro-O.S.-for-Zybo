@@ -138,8 +138,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 -------------------------------------------------------------------------------
 entity  axi_vdma_vidreg_module_64 is
@@ -165,7 +165,6 @@ entity  axi_vdma_vidreg_module_64 is
         C_ADDR_WIDTH              : integer range 32 to 64      := 32       ;
             -- Start Address Width
 
-        C_SELECT_XPM              : integer    := 1;
         C_FAMILY                  : string            		:= "virtex7"
             -- Target FPGA Device Family
 
@@ -322,11 +321,10 @@ begin
         run_stop_re <= run_stop and not run_stop_d1;
 
     -- Scatter Gather Start Address Register Block (LUTRAM)
-    SG_ADDREG_I : entity  axi_vdma_v6_2_8.axi_vdma_sgregister
+    SG_ADDREG_I : entity  axi_vdma_v6_2_6.axi_vdma_sgregister
         generic map(
             C_NUM_FSTORES               => C_NUM_FSTORES                        ,
             C_ADDR_WIDTH                => C_ADDR_WIDTH                         ,
-            C_SELECT_XPM                => C_SELECT_XPM                         ,
             C_FAMILY                    => C_FAMILY
         )
         port map (
@@ -421,7 +419,7 @@ begin
     ftch_complete_clr <= '0'; -- Not Used in Register Direct Mode
 
     -- Register Direct Mode - Video Register Block
--------    REGDIR_REGBLOCK_I : entity  axi_vdma_v6_2_8.axi_vdma_vregister
+-------    REGDIR_REGBLOCK_I : entity  axi_vdma_v6_2_6.axi_vdma_vregister
 -------        generic map(
 -------            C_NUM_FSTORES               => C_NUM_FSTORES                        ,
 -------            C_ADDR_WIDTH                => C_ADDR_WIDTH
@@ -510,7 +508,7 @@ begin
 
 
     -- Video Register Block
-    VIDREGISTER_I : entity  axi_vdma_v6_2_8.axi_vdma_vregister_64
+    VIDREGISTER_I : entity  axi_vdma_v6_2_6.axi_vdma_vregister_64
         generic map(
             C_NUM_FSTORES               => C_NUM_FSTORES                        ,
             C_ADDR_WIDTH                => C_ADDR_WIDTH
@@ -551,7 +549,7 @@ begin
         );
 
     -- Video Start Address MUX
-    VIDADDR_MUX_I : entity  axi_vdma_v6_2_8.axi_vdma_vaddrreg_mux_64
+    VIDADDR_MUX_I : entity  axi_vdma_v6_2_6.axi_vdma_vaddrreg_mux_64
         generic map(
             C_NUM_FSTORES               => C_NUM_FSTORES                        ,
             C_ADDR_WIDTH                => C_ADDR_WIDTH
@@ -642,7 +640,7 @@ start_address_vid(i) 	<= reg_module_strt_addr(i);
 end generate GEN_START_ADDR_REG;
 
     -- Video Start Address MUX
-    VIDADDR_MUX_I : entity  axi_vdma_v6_2_8.axi_vdma_vaddrreg_mux_64
+    VIDADDR_MUX_I : entity  axi_vdma_v6_2_6.axi_vdma_vaddrreg_mux_64
         generic map(
             C_NUM_FSTORES               => C_NUM_FSTORES                        ,
             C_ADDR_WIDTH                => C_ADDR_WIDTH

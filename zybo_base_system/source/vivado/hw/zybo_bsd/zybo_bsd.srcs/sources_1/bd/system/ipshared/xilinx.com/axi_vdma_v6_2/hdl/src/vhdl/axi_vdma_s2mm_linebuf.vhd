@@ -135,8 +135,8 @@ library lib_cdc_v1_0_2;
 library lib_pkg_v1_0_2;
 use lib_pkg_v1_0_2.lib_pkg.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 -------------------------------------------------------------------------------
 entity  axi_vdma_s2mm_linebuf is
@@ -591,7 +591,7 @@ begin
                
       
 
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_sfifo
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_sfifo
             generic map(
                  UW_DATA_WIDTH     => BUFFER_WIDTH        ,
           C_FULL_FLAGS_RST_VAL     => 1        ,
@@ -634,7 +634,7 @@ LB_BRAM : if ( (C_ENABLE_DEBUG_INFO_9 = 1 or C_ENABLE_DEBUG_ALL = 1) )
     begin
 
 
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_afifo
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_afifo
             generic map(
                  UW_DATA_WIDTH   => BUFFER_WIDTH                    ,
           C_FULL_FLAGS_RST_VAL   => 1        ,
@@ -670,7 +670,7 @@ LB_BUILT_IN : if ( (C_ENABLE_DEBUG_INFO_9 = 0 and C_ENABLE_DEBUG_ALL = 0) )
     begin
 
 
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_afifo_builtin
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_afifo_builtin
             generic map(
                  PL_FIFO_TYPE    => "BUILT_IN"                    ,
                  PL_READ_MODE    => "FWFT"                    ,
@@ -839,7 +839,7 @@ end generate LB_BUILT_IN;
  --*********************************************************--
     --**               S2MM SLAVE SKID BUFFER                **--
     --*********************************************************--
-----    I_MSTR_SKID : entity axi_vdma_v6_2_8.axi_vdma_skid_buf
+----    I_MSTR_SKID : entity axi_vdma_v6_2_6.axi_vdma_skid_buf
 ----        generic map(
 ----            C_WDATA_WIDTH           => C_DATA_WIDTH		,
 ----            C_TUSER_WIDTH           => C_S_AXIS_S2MM_TUSER_BITS
@@ -1011,7 +1011,7 @@ VSIZE_CNT_CROSSING : process(s_axis_aclk)
 
 
         -- Cross datamover halt and fifo threshold to secondary for reset use
-----        STRM_WR_HALT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        STRM_WR_HALT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----                C_VECTOR_WIDTH          => 1 
@@ -1082,7 +1082,7 @@ THRESH_CNT_CROSSING : process(s_axis_aclk)
 
 
       -- Cross run_stop  to secondary 
-----    RUNSTOP_AXIS_1_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    RUNSTOP_AXIS_1_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -1135,7 +1135,7 @@ RUNSTOP_AXIS_1_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
         -- CR623449 cross fsync_out back to primary
-----        FSYNC_OUT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        FSYNC_OUT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----                C_VECTOR_WIDTH          => 1
@@ -1192,7 +1192,7 @@ FSYNC_OUT_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
         -- Cross tuser fsync to primary
-----        TUSER_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        TUSER_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----                C_VECTOR_WIDTH          => 1
@@ -1244,7 +1244,7 @@ TUSER_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
  
 
---       WR_PENDING_P_S_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+--       WR_PENDING_P_S_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 --            generic map(
 --                C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 --                C_VECTOR_WIDTH          => DATACOUNT_WIDTH
@@ -1296,7 +1296,7 @@ WR_PENDING_P_S_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----       WR_PENDING_S_P_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----       WR_PENDING_S_P_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_LEVEL_S_P                           ,
 ----                C_VECTOR_WIDTH          => DATACOUNT_WIDTH
@@ -1671,7 +1671,7 @@ begin
 
      
       
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_sfifo
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_sfifo
             generic map(
                  UW_DATA_WIDTH     => BUFFER_WIDTH        ,
           C_FULL_FLAGS_RST_VAL     => 1        ,
@@ -1725,7 +1725,7 @@ LB_BRAM : if ((C_ENABLE_DEBUG_INFO_9 = 1 or C_ENABLE_DEBUG_ALL = 1) )
     begin
 
 
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_afifo
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_afifo
             generic map(
                  UW_DATA_WIDTH   => BUFFER_WIDTH                    ,
           C_FULL_FLAGS_RST_VAL   => 1        ,
@@ -1761,7 +1761,7 @@ LB_BUILT_IN : if ( (C_ENABLE_DEBUG_INFO_9 = 0 and C_ENABLE_DEBUG_ALL = 0) )
     begin
 
 
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_afifo_builtin
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_afifo_builtin
             generic map(
                  PL_FIFO_TYPE    => "BUILT_IN"                    ,
                  PL_READ_MODE    => "FWFT"                    ,
@@ -1952,7 +1952,7 @@ end generate LB_BUILT_IN;
     --*********************************************************--
     --**               S2MM SLAVE SKID BUFFER                **--
     --*********************************************************--
-   ---- I_MSTR_SKID : entity axi_vdma_v6_2_8.axi_vdma_skid_buf
+   ---- I_MSTR_SKID : entity axi_vdma_v6_2_6.axi_vdma_skid_buf
    ----     generic map(
    ----         C_WDATA_WIDTH           => C_DATA_WIDTH             ,
    ----         C_TUSER_WIDTH           => C_S_AXIS_S2MM_TUSER_BITS
@@ -2086,7 +2086,7 @@ VSIZE_CNT_CROSSING : process(s_axis_aclk)
 
 
         -- Cross datamover halt and fifo threshold to secondary for reset use
-----        STRM_WR_HALT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        STRM_WR_HALT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----                C_VECTOR_WIDTH          => 1 
@@ -2155,7 +2155,7 @@ THRESH_CNT_CROSSING : process(s_axis_aclk)
 
         -- Cross run_stop  to secondary 
 
-----    RUNSTOP_AXIS_0_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    RUNSTOP_AXIS_0_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -2206,7 +2206,7 @@ RUNSTOP_AXIS_0_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
         -- CR623449 cross fsync_out back to primary
-----        FSYNC_OUT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        FSYNC_OUT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----                C_VECTOR_WIDTH          => 1
@@ -2258,7 +2258,7 @@ FSYNC_OUT_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
         -- Cross tuser fsync to primary
-----        TUSER_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        TUSER_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----                C_VECTOR_WIDTH          => 1
@@ -2509,7 +2509,7 @@ begin
 
                 
       
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_sfifo
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_sfifo
             generic map(
                  UW_DATA_WIDTH     => BUFFER_WIDTH        ,
           C_FULL_FLAGS_RST_VAL     => 1        ,
@@ -2553,7 +2553,7 @@ LB_BRAM : if ((C_ENABLE_DEBUG_INFO_9 = 1 or C_ENABLE_DEBUG_ALL = 1) )
     begin
 
 
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_afifo
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_afifo
             generic map(
                  UW_DATA_WIDTH   => BUFFER_WIDTH                    ,
           C_FULL_FLAGS_RST_VAL   => 1        ,
@@ -2589,7 +2589,7 @@ LB_BUILT_IN : if ((C_ENABLE_DEBUG_INFO_9 = 0 and C_ENABLE_DEBUG_ALL = 0) )
     begin
 
 
-        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_8.axi_vdma_afifo_builtin
+        I_LINEBUFFER_FIFO : entity axi_vdma_v6_2_6.axi_vdma_afifo_builtin
             generic map(
                  PL_FIFO_TYPE    => "BUILT_IN"                    ,
                  PL_READ_MODE    => "FWFT"                    ,
@@ -2727,7 +2727,7 @@ end generate LB_BUILT_IN;
     --*********************************************************--
     --**               S2MM SLAVE SKID BUFFER                **--
     --*********************************************************--
---    I_MSTR_SKID_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_skid_buf
+--    I_MSTR_SKID_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_skid_buf
 --        generic map(
 --            C_WDATA_WIDTH           => C_DATA_WIDTH             ,
 --            C_TUSER_WIDTH           => C_S_AXIS_S2MM_TUSER_BITS
@@ -2861,7 +2861,7 @@ VSIZE_CNT_CROSSING : process(s_axis_aclk)
 
 
         -- Cross datamover halt and fifo threshold to secondary for reset use
-----        STRM_WR_HALT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        STRM_WR_HALT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----                C_VECTOR_WIDTH          => 1 
@@ -2929,7 +2929,7 @@ THRESH_CNT_CROSSING : process(s_axis_aclk)
 
         -- Cross run_stop  to secondary 
 
-----    RUNSTOP_AXIS_0_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    RUNSTOP_AXIS_0_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -2979,7 +2979,7 @@ RUNSTOP_AXIS_0_CDC_I_FLUSH_SOF : entity lib_cdc_v1_0_2.cdc_sync
 
 
         -- CR623449 cross fsync_out back to primary
-----        FSYNC_OUT_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        FSYNC_OUT_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----                C_VECTOR_WIDTH          => 1
@@ -3030,7 +3030,7 @@ FSYNC_OUT_CDC_I_FLUSH_SOF : entity lib_cdc_v1_0_2.cdc_sync
 
 
         -- Cross tuser fsync to primary
-----        TUSER_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----        TUSER_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----            generic map(
 ----                C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----                C_VECTOR_WIDTH          => 1
@@ -3080,7 +3080,7 @@ TUSER_CDC_I_FLUSH_SOF : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    MMAP_NOT_FINISHED_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    MMAP_NOT_FINISHED_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -3147,7 +3147,7 @@ GEN_FOR_ASYNC_CROSS_FSYNC : if C_INCLUDE_MM2S = 1 generate
 begin
 
 
-----    CROSS_FSYNC_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    CROSS_FSYNC_CDC_I_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1

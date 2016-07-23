@@ -58,7 +58,7 @@
 `timescale 1ps/1ps
 `default_nettype none
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axisc_downsizer #
+module axi_vdma_v6_2_6_axis_dwidth_converter_v1_0_axisc_downsizer #
 (
 ///////////////////////////////////////////////////////////////////////////////
 // Parameter Definitions
@@ -117,7 +117,7 @@ module axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axisc_downsizer #
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
-`include "axi_vdma_v6_2_8_axis_infrastructure_v1_0_axis_infrastructure.vh"
+`include "axi_vdma_v6_2_6_axis_infrastructure_v1_0_axis_infrastructure.vh"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Local parameters

@@ -116,8 +116,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_sg_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_sg_pkg.all;
 
 
 -------------------------------------------------------------------------------
@@ -299,7 +299,7 @@ ftch_error          <= ftch_error_i;
 -------------------------------------------------------------------------------
 --  Scatter Gather Fetch State Machine
 -------------------------------------------------------------------------------
-I_FTCH_SG : entity  axi_vdma_v6_2_8.axi_sg_ftch_sm
+I_FTCH_SG : entity  axi_vdma_v6_2_6.axi_sg_ftch_sm
     generic map(
         C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
         C_INCLUDE_CH1               => C_INCLUDE_CH1                        ,
@@ -372,7 +372,7 @@ I_FTCH_SG : entity  axi_vdma_v6_2_8.axi_sg_ftch_sm
 -------------------------------------------------------------------------------
 --  Scatter Gather Fetch Pointer Manager
 -------------------------------------------------------------------------------
-I_FTCH_PNTR_MNGR : entity  axi_vdma_v6_2_8.axi_sg_ftch_pntr
+I_FTCH_PNTR_MNGR : entity  axi_vdma_v6_2_6.axi_sg_ftch_pntr
     generic map(
         C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH                ,
         C_INCLUDE_CH1               => C_INCLUDE_CH1                        ,
@@ -434,7 +434,7 @@ I_FTCH_PNTR_MNGR : entity  axi_vdma_v6_2_8.axi_sg_ftch_pntr
 -------------------------------------------------------------------------------
 --  Scatter Gather Fetch Command / Status Interface
 -------------------------------------------------------------------------------
-I_FTCH_CMDSTS_IF : entity  axi_vdma_v6_2_8.axi_sg_ftch_cmdsts_if
+I_FTCH_CMDSTS_IF : entity  axi_vdma_v6_2_6.axi_sg_ftch_cmdsts_if
     generic map(
         C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH
     )

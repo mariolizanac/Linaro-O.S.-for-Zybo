@@ -59,30 +59,7 @@
 `timescale 1ps/1ps
 
 (* DowngradeIPIdentifiedWarnings="yes" *) 
-module axi_register_slice_v2_1_9_srl_rtl #
-  (
-   parameter         C_A_WIDTH = 2          // Address Width (>= 1)
-   )
-  (
-   input  wire                 clk, // Clock
-   input  wire [C_A_WIDTH-1:0] a,   // Address
-   input  wire                 ce,  // Clock Enable
-   input  wire                 d,   // Input Data
-   output wire                 q    // Output Data
-   );
-
-  localparam integer P_SRLDEPTH = 2**C_A_WIDTH;
-  
-    reg [P_SRLDEPTH-1:0] shift_reg = {P_SRLDEPTH{1'b0}};
-    always @(posedge clk)
-      if (ce)
-        shift_reg <= {shift_reg[P_SRLDEPTH-2:0], d};
-    assign q = shift_reg[a];
-
-endmodule
-
-(* DowngradeIPIdentifiedWarnings="yes" *) 
-module axi_register_slice_v2_1_9_axic_register_slice #
+module axi_register_slice_v2_1_7_axic_register_slice #
   (
    parameter C_FAMILY     = "virtex6",
    parameter C_DATA_WIDTH = 32,
@@ -96,7 +73,6 @@ module axi_register_slice_v2_1_9_axic_register_slice #
    //   5 => RESERVED (all outputs driven to 0).
    //   6 => INPUTS    = Slave and Master side inputs are registrated.
    //   7 => LIGHT_WT  = 1-stage pipeline register with bubble cycle, both FWD and REV pipelining
-   //   9 => SI/MI_REG = Source side completely registered (including S_VALID input)
    )
   (
    // System Signals
@@ -128,179 +104,6 @@ module axi_register_slice_v2_1_9_axic_register_slice #
       assign M_VALID        = S_VALID;
       assign S_READY        = M_READY;      
     end
-    
-  ////////////////////////////////////////////////////////////////////
-  //
-  // C_REG_CONFIG = 9
-  // Source (SI) interface completely registered
-  //
-  ////////////////////////////////////////////////////////////////////
-      
-    else if (C_REG_CONFIG == 32'h00000009) begin
-      reg [C_DATA_WIDTH-1:0] s_payload_d;
-      wire [C_DATA_WIDTH-1:0] srl_out;
-      reg s_ready_i;
-      reg m_valid_i;
-      reg payld_sel;
-      reg push;
-      reg pop;
-      wire s_handshake_d;
-      (* max_fanout = 66 *) reg s_valid_d;
-      (* max_fanout = 66 *) reg s_ready_d = 1'b0;
-      (* max_fanout = 66 *) reg s_ready_reg = 1'b0;
-      (* max_fanout = 66 *) reg [2:0] fifoaddr = 3'b110;
-      
-      reg areset_d = 1'b0;
-      always @(posedge ACLK) begin
-        areset_d <= ARESET;
-      end
-      
-      assign s_handshake_d = s_valid_d & s_ready_d;
-
-      always @ * begin
-        case (fifoaddr)
-          3'b111: begin  // EMPTY: No payload in SRL; pre-assert m_ready
-            s_ready_i = 1'b1;
-            payld_sel = 1'b0;
-            pop = 1'b0;
-            case ({s_handshake_d, M_READY}) 
-              2'b00, 2'b01: begin  // Idle
-                m_valid_i = 1'b0;
-                push = 1'b0;
-              end
-              2'b10: begin  // Payload received
-                m_valid_i = 1'b1;
-                push = 1'b1;
-              end
-              2'b11: begin  // Payload received and read out combinatorially
-                m_valid_i = 1'b1;
-                push = 1'b0;
-              end
-            endcase
-          end
-
-          3'b000: begin  // 1 payload item in SRL
-            m_valid_i = 1'b1;
-            payld_sel = 1'b1;
-            case ({s_handshake_d, M_READY}) 
-              2'b00: begin  // Idle
-                s_ready_i = 1'b1;
-                push = 1'b0;
-                pop = 1'b0;
-              end
-              2'b01: begin  // Pop
-                s_ready_i = 1'b1;
-                push = 1'b0;
-                pop = 1'b1;
-              end
-              2'b10: begin  // Push
-                s_ready_i = 1'b0;  // Doesn't de-assert on SI until next cycle
-                push = 1'b1;
-                pop = 1'b0;
-              end
-              2'b11: begin  // Push and Pop
-                s_ready_i = 1'b1;
-                push = 1'b1;
-                pop = 1'b1;
-              end
-            endcase
-          end
-
-          3'b001: begin  // 2 payload items in SRL
-            m_valid_i = 1'b1;
-            payld_sel = 1'b1;
-            case ({s_handshake_d, M_READY}) 
-              2'b00: begin  // Idle
-                s_ready_i = 1'b0;
-                push = 1'b0;
-                pop = 1'b0;
-              end
-              2'b01: begin  // Pop
-                s_ready_i = 1'b1;
-                push = 1'b0;
-                pop = 1'b1;
-              end
-              2'b10: begin  // Push (Handshake completes on SI while pushing 2nd item into SRL)
-                s_ready_i = 1'b0;
-                push = 1'b1;
-                pop = 1'b0;
-              end
-              2'b11: begin  // Push and Pop
-                s_ready_i = 1'b0;
-                push = 1'b1;
-                pop = 1'b1;
-              end
-            endcase
-          end
-
-          3'b010: begin  // 3 payload items in SRL
-            m_valid_i = 1'b1;
-            s_ready_i = 1'b0;
-            payld_sel = 1'b1;
-            push = 1'b0;
-            if (M_READY) begin  // Handshake cannot complete on SI
-              pop = 1'b1;
-            end else begin
-              pop = 1'b0;
-            end
-          end
-
-          default: begin  // RESET state (fifoaddr = 3'b110)
-            m_valid_i = 1'b0;
-            s_ready_i = 1'b0;
-            payld_sel = 1'b0;
-            push = 1'b1;  // Advance to Empty state
-            pop = 1'b0;
-          end  // RESET
-        endcase
-      end
-
-      always @(posedge ACLK) begin
-        if (areset_d) begin
-          fifoaddr <= 3'b110;
-          s_ready_reg <= 1'b0;
-          s_ready_d <= 1'b0;
-        end else begin
-          s_ready_reg <= s_ready_i;
-          s_ready_d <= s_ready_reg;
-          if (push & ~pop) begin
-            fifoaddr <= fifoaddr + 1;
-          end else if (~push & pop) begin
-            fifoaddr <= fifoaddr - 1;
-          end
-        end
-      end
-
-      always @(posedge ACLK) begin
-        s_valid_d <= S_VALID;
-        s_payload_d <= S_PAYLOAD_DATA;
-      end
-
-      assign S_READY = s_ready_reg;
-      assign M_VALID = m_valid_i;
-      assign M_PAYLOAD_DATA = payld_sel ? srl_out : s_payload_d;
-
-    //---------------------------------------------------------------------------
-    // Instantiate SRLs
-    //---------------------------------------------------------------------------
-      genvar i;
-      for (i=0;i<C_DATA_WIDTH;i=i+1) begin : gen_srls
-        axi_register_slice_v2_1_9_srl_rtl #
-          (
-           .C_A_WIDTH (2)
-          )
-          srl_nx1
-          (
-           .clk (ACLK),
-           .a   (fifoaddr[1:0]),
-           .ce  (push),
-           .d   (s_payload_d[i]),
-           .q   (srl_out[i])
-          );
-      end      
-    end 
-        
-        
   ////////////////////////////////////////////////////////////////////
   //
   // C_REG_CONFIG = 1 (or 8)

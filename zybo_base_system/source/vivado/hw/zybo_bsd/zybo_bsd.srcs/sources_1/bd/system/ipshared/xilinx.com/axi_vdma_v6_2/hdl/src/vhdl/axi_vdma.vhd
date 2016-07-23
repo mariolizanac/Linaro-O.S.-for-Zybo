@@ -123,8 +123,8 @@
 --                   |   |- axi_vdma_skid_buf.vhd (s2mm)
 --                   |   |- axi_vdma_cdc.vhd (s2mm)
 --                   |
---                   |- axi_datamover_v5_1_11.axi_datamover.vhd (FULL)
---                   |- axi_vdma_v6_2_8.axi_sg_v4_03.axi_sg.vhd
+--                   |- axi_datamover_v5_1_9.axi_datamover.vhd (FULL)
+--                   |- axi_vdma_v6_2_6.axi_sg_v4_03.axi_sg.vhd
 --
 -------------------------------------------------------------------------------
 library ieee;
@@ -135,14 +135,14 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 --library axi_sg_v4_03;
 --use axi_sg_v4_03.all;
 
-library axi_datamover_v5_1_11;
-use axi_datamover_v5_1_11.all;
+library axi_datamover_v5_1_9;
+use axi_datamover_v5_1_9.all;
 
 library lib_cdc_v1_0_2;
 library lib_pkg_v1_0_2;
@@ -395,7 +395,7 @@ entity  axi_vdma is
             -- Enable debug information bit 15
 
         C_INSTANCE                      : string   			:= "axi_vdma";
-        C_SELECT_XPM                    : integer                       := 1;
+
         C_FAMILY                        : string                    	:= "virtex7"
             -- Target FPGA Device Family
     );
@@ -1596,7 +1596,7 @@ s2mm_frame_ptr_out  <= s2mm_frame_ptr_out_i ;
 --*****************************************************************************
 --**                             RESET MODULE                                **
 --*****************************************************************************
-I_RST_MODULE : entity  axi_vdma_v6_2_8.axi_vdma_rst_module
+I_RST_MODULE : entity  axi_vdma_v6_2_6.axi_vdma_rst_module
     generic map(
         C_INCLUDE_MM2S              => C_INCLUDE_MM2S                       ,
         C_INCLUDE_S2MM              => C_INCLUDE_S2MM                       ,
@@ -1693,7 +1693,7 @@ I_RST_MODULE : entity  axi_vdma_v6_2_8.axi_vdma_rst_module
 -- Provides the s_axi_lite inteface and clock domain crossing between
 -- axi lite and mm2s/s2mm register modules
 -------------------------------------------------------------------------------
-AXI_LITE_REG_INTERFACE_I :  entity axi_vdma_v6_2_8.axi_vdma_reg_if
+AXI_LITE_REG_INTERFACE_I :  entity axi_vdma_v6_2_6.axi_vdma_reg_if
     generic map(
         C_INCLUDE_MM2S              => C_INCLUDE_MM2S                       ,
         C_INCLUDE_S2MM              => C_INCLUDE_S2MM                       ,
@@ -1786,7 +1786,7 @@ AXI_LITE_REG_INTERFACE_I :  entity axi_vdma_v6_2_8.axi_vdma_reg_if
 --*****************************************************************************
 --**                       INTERRUPT CONTROLLER                              **
 --*****************************************************************************
-I_AXI_DMA_INTRPT : entity  axi_vdma_v6_2_8.axi_vdma_intrpt
+I_AXI_DMA_INTRPT : entity  axi_vdma_v6_2_6.axi_vdma_intrpt
     generic map(
 
         C_INCLUDE_CH1              => C_INCLUDE_MM2S                            ,
@@ -1865,7 +1865,7 @@ GEN_SG_ENGINE : if C_INCLUDE_SG = 1 generate
     -------------------------------------------------------------------------------
     -- Scatter Gather Engine
     -------------------------------------------------------------------------------
-    I_SG_ENGINE : entity  axi_vdma_v6_2_8.axi_sg
+    I_SG_ENGINE : entity  axi_vdma_v6_2_6.axi_sg
         generic map(
             C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH            ,
             C_M_AXI_SG_DATA_WIDTH       => C_M_AXI_SG_DATA_WIDTH            ,
@@ -2058,7 +2058,7 @@ GEN_SG_ENGINE : if C_INCLUDE_SG = 1 generate
     --*********************************************************************
     --** MM2S Clock Domain To/From Scatter Gather Clock Domain           **
     --*********************************************************************
-    MM2S_SG_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_sg_cdc
+    MM2S_SG_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_sg_cdc
         generic map(
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC            ,
             C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH
@@ -2106,7 +2106,7 @@ GEN_SG_ENGINE : if C_INCLUDE_SG = 1 generate
     --*********************************************************************
     --** S2MM Clock Domain To/From Scatter Gather Clock Domain           **
     --*********************************************************************
-    S2MM_SG_CDC_I : entity  axi_vdma_v6_2_8.axi_vdma_sg_cdc
+    S2MM_SG_CDC_I : entity  axi_vdma_v6_2_6.axi_vdma_sg_cdc
         generic map(
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC            ,
             C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH
@@ -2266,7 +2266,7 @@ end generate GEN_NO_FLUSH_SOF_MM2S;
 		
 
 
-    AXIS_MM2S_DWIDTH_CONVERTER_I: entity  axi_vdma_v6_2_8.axi_vdma_mm2s_axis_dwidth_converter
+    AXIS_MM2S_DWIDTH_CONVERTER_I: entity  axi_vdma_v6_2_6.axi_vdma_mm2s_axis_dwidth_converter
         generic map(C_M_AXIS_MM2S_TDATA_WIDTH_CALCULATED 		=>	C_M_AXIS_MM2S_TDATA_WIDTH_CALCULATED		, 
  		C_M_AXIS_MM2S_TDATA_WIDTH         	 		=>	C_M_AXIS_MM2S_TDATA_WIDTH		, 
  		--C_AXIS_SIGNAL_SET            		 		=>	255		, 
@@ -2345,7 +2345,7 @@ end generate GEN_NO_FLUSH_SOF_MM2S;
     ---------------------------------------------------------------------------
     -- MM2S Register Module
     ---------------------------------------------------------------------------
-    MM2S_REGISTER_MODULE_I : entity  axi_vdma_v6_2_8.axi_vdma_reg_module
+    MM2S_REGISTER_MODULE_I : entity  axi_vdma_v6_2_6.axi_vdma_reg_module
         generic map(
             C_TOTAL_NUM_REGISTER    => TOTAL_NUM_REGISTER                   ,
             C_INCLUDE_SG            => C_INCLUDE_SG                         ,
@@ -2469,7 +2469,7 @@ begin
     ---------------------------------------------------------------------------
     -- MM2S DMA Controller
     ---------------------------------------------------------------------------
-    I_MM2S_DMA_MNGR : entity  axi_vdma_v6_2_8.axi_vdma_mngr
+    I_MM2S_DMA_MNGR : entity  axi_vdma_v6_2_6.axi_vdma_mngr
         generic map(
             C_PRMY_CMDFIFO_DEPTH        => DM_CMDSTS_FIFO_DEPTH             ,
             C_INCLUDE_SF                => DM_MM2S_INCLUDE_SF               ,
@@ -2510,7 +2510,6 @@ begin
             C_S2MM_SOF_ENABLE           => 0 ,
             C_INCLUDE_MM2S              => C_INCLUDE_MM2S                   ,
             C_INCLUDE_S2MM              => 0                  ,
-            C_SELECT_XPM                => C_SELECT_XPM,
             C_FAMILY                    => C_ROOT_FAMILY
         )
         port map(
@@ -2650,7 +2649,7 @@ begin
     ---------------------------------------------------------------------------
     -- MM2S DMA Controller
     ---------------------------------------------------------------------------
-    I_MM2S_DMA_MNGR : entity  axi_vdma_v6_2_8.axi_vdma_mngr_64
+    I_MM2S_DMA_MNGR : entity  axi_vdma_v6_2_6.axi_vdma_mngr_64
         generic map(
             C_PRMY_CMDFIFO_DEPTH        => DM_CMDSTS_FIFO_DEPTH             ,
             C_INCLUDE_SF                => DM_MM2S_INCLUDE_SF               ,
@@ -2691,7 +2690,6 @@ begin
             C_S2MM_SOF_ENABLE           => 0 ,
             C_INCLUDE_MM2S              => C_INCLUDE_MM2S                   ,
             C_INCLUDE_S2MM              => 0                  ,
-            C_SELECT_XPM                => C_SELECT_XPM,
             C_FAMILY                    => C_ROOT_FAMILY
         )
         port map(
@@ -2820,7 +2818,7 @@ end generate ADDR64;
     ---------------------------------------------------------------------------
     -- MM2S Frame sync generator
     ---------------------------------------------------------------------------
-    MM2S_FSYNC_I : entity  axi_vdma_v6_2_8.axi_vdma_fsync_gen
+    MM2S_FSYNC_I : entity  axi_vdma_v6_2_6.axi_vdma_fsync_gen
         generic map(
             C_USE_FSYNC                 => C_USE_MM2S_FSYNC                      ,
             ENABLE_FLUSH_ON_S2MM_FSYNC  => 0                      ,
@@ -2863,7 +2861,7 @@ end generate ADDR64;
         );
 
     -- Clock Domain Crossing between m_axi_mm2s_aclk and m_axis_mm2s_aclk
-    MM2S_VID_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_vid_cdc
+    MM2S_VID_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_vid_cdc
         generic map(
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC            ,
             C_GENLOCK_MSTR_PTR_DWIDTH   => NUM_FRM_STORE_WIDTH          ,
@@ -2911,7 +2909,7 @@ end generate ADDR64;
     mm2s_fsync_out_sig  <= mm2s_fsync_out_i;
 
     -- Start of Frame Detection - used for interrupt coalescing
-    MM2S_SOF_I : entity  axi_vdma_v6_2_8.axi_vdma_sof_gen
+    MM2S_SOF_I : entity  axi_vdma_v6_2_6.axi_vdma_sof_gen
         port map(
             scndry_aclk                 => m_axis_mm2s_aclk                 ,
             scndry_resetn               => mm2s_axis_resetn                 ,
@@ -2928,7 +2926,7 @@ end generate ADDR64;
     ---------------------------------------------------------------------------
     -- Primary MM2S Line Buffer
     ---------------------------------------------------------------------------
-    MM2S_LINEBUFFER_I : entity  axi_vdma_v6_2_8.axi_vdma_mm2s_linebuf
+    MM2S_LINEBUFFER_I : entity  axi_vdma_v6_2_6.axi_vdma_mm2s_linebuf
         generic map(
             C_DATA_WIDTH                => C_M_AXIS_MM2S_TDATA_WIDTH_CALCULATED        ,
             C_M_AXIS_MM2S_TDATA_WIDTH   => C_M_AXIS_MM2S_TDATA_WIDTH        ,
@@ -3170,7 +3168,7 @@ begin
     --*********************************************************--
     --**               S2MM SLAVE SKID BUFFER                **--
     --*********************************************************--
-    I_S2MM_SKID_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_skid_buf
+    I_S2MM_SKID_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_skid_buf
         generic map(
             C_WDATA_WIDTH           => C_S_AXIS_S2MM_TDATA_WIDTH             ,
             C_TUSER_WIDTH           => C_S_AXIS_S2MM_TUSER_BITS
@@ -3211,7 +3209,7 @@ begin
     --*********************************************************--
     --**               S2MM SLAVE SKID BUFFER                **--
     --*********************************************************--
-    I_S2MM_SKID_FLUSH_SOF : entity axi_vdma_v6_2_8.axi_vdma_skid_buf
+    I_S2MM_SKID_FLUSH_SOF : entity axi_vdma_v6_2_6.axi_vdma_skid_buf
         generic map(
             C_WDATA_WIDTH           => C_S_AXIS_S2MM_TDATA_WIDTH             ,
             C_TUSER_WIDTH           => C_S_AXIS_S2MM_TUSER_BITS
@@ -3614,7 +3612,7 @@ GEN_FOR_ASYNC_FLUSH_SOF : if C_PRMRY_IS_ACLK_ASYNC = 1 generate
 begin
 
 
-----    S2MM_PRM_UPDT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    S2MM_PRM_UPDT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -3666,7 +3664,7 @@ S2MM_PRM_UPDT_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    S2MM_HALTED_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    S2MM_HALTED_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_P_S                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -3720,7 +3718,7 @@ S2MM_HALTED_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
 
-----    SOF_LATE_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    SOF_LATE_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_LEVEL_S_P                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -3867,7 +3865,7 @@ end generate GEN_FOR_SYNC_FLUSH_SOF;
 		
 		s_axis_s2mm_tuser_i(C_S_AXIS_S2MM_TUSER_BITS-1 downto 0)		<= s_axis_s2mm_dwidth_tuser_i(C_S_AXIS_S2MM_TUSER_BITS-1 downto 0);
 
-    AXIS_S2MM_DWIDTH_CONVERTER_I: entity  axi_vdma_v6_2_8.axi_vdma_s2mm_axis_dwidth_converter
+    AXIS_S2MM_DWIDTH_CONVERTER_I: entity  axi_vdma_v6_2_6.axi_vdma_s2mm_axis_dwidth_converter
         generic map(C_S_AXIS_S2MM_TDATA_WIDTH_CALCULATED 	=>	C_S_AXIS_S2MM_TDATA_WIDTH_CALCULATED		, 
  		C_S_AXIS_S2MM_TDATA_WIDTH         	 	=>	C_S_AXIS_S2MM_TDATA_WIDTH		, 
  		--C_AXIS_SIGNAL_SET            		 	=>	255		, 
@@ -4048,7 +4046,7 @@ s2mm_all_vount_rcvd		<= all_vount_rcvd_no_dwidth;
     ---------------------------------------------------------------------------
     -- S2MM Register Module
     ---------------------------------------------------------------------------
-    S2MM_REGISTER_MODULE_I : entity  axi_vdma_v6_2_8.axi_vdma_reg_module
+    S2MM_REGISTER_MODULE_I : entity  axi_vdma_v6_2_6.axi_vdma_reg_module
         generic map(
             C_TOTAL_NUM_REGISTER    => TOTAL_NUM_REGISTER                   ,
             C_INCLUDE_SG            => C_INCLUDE_SG                         ,
@@ -4171,7 +4169,7 @@ begin
     ---------------------------------------------------------------------------
     -- S2MM DMA Controller
     ---------------------------------------------------------------------------
-    I_S2MM_DMA_MNGR : entity  axi_vdma_v6_2_8.axi_vdma_mngr
+    I_S2MM_DMA_MNGR : entity  axi_vdma_v6_2_6.axi_vdma_mngr
         generic map(
             C_PRMY_CMDFIFO_DEPTH        => DM_CMDSTS_FIFO_DEPTH             ,
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC            ,
@@ -4203,7 +4201,6 @@ begin
             C_ENABLE_DEBUG_INFO_15      => C_ENABLE_DEBUG_INFO_15             ,
             C_INTERNAL_GENLOCK_ENABLE   => INTERNAL_GENLOCK_ENABLE          ,
             C_INCLUDE_SG                => C_INCLUDE_SG                     ,   -- CR581800
-            C_SELECT_XPM                => C_SELECT_XPM,
             C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH            ,
             C_M_AXIS_SG_TDATA_WIDTH     => M_AXIS_SG_TDATA_WIDTH            ,
             C_M_AXI_ADDR_WIDTH          => C_M_AXI_S2MM_ADDR_WIDTH_NEW          ,
@@ -4349,7 +4346,7 @@ begin
     ---------------------------------------------------------------------------
     -- S2MM DMA Controller
     ---------------------------------------------------------------------------
-    I_S2MM_DMA_MNGR : entity  axi_vdma_v6_2_8.axi_vdma_mngr_64
+    I_S2MM_DMA_MNGR : entity  axi_vdma_v6_2_6.axi_vdma_mngr_64
         generic map(
             C_PRMY_CMDFIFO_DEPTH        => DM_CMDSTS_FIFO_DEPTH             ,
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC            ,
@@ -4381,7 +4378,6 @@ begin
             C_ENABLE_DEBUG_INFO_15      => C_ENABLE_DEBUG_INFO_15             ,
             C_INTERNAL_GENLOCK_ENABLE   => INTERNAL_GENLOCK_ENABLE          ,
             C_INCLUDE_SG                => C_INCLUDE_SG                     ,   -- CR581800
-            C_SELECT_XPM                => C_SELECT_XPM,
             C_M_AXI_SG_ADDR_WIDTH       => C_M_AXI_SG_ADDR_WIDTH            ,
             C_M_AXIS_SG_TDATA_WIDTH     => M_AXIS_SG_TDATA_WIDTH            ,
             C_M_AXI_ADDR_WIDTH          => C_M_AXI_S2MM_ADDR_WIDTH_NEW          ,
@@ -4517,7 +4513,7 @@ end generate S2MMADDR64;
     ---------------------------------------------------------------------------
     -- MM2S Frame sync generator
     ---------------------------------------------------------------------------
-    S2MM_FSYNC_I : entity  axi_vdma_v6_2_8.axi_vdma_fsync_gen
+    S2MM_FSYNC_I : entity  axi_vdma_v6_2_6.axi_vdma_fsync_gen
         generic map(
             C_USE_FSYNC                 => C_USE_S2MM_FSYNC_01                      ,
             ENABLE_FLUSH_ON_S2MM_FSYNC  => ENABLE_FLUSH_ON_S2MM_FSYNC                      ,
@@ -4560,7 +4556,7 @@ end generate S2MMADDR64;
         );
 
     -- Clock Domain Crossing between m_axi_s2mm_aclk and s_axis_s2mm_aclk
-    S2MM_VID_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_vid_cdc
+    S2MM_VID_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_vid_cdc
         generic map(
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC            ,
             C_GENLOCK_MSTR_PTR_DWIDTH   => NUM_FRM_STORE_WIDTH          ,
@@ -4607,7 +4603,7 @@ end generate S2MMADDR64;
     s2mm_fsync_out_sig  <= s2mm_fsync_out_i;
 
     -- Start of Frame Detection - used for interrupt coalescing
-    S2MM_SOF_I : entity  axi_vdma_v6_2_8.axi_vdma_sof_gen
+    S2MM_SOF_I : entity  axi_vdma_v6_2_6.axi_vdma_sof_gen
         port map(
             scndry_aclk                 => s_axis_s2mm_aclk                 ,
             scndry_resetn               => s2mm_axis_resetn                 ,
@@ -4623,7 +4619,7 @@ end generate S2MMADDR64;
     -------------------------------------------------------------------------------
     -- Primary S2MM Line Buffer
     -------------------------------------------------------------------------------
-    S2MM_LINEBUFFER_I : entity  axi_vdma_v6_2_8.axi_vdma_s2mm_linebuf
+    S2MM_LINEBUFFER_I : entity  axi_vdma_v6_2_6.axi_vdma_s2mm_linebuf
         generic map(
             C_DATA_WIDTH                => C_S_AXIS_S2MM_TDATA_WIDTH_CALCULATED            ,
             C_S2MM_SOF_ENABLE           => S2MM_SOF_ENABLE                      ,
@@ -4843,7 +4839,7 @@ end generate GEN_NO_SPRT_FOR_S2MM;
 -------------------------------------------------------------------------------
 -- Primary MM2S and S2MM DataMover
 -------------------------------------------------------------------------------
-I_PRMRY_DATAMOVER : entity axi_datamover_v5_1_11.axi_datamover
+I_PRMRY_DATAMOVER : entity axi_datamover_v5_1_9.axi_datamover
     generic map(
         C_INCLUDE_MM2S              => MM2S_AXI_FULL_MODE                   ,
         C_M_AXI_MM2S_ADDR_WIDTH     => C_M_AXI_MM2S_ADDR_WIDTH_NEW              ,

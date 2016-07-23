@@ -75,11 +75,11 @@
   library lib_pkg_v1_0_2; 
   Use lib_pkg_v1_0_2.lib_pkg.clog2;
   
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_sfifo_autord;
-  use axi_datamover_v5_1_11.axi_datamover_skid_buf;
-  Use axi_datamover_v5_1_11.axi_datamover_stbs_set;
-  Use axi_datamover_v5_1_11.axi_datamover_stbs_set_nodre;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_sfifo_autord;
+  use axi_datamover_v5_1_9.axi_datamover_skid_buf;
+  Use axi_datamover_v5_1_9.axi_datamover_stbs_set;
+  Use axi_datamover_v5_1_9.axi_datamover_stbs_set_nodre;
 
   
   -------------------------------------------------------------------------------
@@ -667,7 +667,7 @@
 SAME_WIDTH_NO_DRE : if (C_ENABLE_DRE = 0 and (C_STREAM_DWIDTH = C_MMAP_DWIDTH)) generate
 begin 
 
-    I_IBTTCC_STBS_SET : entity axi_datamover_v5_1_11.axi_datamover_stbs_set_nodre
+    I_IBTTCC_STBS_SET : entity axi_datamover_v5_1_9.axi_datamover_stbs_set_nodre
     generic map (
   
       C_STROBE_WIDTH      =>  STRM_WSTB_WIDTH   
@@ -686,7 +686,7 @@ end generate SAME_WIDTH_NO_DRE;
 DIFF_WIDTH_OR_DRE : if (C_ENABLE_DRE /= 0 or (C_STREAM_DWIDTH /= C_MMAP_DWIDTH)) generate
 begin 
 
-    I_IBTTCC_STBS_SET : entity axi_datamover_v5_1_11.axi_datamover_stbs_set
+    I_IBTTCC_STBS_SET : entity axi_datamover_v5_1_9.axi_datamover_stbs_set
     generic map (
   
       C_STROBE_WIDTH      =>  STRM_WSTB_WIDTH   
@@ -731,7 +731,7 @@ end generate DIFF_WIDTH_OR_DRE;
     -- the Data Cntlr.    
     --
     ------------------------------------------------------------
-    I_XD_FIFO : entity axi_datamover_v5_1_11.axi_datamover_sfifo_autord
+    I_XD_FIFO : entity axi_datamover_v5_1_9.axi_datamover_sfifo_autord
     generic map (
 
     C_DWIDTH                =>  XD_FIFO_WIDTH        ,  
@@ -1394,7 +1394,7 @@ end generate GEN_S2MM_TKEEP_DISABLE6;
     --  Implements the Store and Forward data FIFO   
     --
     ------------------------------------------------------------
-    I_DATA_FIFO : entity axi_datamover_v5_1_11.axi_datamover_sfifo_autord
+    I_DATA_FIFO : entity axi_datamover_v5_1_9.axi_datamover_sfifo_autord
     generic map (
 
       C_DWIDTH                =>  DATA_FIFO_WIDTH       ,  
@@ -1476,7 +1476,7 @@ SAME_WIDTH_NO_DRE_WDC : if (C_ENABLE_DRE = 0 and (C_STREAM_DWIDTH = C_MMAP_DWIDT
 begin
  
 
-     I_WDC_STBS_SET : entity axi_datamover_v5_1_11.axi_datamover_stbs_set_nodre
+     I_WDC_STBS_SET : entity axi_datamover_v5_1_9.axi_datamover_stbs_set_nodre
      generic map (
     
        C_STROBE_WIDTH      =>  MMAP_WSTB_WIDTH   
@@ -1496,7 +1496,7 @@ DIFF_WIDTH_OR_DRE_WDC : if (C_ENABLE_DRE /= 0 or (C_STREAM_DWIDTH /= C_MMAP_DWID
 begin
  
 
-     I_WDC_STBS_SET : entity axi_datamover_v5_1_11.axi_datamover_stbs_set
+     I_WDC_STBS_SET : entity axi_datamover_v5_1_9.axi_datamover_stbs_set
      generic map (
     
        C_STROBE_WIDTH      =>  MMAP_WSTB_WIDTH   
@@ -1581,7 +1581,7 @@ begin
      -- it. The EOP marker is inserted in the extra strobe slot.
      --
      ------------------------------------------------------------
-      I_INDET_BTT_SKID_BUF : entity axi_datamover_v5_1_11.axi_datamover_skid_buf
+      I_INDET_BTT_SKID_BUF : entity axi_datamover_v5_1_9.axi_datamover_skid_buf
       generic map (
          
         C_WDATA_WIDTH  =>  SKIDBUF2WDC_DWIDTH       

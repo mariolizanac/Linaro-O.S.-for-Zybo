@@ -136,8 +136,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 library lib_cdc_v1_0_2;
 
@@ -280,7 +280,7 @@ begin
 --*****************************************************************************
 
     -- From GenLock manager to AXIS clock domain
-----    M_PTR_OUT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    M_PTR_OUT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => C_GENLOCK_MSTR_PTR_DWIDTH
@@ -412,7 +412,7 @@ M_PTR_OUT_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
     -- Cross other fsync into primary clock domain
-----    OTHR_FSYNC_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    OTHR_FSYNC_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -463,7 +463,7 @@ OTHR_FSYNC_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 --*****************************************************************************
 --** SOF CDC
 --*****************************************************************************
-----    SOF_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    SOF_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -517,7 +517,7 @@ SOF_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 --** Frame Sync CDC
 --*****************************************************************************
     -- From axi vdma top out (scndry_aclk) to frame sync gen (prmry_aclk)
-----    FSYNC_IN_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    FSYNC_IN_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_S_P_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -571,7 +571,7 @@ FSYNC_IN_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
     -- From frame sync gen (prmry_aclk) to axi vdma top out (scndry_aclk)
-----    FSYNC_OUT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    FSYNC_OUT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1
@@ -627,7 +627,7 @@ FSYNC_OUT_CDC_I : entity lib_cdc_v1_0_2.cdc_sync
 
 
     -- From frame sync gen (prmry_aclk) to axi vdma top out (scndry_aclk)
-----    PRMTR_UPDT_CDC_I : entity axi_vdma_v6_2_8.axi_vdma_cdc
+----    PRMTR_UPDT_CDC_I : entity axi_vdma_v6_2_6.axi_vdma_cdc
 ----        generic map(
 ----            C_CDC_TYPE              => CDC_TYPE_PULSE_P_S_OPEN_ENDED                           ,
 ----            C_VECTOR_WIDTH          => 1

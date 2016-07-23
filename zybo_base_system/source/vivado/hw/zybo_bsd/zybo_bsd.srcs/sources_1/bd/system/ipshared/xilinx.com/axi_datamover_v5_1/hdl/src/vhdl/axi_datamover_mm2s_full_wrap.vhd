@@ -71,16 +71,16 @@
   
   
   -- axi_datamover Library Modules
-  library axi_datamover_v5_1_11; 
-  use axi_datamover_v5_1_11.axi_datamover_reset;  
-  use axi_datamover_v5_1_11.axi_datamover_cmd_status;
-  use axi_datamover_v5_1_11.axi_datamover_pcc;
-  use axi_datamover_v5_1_11.axi_datamover_addr_cntl;
-  use axi_datamover_v5_1_11.axi_datamover_rddata_cntl;
-  use axi_datamover_v5_1_11.axi_datamover_rd_status_cntl;
-  use axi_datamover_v5_1_11.axi_datamover_mm2s_dre;
-  Use axi_datamover_v5_1_11.axi_datamover_rd_sf;
-  use axi_datamover_v5_1_11.axi_datamover_skid_buf;
+  library axi_datamover_v5_1_9; 
+  use axi_datamover_v5_1_9.axi_datamover_reset;  
+  use axi_datamover_v5_1_9.axi_datamover_cmd_status;
+  use axi_datamover_v5_1_9.axi_datamover_pcc;
+  use axi_datamover_v5_1_9.axi_datamover_addr_cntl;
+  use axi_datamover_v5_1_9.axi_datamover_rddata_cntl;
+  use axi_datamover_v5_1_9.axi_datamover_rd_status_cntl;
+  use axi_datamover_v5_1_9.axi_datamover_mm2s_dre;
+  Use axi_datamover_v5_1_9.axi_datamover_rd_sf;
+  use axi_datamover_v5_1_9.axi_datamover_skid_buf;
   
   
   -------------------------------------------------------------------------------
@@ -847,7 +847,7 @@
     --   Reset Block  
     --
     ------------------------------------------------------------
-    I_RESET : entity axi_datamover_v5_1_11.axi_datamover_reset
+    I_RESET : entity axi_datamover_v5_1_9.axi_datamover_reset
     generic map (
   
       C_STSCMD_IS_ASYNC    =>  MM2S_STSCMD_IS_ASYNC      
@@ -887,7 +887,7 @@
     --   Command and Status Interface Block  
     --
     ------------------------------------------------------------
-     I_CMD_STATUS : entity axi_datamover_v5_1_11.axi_datamover_cmd_status
+     I_CMD_STATUS : entity axi_datamover_v5_1_9.axi_datamover_cmd_status
      generic map (
    
        C_ADDR_WIDTH           =>  MM2S_ADDR_WIDTH           , 
@@ -937,7 +937,7 @@
     -- Read Status Controller Block    
     --
     ------------------------------------------------------------
-     I_RD_STATUS_CNTLR : entity axi_datamover_v5_1_11.axi_datamover_rd_status_cntl
+     I_RD_STATUS_CNTLR : entity axi_datamover_v5_1_9.axi_datamover_rd_status_cntl
      generic map (
    
        C_STS_WIDTH            =>  MM2S_STS_WIDTH ,      
@@ -978,7 +978,7 @@
    -- Predictive Command Calculator Block   
    --
    ------------------------------------------------------------
-    I_MSTR_PCC : entity axi_datamover_v5_1_11.axi_datamover_pcc
+    I_MSTR_PCC : entity axi_datamover_v5_1_9.axi_datamover_pcc
     generic map (
   
       C_IS_MM2S                 =>  IS_MM2S                      ,
@@ -1061,7 +1061,7 @@
     --   Address Controller Block  
     --
     ------------------------------------------------------------
-     I_ADDR_CNTL : entity axi_datamover_v5_1_11.axi_datamover_addr_cntl
+     I_ADDR_CNTL : entity axi_datamover_v5_1_9.axi_datamover_addr_cntl
      generic map (
    
        C_ADDR_FIFO_DEPTH            =>  ADDR_CNTL_FIFO_DEPTH        , 
@@ -1125,7 +1125,7 @@
      --     Read Data Controller Block
      --
      ------------------------------------------------------------
-      I_RD_DATA_CNTL : entity axi_datamover_v5_1_11.axi_datamover_rddata_cntl
+      I_RD_DATA_CNTL : entity axi_datamover_v5_1_9.axi_datamover_rddata_cntl
       generic map (
         
         C_INCLUDE_DRE             =>  INCLUDE_DRE                  , 
@@ -1270,7 +1270,7 @@
          -- downsizer support.  
          --
          ------------------------------------------------------------
-         I_RD_SF : entity axi_datamover_v5_1_11.axi_datamover_rd_sf
+         I_RD_SF : entity axi_datamover_v5_1_9.axi_datamover_rd_sf
          generic map (
               
            C_SF_FIFO_DEPTH        => SF_FIFO_DEPTH           ,
@@ -1351,7 +1351,7 @@
         --  --   Instance for the MM2S Store and Forward module.  
         --  --
         --  ------------------------------------------------------------
-        --  I_RD_SF : entity axi_datamover_v5_1_11.axi_datamover_rd_sf
+        --  I_RD_SF : entity axi_datamover_v5_1_9.axi_datamover_rd_sf
         --  generic map (
         --       
         --    C_SF_FIFO_DEPTH        => SF_FIFO_DEPTH    ,
@@ -1486,7 +1486,7 @@
          -- 16 bits to 64 bits.     
          --
          ------------------------------------------------------------
-          I_DRE_16_to_64 : entity axi_datamover_v5_1_11.axi_datamover_mm2s_dre
+          I_DRE_16_to_64 : entity axi_datamover_v5_1_9.axi_datamover_mm2s_dre
           generic map (
         
             C_DWIDTH         =>  MM2S_SDATA_WIDTH      , 
@@ -1580,7 +1580,7 @@ begin
      -- throttling.  
      --
      ------------------------------------------------------------
-      I_MM2S_SKID_BUF : entity axi_datamover_v5_1_11.axi_datamover_skid_buf
+      I_MM2S_SKID_BUF : entity axi_datamover_v5_1_9.axi_datamover_skid_buf
       generic map (
          
         C_WDATA_WIDTH  =>  MM2S_SDATA_WIDTH        

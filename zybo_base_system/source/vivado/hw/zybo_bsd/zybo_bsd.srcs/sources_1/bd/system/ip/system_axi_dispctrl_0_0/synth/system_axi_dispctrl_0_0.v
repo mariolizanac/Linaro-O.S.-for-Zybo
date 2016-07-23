@@ -50,7 +50,7 @@
 // IP VLNV: Digilent:digilent:axi_dispctrl:1.0
 // IP Revision: 9
 
-(* X_CORE_INFO = "axi_dispctrl_v1_0,Vivado 2016.2" *)
+(* X_CORE_INFO = "axi_dispctrl_v1_0,Vivado 2015.4" *)
 (* CHECK_LICENSE_TYPE = "system_axi_dispctrl_0_0,axi_dispctrl_v1_0,{}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_axi_dispctrl_0_0 (

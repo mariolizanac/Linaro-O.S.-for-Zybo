@@ -112,8 +112,8 @@ use ieee.std_logic_misc.all;
 --use proc_common_base_v5_0.proc_common_pkg.clog2;
 --use proc_common_base_v5_0.ipif_pkg.all;
 
-library axi_lite_ipif_v3_0_4;
-use axi_lite_ipif_v3_0_4.ipif_pkg.all;
+library axi_lite_ipif_v3_0_3;
+use axi_lite_ipif_v3_0_3.ipif_pkg.all;
 
 -------------------------------------------------------------------------------
 --                     Definition of Generics
@@ -355,7 +355,7 @@ temp_i  <= rd_done or wr_done;
 -- This component decodes the specified base address pairs and outputs the
 -- specified number of chip enables and the target bus size.
 -------------------------------------------------------------------------------
-I_DECODER : entity axi_lite_ipif_v3_0_4.address_decoder
+I_DECODER : entity axi_lite_ipif_v3_0_3.address_decoder
     generic map
     (
      C_BUS_AWIDTH          => C_NUM_DECODE_BITS,

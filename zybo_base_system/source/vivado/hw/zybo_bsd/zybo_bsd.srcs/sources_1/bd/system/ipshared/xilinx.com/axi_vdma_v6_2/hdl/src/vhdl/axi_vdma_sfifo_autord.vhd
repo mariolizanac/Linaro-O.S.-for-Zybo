@@ -138,12 +138,12 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-library lib_fifo_v1_0_5;
-use lib_fifo_v1_0_5.sync_fifo_fg;
+library lib_fifo_v1_0_4;
+use lib_fifo_v1_0_4.sync_fifo_fg;
 
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 
 -------------------------------------------------------------------------------
@@ -283,7 +283,7 @@ begin
     --  Instance for the synchronous fifo from proc common.
     --
     ------------------------------------------------------------
-    I_SYNC_FIFOGEN_FIFO : entity lib_fifo_v1_0_5.sync_fifo_fg
+    I_SYNC_FIFOGEN_FIFO : entity lib_fifo_v1_0_4.sync_fifo_fg
       generic map(
          C_FAMILY             =>  C_FAMILY,        -- requred for FIFO Gen
          C_DCOUNT_WIDTH       =>  C_DATA_CNT_WIDTH,

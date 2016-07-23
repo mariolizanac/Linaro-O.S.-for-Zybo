@@ -135,8 +135,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 -------------------------------------------------------------------------------
 entity  axi_vdma_reg_module is
@@ -492,7 +492,7 @@ reg_module_frmdly              <= reg_module_frmdly_i            ;
 reg_module_strt_addr           <= reg_module_strt_addr_i         ;
 
 
-I_DMA_REGISTER : entity axi_vdma_v6_2_8.axi_vdma_register
+I_DMA_REGISTER : entity axi_vdma_v6_2_6.axi_vdma_register
 generic map (
     C_NUM_REGISTERS             => NUM_REG_PER_CHANNEL      ,
     C_NUM_FSTORES               => C_NUM_FSTORES            ,
@@ -685,7 +685,7 @@ end generate GEN_SG_MODE;
 -- In register direct mode instantiate register direct register block
 GEN_REG_DIRECT_MODE : if C_INCLUDE_SG = 0 generate
 begin
-    REGDIRECT_I : entity  axi_vdma_v6_2_8.axi_vdma_regdirect
+    REGDIRECT_I : entity  axi_vdma_v6_2_6.axi_vdma_regdirect
         generic map(
             C_NUM_REGISTERS             => NUM_DIRECT_REG_PER_CHANNEL           ,
             C_NUM_FSTORES               => C_NUM_FSTORES                        ,
@@ -761,7 +761,7 @@ end generate GEN_REG_DIRECT_MODE;
 --*****************************************************************************
 -- AXI LITE READ MUX
 --*****************************************************************************
-LITE_READ_MUX_I : entity  axi_vdma_v6_2_8.axi_vdma_reg_mux
+LITE_READ_MUX_I : entity  axi_vdma_v6_2_6.axi_vdma_reg_mux
     generic map(
         C_TOTAL_NUM_REGISTER        => C_TOTAL_NUM_REGISTER                     ,
         C_INCLUDE_SG                => C_INCLUDE_SG                             ,

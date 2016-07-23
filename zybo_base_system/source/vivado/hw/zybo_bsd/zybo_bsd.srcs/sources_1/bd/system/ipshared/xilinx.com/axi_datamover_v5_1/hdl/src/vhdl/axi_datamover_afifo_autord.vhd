@@ -71,8 +71,8 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-library lib_fifo_v1_0_5;
-use lib_fifo_v1_0_5.async_fifo_fg;
+library lib_fifo_v1_0_4;
+use lib_fifo_v1_0_4.async_fifo_fg;
 
 -----------------------------------------------------------------------------
 -- Entity section
@@ -212,7 +212,7 @@ begin
    -- CoreGen FIFO Generator Async FIFO utility.
    --
    -------------------------------------------------------------------------------
-    I_ASYNC_FIFOGEN_FIFO : entity lib_fifo_v1_0_5.async_fifo_fg 
+    I_ASYNC_FIFOGEN_FIFO : entity lib_fifo_v1_0_4.async_fifo_fg 
        generic map (
           C_ALLOW_2N_DEPTH      =>  1 , 
           C_FAMILY              =>  C_FAMILY,
@@ -226,7 +226,6 @@ begin
           C_HAS_RD_ERR          =>  0, 
           C_HAS_WR_ACK          =>  0, 
           C_HAS_WR_COUNT        =>  1, 
-          C_EN_SAFETY_CKT       =>  1, 
           C_HAS_WR_ERR          =>  0, 
           C_RD_ACK_LOW          =>  0, 
           C_RD_COUNT_WIDTH      =>  C_CNT_WIDTH, 
@@ -235,8 +234,8 @@ begin
           C_WR_ACK_LOW          =>  0, 
           C_WR_COUNT_WIDTH      =>  C_CNT_WIDTH, 
           C_WR_ERR_LOW          =>  0,
-          C_SYNCHRONIZER_STAGE  =>  C_FIFO_MTBF,
-          C_USE_EMBEDDED_REG    =>  0 -- 0 ;
+          C_SYNCHRONIZER_STAGE  =>  C_FIFO_MTBF
+   --       C_USE_EMBEDDED_REG    =>  1, -- 0 ;
    --       C_PRELOAD_REGS        =>  0, -- 0 ;
    --       C_PRELOAD_LATENCY     =>  1  -- 1 ;
          )
@@ -272,27 +271,16 @@ begin
    --        signal is received.
       
     
---    ored_ack_ff_reset  <=  fifo_read_enable or 
---                           AFIFO_Ainit_Rd_clk or
---                           AFIFO_Clr_Rd_Data_Valid;
---    
---    sig_rddata_valid   <=  hold_ff_q or 
---                           sig_wrfifo_rdack;
--- 
+    ored_ack_ff_reset  <=  fifo_read_enable or 
+                           AFIFO_Ainit_Rd_clk or
+                           AFIFO_Clr_Rd_Data_Valid;
+    
+    sig_rddata_valid   <=  hold_ff_q or 
+                           sig_wrfifo_rdack;
+ 
  
    
-     ored_ack_ff_reset <= '1'                     
-      when (fifo_read_enable = '1' or  
-            AFIFO_Ainit_Rd_clk = '1' or  
-            AFIFO_Clr_Rd_Data_Valid = '1')      
-      Else '0';
-      
-    sig_rddata_valid <= '1'                     
-      when (hold_ff_q = '1' or  
-            sig_wrfifo_rdack = '1')      
-      Else '0';
-      
-           
+            
     -------------------------------------------------------------
     -- Synchronous Process with Sync Reset
     --

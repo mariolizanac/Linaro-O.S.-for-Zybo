@@ -69,19 +69,19 @@
   use IEEE.numeric_std.all   ;
 
   -- axi_datamover Library Modules
-  library axi_datamover_v5_1_11;
-  use axi_datamover_v5_1_11.axi_datamover_reset         ;
-  use axi_datamover_v5_1_11.axi_datamover_cmd_status    ;
-  use axi_datamover_v5_1_11.axi_datamover_pcc           ;
-  use axi_datamover_v5_1_11.axi_datamover_ibttcc        ;
-  use axi_datamover_v5_1_11.axi_datamover_indet_btt     ;
-  use axi_datamover_v5_1_11.axi_datamover_s2mm_realign  ;
-  use axi_datamover_v5_1_11.axi_datamover_addr_cntl     ;
-  use axi_datamover_v5_1_11.axi_datamover_wrdata_cntl   ;
-  use axi_datamover_v5_1_11.axi_datamover_wr_status_cntl;
-  Use axi_datamover_v5_1_11.axi_datamover_skid2mm_buf   ;
-  Use axi_datamover_v5_1_11.axi_datamover_skid_buf      ;
-  Use axi_datamover_v5_1_11.axi_datamover_wr_sf         ;
+  library axi_datamover_v5_1_9;
+  use axi_datamover_v5_1_9.axi_datamover_reset         ;
+  use axi_datamover_v5_1_9.axi_datamover_cmd_status    ;
+  use axi_datamover_v5_1_9.axi_datamover_pcc           ;
+  use axi_datamover_v5_1_9.axi_datamover_ibttcc        ;
+  use axi_datamover_v5_1_9.axi_datamover_indet_btt     ;
+  use axi_datamover_v5_1_9.axi_datamover_s2mm_realign  ;
+  use axi_datamover_v5_1_9.axi_datamover_addr_cntl     ;
+  use axi_datamover_v5_1_9.axi_datamover_wrdata_cntl   ;
+  use axi_datamover_v5_1_9.axi_datamover_wr_status_cntl;
+  Use axi_datamover_v5_1_9.axi_datamover_skid2mm_buf   ;
+  Use axi_datamover_v5_1_9.axi_datamover_skid_buf      ;
+  Use axi_datamover_v5_1_9.axi_datamover_wr_sf         ;
 
 
   -------------------------------------------------------------------------------
@@ -1194,7 +1194,7 @@ end generate GEN_S2MM_TKEEP_DISABLE2;
      --   Reset Block
      --
      ------------------------------------------------------------
-      I_RESET : entity axi_datamover_v5_1_11.axi_datamover_reset
+      I_RESET : entity axi_datamover_v5_1_9.axi_datamover_reset
       generic map (
 
         C_STSCMD_IS_ASYNC    =>  S2MM_STSCMD_IS_ASYNC       
@@ -1232,7 +1232,7 @@ end generate GEN_S2MM_TKEEP_DISABLE2;
      --   Command and Status Interface Block
      --
      ------------------------------------------------------------
-      I_CMD_STATUS : entity axi_datamover_v5_1_11.axi_datamover_cmd_status
+      I_CMD_STATUS : entity axi_datamover_v5_1_9.axi_datamover_cmd_status
       generic map (
 
         C_ADDR_WIDTH           =>  S2MM_ADDR_WIDTH           , 
@@ -1282,7 +1282,7 @@ end generate GEN_S2MM_TKEEP_DISABLE2;
      -- Write Status Controller Block
      --
      ------------------------------------------------------------
-      I_WR_STATUS_CNTLR : entity axi_datamover_v5_1_11.axi_datamover_wr_status_cntl
+      I_WR_STATUS_CNTLR : entity axi_datamover_v5_1_9.axi_datamover_wr_status_cntl
       generic map (
 
         C_ENABLE_INDET_BTT     =>  ENABLE_INDET_BTT_SF         ,  
@@ -1349,7 +1349,7 @@ end generate GEN_S2MM_TKEEP_DISABLE2;
          -- Predictive Command Calculator Block
          --
          ------------------------------------------------------------
-         I_MSTR_PCC : entity axi_datamover_v5_1_11.axi_datamover_pcc
+         I_MSTR_PCC : entity axi_datamover_v5_1_9.axi_datamover_pcc
          generic map (
 
            C_IS_MM2S                 =>  IS_NOT_MM2S                  ,
@@ -1461,7 +1461,7 @@ end generate GEN_S2MM_TKEEP_DISABLE2;
          -- Block.
          --
          ------------------------------------------------------------
-         I_S2MM_MSTR_IBTTCC : entity axi_datamover_v5_1_11.axi_datamover_ibttcc
+         I_S2MM_MSTR_IBTTCC : entity axi_datamover_v5_1_9.axi_datamover_ibttcc
          generic map (
 
            C_SF_XFER_BYTES_WIDTH     =>  IBTT_XFER_BYTES_WIDTH        , 
@@ -1560,7 +1560,7 @@ begin
     -- throttling.
     --
     ------------------------------------------------------------
-    I_S2MM_STRM_SKID_BUF : entity axi_datamover_v5_1_11.axi_datamover_skid_buf
+    I_S2MM_STRM_SKID_BUF : entity axi_datamover_v5_1_9.axi_datamover_skid_buf
     generic map (
 
       C_WDATA_WIDTH =>  S2MM_SDATA_WIDTH      
@@ -1657,7 +1657,7 @@ begin
          -- present (no DRE and no Store and Forward case).
          --
          ------------------------------------------------------------
-         I_NO_REALIGN_SKID_BUF : entity axi_datamover_v5_1_11.axi_datamover_skid_buf
+         I_NO_REALIGN_SKID_BUF : entity axi_datamover_v5_1_9.axi_datamover_skid_buf
          generic map (
 
            C_WDATA_WIDTH =>  S2MM_SDATA_WIDTH      
@@ -1744,7 +1744,7 @@ end generate DISABLE_NOREALIGNER_SKID;
        --  Instance for the S2MM Data Realignment Module.
        --
        ------------------------------------------------------------
-        I_S2MM_REALIGNER : entity axi_datamover_v5_1_11.axi_datamover_s2mm_realign
+        I_S2MM_REALIGNER : entity axi_datamover_v5_1_9.axi_datamover_s2mm_realign
         generic map (
 
           C_ENABLE_INDET_BTT      =>  ENABLE_INDET_BTT_SF         ,  
@@ -1856,7 +1856,7 @@ end generate DISABLE_NOREALIGNER_SKID;
         -- module.
         --
         ------------------------------------------------------------
-        I_INDET_BTT : entity axi_datamover_v5_1_11.axi_datamover_indet_btt
+        I_INDET_BTT : entity axi_datamover_v5_1_9.axi_datamover_indet_btt
         generic map (
 
           C_SF_FIFO_DEPTH         =>  SF_FIFO_DEPTH             , 
@@ -2015,7 +2015,7 @@ end generate DISABLE_NOREALIGNER_SKID;
          -- in place of the IBTT Module when GP SF is enabled. 
          --
          ------------------------------------------------------------
-         I_S2MM_GP_SF : entity axi_datamover_v5_1_11.axi_datamover_wr_sf
+         I_S2MM_GP_SF : entity axi_datamover_v5_1_9.axi_datamover_wr_sf
          generic map (
        
            C_WR_ADDR_PIPE_DEPTH    => ADDR_CNTL_FIFO_DEPTH ,
@@ -2090,7 +2090,7 @@ end generate DISABLE_NOREALIGNER_SKID;
      --   Address Controller Block
      --
      ------------------------------------------------------------
-      I_ADDR_CNTL : entity axi_datamover_v5_1_11.axi_datamover_addr_cntl
+      I_ADDR_CNTL : entity axi_datamover_v5_1_9.axi_datamover_addr_cntl
       generic map (
 
         C_ADDR_FIFO_DEPTH        =>  ADDR_CNTL_FIFO_DEPTH        , 
@@ -2160,7 +2160,7 @@ end generate DISABLE_NOREALIGNER_SKID;
       --     Write Data Controller Block
       --
       ------------------------------------------------------------
-       I_WR_DATA_CNTL : entity axi_datamover_v5_1_11.axi_datamover_wrdata_cntl
+       I_WR_DATA_CNTL : entity axi_datamover_v5_1_9.axi_datamover_wrdata_cntl
        generic map (
 
          C_REALIGNER_INCLUDED   =>  ADD_REALIGNER             , 
@@ -2253,7 +2253,7 @@ end generate DISABLE_NOREALIGNER_SKID;
       -- Data width.
       --
       ------------------------------------------------------------
-       I_S2MM_MMAP_SKID_BUF : entity axi_datamover_v5_1_11.axi_datamover_skid2mm_buf
+       I_S2MM_MMAP_SKID_BUF : entity axi_datamover_v5_1_9.axi_datamover_skid2mm_buf
        generic map (
 
          C_MDATA_WIDTH    =>  S2MM_MDATA_WIDTH       , 

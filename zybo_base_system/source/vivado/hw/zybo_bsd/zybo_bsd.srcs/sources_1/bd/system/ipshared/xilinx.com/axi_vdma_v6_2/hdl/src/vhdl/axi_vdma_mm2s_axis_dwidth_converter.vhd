@@ -136,8 +136,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 
 entity  axi_vdma_mm2s_axis_dwidth_converter is
@@ -222,7 +222,7 @@ constant VSIZE_ZERO_VALUE           : std_logic_vector(VSIZE_DWIDTH-1 downto 0)
 -- Verilog module component declarations
 -------------------------------------------------------------------------------
 
-  component axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axis_dwidth_converter is
+  component axi_vdma_v6_2_6_axis_dwidth_converter_v1_0_axis_dwidth_converter is
      generic ( 	C_S_AXIS_TDATA_WIDTH         	: integer   			:= 32;
  		C_M_AXIS_TDATA_WIDTH         	: integer   			:= 32;
  		C_AXIS_TID_WIDTH         	: integer       		:= 1;
@@ -285,7 +285,7 @@ begin
     M_AXIS_TVALID   <= M_AXIS_TVALID_OUT;
     M_AXIS_TLAST    <= M_AXIS_TLAST_OUT;
 
-    MM2S_AXIS_DWIDTH_CONVERTER_I : axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axis_dwidth_converter
+    MM2S_AXIS_DWIDTH_CONVERTER_I : axi_vdma_v6_2_6_axis_dwidth_converter_v1_0_axis_dwidth_converter
      generic map( 	C_S_AXIS_TDATA_WIDTH         =>		C_M_AXIS_MM2S_TDATA_WIDTH_CALCULATED		, 
  			C_M_AXIS_TDATA_WIDTH         =>		C_M_AXIS_MM2S_TDATA_WIDTH		, 
  			C_AXIS_TID_WIDTH             =>		C_AXIS_TID_WIDTH		, 
@@ -391,7 +391,7 @@ DWIDTH_VERT_COUNTER : process(ACLK)
     M_AXIS_TLAST    <= M_AXIS_TLAST_OUT;
     all_lines_xfred_s_dwidth    <= all_lines_xfred;
 
-    MM2S_AXIS_DWIDTH_CONVERTER_I : axi_vdma_v6_2_8_axis_dwidth_converter_v1_0_axis_dwidth_converter
+    MM2S_AXIS_DWIDTH_CONVERTER_I : axi_vdma_v6_2_6_axis_dwidth_converter_v1_0_axis_dwidth_converter
      generic map( 	C_S_AXIS_TDATA_WIDTH         =>		C_M_AXIS_MM2S_TDATA_WIDTH_CALCULATED		, 
  			C_M_AXIS_TDATA_WIDTH         =>		C_M_AXIS_MM2S_TDATA_WIDTH		, 
  			C_AXIS_TID_WIDTH             =>		C_AXIS_TID_WIDTH		, 

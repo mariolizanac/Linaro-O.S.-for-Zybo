@@ -105,8 +105,9 @@ ENTITY system_axi_i2s_adi_1_0 IS
 END system_axi_i2s_adi_1_0;
 
 ARCHITECTURE system_axi_i2s_adi_1_0_arch OF system_axi_i2s_adi_1_0 IS
-  ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
+  ATTRIBUTE DowngradeIPIdentifiedWarnings : string;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF system_axi_i2s_adi_1_0_arch: ARCHITECTURE IS "yes";
+
   COMPONENT axi_i2s_adi IS
     GENERIC (
       C_SLOT_WIDTH : INTEGER;
@@ -178,7 +179,7 @@ ARCHITECTURE system_axi_i2s_adi_1_0_arch OF system_axi_i2s_adi_1_0 IS
     );
   END COMPONENT axi_i2s_adi;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF system_axi_i2s_adi_1_0_arch: ARCHITECTURE IS "axi_i2s_adi,Vivado 2016.2";
+  ATTRIBUTE X_CORE_INFO OF system_axi_i2s_adi_1_0_arch: ARCHITECTURE IS "axi_i2s_adi,Vivado 2015.4";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF system_axi_i2s_adi_1_0_arch : ARCHITECTURE IS "system_axi_i2s_adi_1_0,axi_i2s_adi,{}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;

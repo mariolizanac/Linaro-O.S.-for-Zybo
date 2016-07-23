@@ -132,8 +132,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 library lib_cdc_v1_0_2;
 -------------------------------------------------------------------------------
@@ -426,7 +426,7 @@ read_region_mux_select(1 downto 0) 	<= sig_axi2ip_lite_rdaddr(3 downto 2);
 -------------------------------------------------------------------------------
 GEN_AXI_LITE_IF : if C_INCLUDE_MM2S = 1 or C_INCLUDE_S2MM = 1 generate
 begin
-    AXI_LITE_IF_I : entity axi_vdma_v6_2_8.axi_vdma_lite_if
+    AXI_LITE_IF_I : entity axi_vdma_v6_2_6.axi_vdma_lite_if
         generic map(
             C_NUM_CE                    => C_TOTAL_NUM_REGISTER     ,
             C_MM2S_IS                   => C_INCLUDE_MM2S           ,

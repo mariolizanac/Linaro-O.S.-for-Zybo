@@ -142,8 +142,8 @@ use lib_pkg_v1_0_2.lib_pkg.max2;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 -------------------------------------------------------------------------------
 entity  axi_vdma_sgregister is
@@ -153,7 +153,6 @@ entity  axi_vdma_sgregister is
 
         C_ADDR_WIDTH              : integer range 32 to 32      := 32       ;
             -- Start Address Width
-        C_SELECT_XPM              : integer := 1; 
         C_FAMILY                  : string := "virtex7"
     );
     port (
@@ -788,11 +787,10 @@ signal copyram_addr_pong_p    : std_logic_vector(STRT_ADDR_CNT_WIDTH-1 downto 0)
 
 begin
 
-    GEN_BUFFER1 : entity axi_vdma_v6_2_8.axi_vdma_blkmem
+    GEN_BUFFER1 : entity axi_vdma_v6_2_6.axi_vdma_blkmem
         generic map(
             C_DATA_WIDTH        => C_ADDR_WIDTH         ,
             C_ADDR_WIDTH        => STRT_ADDR_CNT_WIDTH  ,
-            C_SELECT_XPM        => C_SELECT_XPM,
             C_FAMILY            => C_FAMILY
         )
         port map(
@@ -854,7 +852,7 @@ begin
 
     copyram_addr_ping_p <= copy_addr when ping_pong = '1'
                                      or (video_parameter_valid = '0' and update_complete_i = '0')
-                    else frame_number(STRT_ADDR_CNT_WIDTH-1 downto 0);
+                    else frame_number;
 
     copy_wren_pong_p    <= copy_wren when (ping_pong = '0' and video_parameter_valid = '1')
                                      or (update_complete_i = '0' and video_parameter_valid = '0')
@@ -862,7 +860,7 @@ begin
 
     copyram_addr_pong_p <= copy_addr when ping_pong = '0'
                                      or (video_parameter_valid = '0' and update_complete_i = '0')
-                    else frame_number(STRT_ADDR_CNT_WIDTH-1 downto 0);
+                    else frame_number;
 
    -- Delaying Ping Pong Write and Address signals for BRAM
 
@@ -897,11 +895,10 @@ begin
             end if;
         end process PING_PONG_PROCESS;
 
-    GEN_BUFFER_PING : entity axi_vdma_v6_2_8.axi_vdma_blkmem
+    GEN_BUFFER_PING : entity axi_vdma_v6_2_6.axi_vdma_blkmem
         generic map(
             C_DATA_WIDTH        => C_ADDR_WIDTH         ,
             C_ADDR_WIDTH        => STRT_ADDR_CNT_WIDTH  ,
-            C_SELECT_XPM        => C_SELECT_XPM,
             C_FAMILY            => C_FAMILY
         )
         port map(
@@ -920,11 +917,10 @@ begin
             Rd_Data     =>  start_address_ping
         );
 
-    GEN_BUFFER_PONG : entity axi_vdma_v6_2_8.axi_vdma_blkmem
+    GEN_BUFFER_PONG : entity axi_vdma_v6_2_6.axi_vdma_blkmem
         generic map(
             C_DATA_WIDTH        => C_ADDR_WIDTH         ,
             C_ADDR_WIDTH        => STRT_ADDR_CNT_WIDTH  ,
-            C_SELECT_XPM        => C_SELECT_XPM,
             C_FAMILY            => C_FAMILY
         )
         port map(

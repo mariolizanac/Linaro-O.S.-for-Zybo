@@ -136,8 +136,8 @@ use ieee.std_logic_misc.all;
 library unisim;
 use unisim.vcomponents.all;
 
-library axi_vdma_v6_2_8;
-use axi_vdma_v6_2_8.axi_vdma_pkg.all;
+library axi_vdma_v6_2_6;
+use axi_vdma_v6_2_6.axi_vdma_pkg.all;
 
 --use proc_common_v4_0_2.family_support.all;
 
@@ -331,7 +331,7 @@ mm2s_dm_prmry_resetn <= sig_mm2s_dm_prmry_resetn;
 
 mm2s_axis_resetn <= sig_mm2s_axis_resetn;
 
-    RESET_I : entity  axi_vdma_v6_2_8.axi_vdma_reset
+    RESET_I : entity  axi_vdma_v6_2_6.axi_vdma_reset
         generic map(
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC        ,
             C_INCLUDE_SG                => C_INCLUDE_SG                 -- CR622081
@@ -412,7 +412,7 @@ s2mm_prmry_resetn <= sig_s2mm_prmry_resetn;
 s2mm_dm_prmry_resetn <= sig_s2mm_dm_prmry_resetn;
 s2mm_axis_resetn <= sig_s2mm_axis_resetn;
 
-    RESET_I : entity  axi_vdma_v6_2_8.axi_vdma_reset
+    RESET_I : entity  axi_vdma_v6_2_6.axi_vdma_reset
         generic map(
             C_PRMRY_IS_ACLK_ASYNC       => C_PRMRY_IS_ACLK_ASYNC        ,
             C_INCLUDE_SG                => C_INCLUDE_SG                 -- CR622081

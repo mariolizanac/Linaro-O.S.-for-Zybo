@@ -67,8 +67,8 @@
   use IEEE.std_logic_1164.all;
   use IEEE.numeric_std.all;
   
-  library axi_datamover_v5_1_11;
-  Use axi_datamover_v5_1_11.axi_datamover_fifo;
+  library axi_datamover_v5_1_9;
+  Use axi_datamover_v5_1_9.axi_datamover_fifo;
   
   -------------------------------------------------------------------------------
   
@@ -549,7 +549,7 @@
         -- Instance for the Address/Qualifier FIFO
         --
         ------------------------------------------------------------
-         I_ADDR_QUAL_FIFO : entity axi_datamover_v5_1_11.axi_datamover_fifo
+         I_ADDR_QUAL_FIFO : entity axi_datamover_v5_1_9.axi_datamover_fifo
          generic map (
        
            C_DWIDTH            =>  ADDR_QUAL_WIDTH         ,  

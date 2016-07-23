@@ -58,7 +58,7 @@
 
 `timescale 1ps/1ps
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axi_vdma_v6_2_8_axis_register_slice_v1_0_axisc_register_slice #
+module axi_vdma_v6_2_6_axis_register_slice_v1_0_axisc_register_slice #
   (
    parameter C_FAMILY     = "virtex7",
    parameter C_DATA_WIDTH = 32,

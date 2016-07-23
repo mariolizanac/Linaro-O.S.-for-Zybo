@@ -1,8 +1,8 @@
-//Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+//Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-//Date        : Tue Jul 19 15:24:04 2016
-//Host        : ASUS running 64-bit Linux Mint 18 Sarah
+//Tool Version: Vivado v.2015.4 (lin64) Build 1412921 Wed Nov 18 09:44:32 MST 2015
+//Date        : Thu Apr 21 22:17:05 2016
+//Host        : mario running 64-bit Linux Mint 17.3 Rosa
 //Command     : generate_target system_wrapper.bd
 //Design      : system_wrapper
 //Purpose     : IP block netlist
@@ -55,7 +55,7 @@ module system_wrapper
     btns_4bits_tri_i,
     iic_0_scl_io,
     iic_0_sda_io,
-    leds_4bits_tri_o,
+    led,
     sws_4bits_tri_i);
   output [0:0]AC_BCLK;
   output AC_MCLK;
@@ -102,7 +102,7 @@ module system_wrapper
   input [3:0]btns_4bits_tri_i;
   inout iic_0_scl_io;
   inout iic_0_sda_io;
-  output [3:0]leds_4bits_tri_o;
+  output [3:0]led;
   input [3:0]sws_4bits_tri_i;
 
   wire [0:0]AC_BCLK;
@@ -156,7 +156,7 @@ module system_wrapper
   wire iic_0_sda_io;
   wire iic_0_sda_o;
   wire iic_0_sda_t;
-  wire [3:0]leds_4bits_tri_o;
+  wire [3:0]led;
   wire [3:0]sws_4bits_tri_i;
 
   IOBUF iic_0_scl_iobuf
@@ -217,8 +217,8 @@ module system_wrapper
         .IIC_0_sda_i(iic_0_sda_i),
         .IIC_0_sda_o(iic_0_sda_o),
         .IIC_0_sda_t(iic_0_sda_t),
-        .LEDs_4Bits_tri_o(leds_4bits_tri_o),
         .RED_O(RED_O),
         .SWs_4Bits_tri_i(sws_4bits_tri_i),
-        .VSYNC_O(VSYNC_O));
+        .VSYNC_O(VSYNC_O),
+        .led(led));
 endmodule

@@ -70,13 +70,13 @@ use IEEE.numeric_std.all;
 
 
 
-library axi_datamover_v5_1_11;
-use axi_datamover_v5_1_11.axi_datamover_mm2s_omit_wrap ;
-use axi_datamover_v5_1_11.axi_datamover_mm2s_full_wrap ;
-use axi_datamover_v5_1_11.axi_datamover_mm2s_basic_wrap;
-use axi_datamover_v5_1_11.axi_datamover_s2mm_omit_wrap ;
-use axi_datamover_v5_1_11.axi_datamover_s2mm_full_wrap ;
-use axi_datamover_v5_1_11.axi_datamover_s2mm_basic_wrap;
+library axi_datamover_v5_1_9;
+use axi_datamover_v5_1_9.axi_datamover_mm2s_omit_wrap ;
+use axi_datamover_v5_1_9.axi_datamover_mm2s_full_wrap ;
+use axi_datamover_v5_1_9.axi_datamover_mm2s_basic_wrap;
+use axi_datamover_v5_1_9.axi_datamover_s2mm_omit_wrap ;
+use axi_datamover_v5_1_9.axi_datamover_s2mm_full_wrap ;
+use axi_datamover_v5_1_9.axi_datamover_s2mm_basic_wrap;
 
 
 -------------------------------------------------------------------------------
@@ -1013,7 +1013,7 @@ end generate GEN_S2MM_TKEEP_DISABLE1;
        -- Read omit Wrapper Instance    
        --
        ------------------------------------------------------------
-        I_MM2S_OMIT_WRAPPER : entity axi_datamover_v5_1_11.axi_datamover_mm2s_omit_wrap
+        I_MM2S_OMIT_WRAPPER : entity axi_datamover_v5_1_9.axi_datamover_mm2s_omit_wrap
         generic map (
       
           C_INCLUDE_MM2S           =>  C_INCLUDE_MM2S             ,
@@ -1113,7 +1113,7 @@ end generate GEN_S2MM_TKEEP_DISABLE1;
        -- Read Full Wrapper Instance    
        --
        ------------------------------------------------------------
-        I_MM2S_FULL_WRAPPER : entity axi_datamover_v5_1_11.axi_datamover_mm2s_full_wrap
+        I_MM2S_FULL_WRAPPER : entity axi_datamover_v5_1_9.axi_datamover_mm2s_full_wrap
         generic map (
       
           C_INCLUDE_MM2S           =>  C_INCLUDE_MM2S             ,
@@ -1216,7 +1216,7 @@ end generate GEN_S2MM_TKEEP_DISABLE1;
        -- Read Basic Wrapper Instance    
        --
        ------------------------------------------------------------
-        I_MM2S_BASIC_WRAPPER : entity axi_datamover_v5_1_11.axi_datamover_mm2s_basic_wrap
+        I_MM2S_BASIC_WRAPPER : entity axi_datamover_v5_1_9.axi_datamover_mm2s_basic_wrap
         generic map (
       
           C_INCLUDE_MM2S           =>  C_INCLUDE_MM2S             ,
@@ -1318,7 +1318,7 @@ end generate GEN_S2MM_TKEEP_DISABLE1;
        -- Write Omit Wrapper Instance    
        --
        ------------------------------------------------------------
-        I_S2MM_OMIT_WRAPPER : entity axi_datamover_v5_1_11.axi_datamover_s2mm_omit_wrap
+        I_S2MM_OMIT_WRAPPER : entity axi_datamover_v5_1_9.axi_datamover_s2mm_omit_wrap
         generic map (
       
           C_INCLUDE_S2MM            =>  C_INCLUDE_S2MM           ,
@@ -1424,7 +1424,7 @@ end generate GEN_S2MM_TKEEP_DISABLE1;
        -- Write Full Wrapper Instance    
        --
        ------------------------------------------------------------
-        I_S2MM_FULL_WRAPPER : entity axi_datamover_v5_1_11.axi_datamover_s2mm_full_wrap
+        I_S2MM_FULL_WRAPPER : entity axi_datamover_v5_1_9.axi_datamover_s2mm_full_wrap
         generic map (
       
           C_INCLUDE_S2MM            =>  C_INCLUDE_S2MM           ,
@@ -1535,7 +1535,7 @@ end generate GEN_S2MM_TKEEP_DISABLE1;
        -- Write Basic Wrapper Instance    
        --
        ------------------------------------------------------------
-        I_S2MM_BASIC_WRAPPER : entity axi_datamover_v5_1_11.axi_datamover_s2mm_basic_wrap
+        I_S2MM_BASIC_WRAPPER : entity axi_datamover_v5_1_9.axi_datamover_s2mm_basic_wrap
         generic map (
       
           C_INCLUDE_S2MM            =>  C_INCLUDE_S2MM           ,

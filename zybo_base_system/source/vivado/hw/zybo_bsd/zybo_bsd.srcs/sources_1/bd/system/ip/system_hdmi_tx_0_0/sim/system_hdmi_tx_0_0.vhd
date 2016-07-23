@@ -80,8 +80,9 @@ ENTITY system_hdmi_tx_0_0 IS
 END system_hdmi_tx_0_0;
 
 ARCHITECTURE system_hdmi_tx_0_0_arch OF system_hdmi_tx_0_0 IS
-  ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
+  ATTRIBUTE DowngradeIPIdentifiedWarnings : string;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF system_hdmi_tx_0_0_arch: ARCHITECTURE IS "yes";
+
   COMPONENT hdmi_tx IS
     GENERIC (
       C_RED_WIDTH : INTEGER; -- Red Channel Width
