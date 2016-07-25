@@ -29,13 +29,13 @@ STEPS
 
 !COPY FROM HERE:
 
-wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master.zip' -O u-boot-Digilent-Dev-master.zip
-unzip u-boot-Digilent-Dev-master.zip -d unzip_folder	
-cd unzip_folder/
-mv u-boot-Digilent-Dev-master/ ../
-cd ..
-rm -rf unzip_folder/
-rm u-boot-Digilent-Dev-master.zip
+>wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master.zip' -O u-boot-Digilent-Dev-master.zip
+>unzip u-boot-Digilent-Dev-master.zip -d unzip_folder	
+>cd unzip_folder/
+>mv u-boot-Digilent-Dev-master/ ../
+>cd ..
+>rm -rf unzip_folder/
+>rm u-boot-Digilent-Dev-master.zip
 
 !TO HERE
 
@@ -89,7 +89,6 @@ cd u-boot-Digilent-Dev-master
 
 export ARCH=arm
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-#source /home/mario/Xilinx/Vivado/2015.4/settings64.sh 
 export PATH=$PATH:/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
 export echo PATH=$PWD/tools:$PATH
 
@@ -128,7 +127,6 @@ cd Linux-Digilent-Dev
 
 export ARCH=arm
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-!source /home/mario/Xilinx/Vivado/2015.4/settings64.sh 
 export PATH=$PATH:	/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
 export echo PATH=$PWD/tools:$PATH
 
