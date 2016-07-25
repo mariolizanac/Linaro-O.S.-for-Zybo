@@ -27,7 +27,7 @@ STEPS
 
 1. Download the u-boot Repository for Digilent FPGA Boards from GitHub:
 
-#COPY FROM HERE:
+!COPY FROM HERE:
 
 wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master.zip' -O u-boot-Digilent-Dev-master.zip
 unzip u-boot-Digilent-Dev-master.zip -d unzip_folder	
@@ -37,13 +37,13 @@ cd ..
 rm -rf unzip_folder/
 rm u-boot-Digilent-Dev-master.zip
 
-#TO HERE
+!TO HERE
 
 
 
 2. Download the Zybo base system for Vivado from the Digilent website 
 
-#COPY FROM HERE:
+!COPY FROM HERE:
 
 wget 'https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip' -O zybo_base_system.zip
 unzip zybo_base_system.zip -d unzip_folder	
@@ -53,9 +53,9 @@ cd ..
 rm -rf unzip_folder/
 rm zybo_base_system.zip
 
-#TO HERE
+!TO HERE
 
-#Otra forma mas directa:
+!Otra forma mas directa:
 git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
 
 
@@ -107,7 +107,7 @@ cp u-boot ../sd_boot/u-boot.elf
 
 
 
-### Corregir esto con mi propio github, haciendo un repo nuevo, voy por el paso 4 de http://www.dbrss.org/zybo/tutorial4.html
+!!! Corregir esto con mi propio github, haciendo un repo nuevo, voy por el paso 4 de http://www.dbrss.org/zybo/tutorial4.html
 
 Locate the ZYBO specific fsbl_hooks.c file in the zybo_base_system/source/vivado/SDK/fsbl folder and replace the one that was generated in the SDK fsbl project (-->   zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/src)
 
@@ -128,7 +128,7 @@ cd Linux-Digilent-Dev
 
 export ARCH=arm
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-#source /home/mario/Xilinx/Vivado/2015.4/settings64.sh 
+!source /home/mario/Xilinx/Vivado/2015.4/settings64.sh 
 export PATH=$PATH:	/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
 export echo PATH=$PWD/tools:$PATH
 
