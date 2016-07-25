@@ -1,7 +1,9 @@
 
-# GNULinradio
+GNULinradio
+============
 
 IMPORTANT
+------------
 
 The commands are writing in such a way that you should only copy and paste them.
 
@@ -10,6 +12,7 @@ A lot of information have been obtained from: http://www.dbrss.org/zybo/tutorial
 !!!!!!!! -> Crear una variable que apunte a la carpeta GNULinradio
 
 REQUIREMENTS
+------------
 
 The following equipment have been employed:
 
@@ -22,21 +25,25 @@ The following equipment have been employed:
 
 sudo apt-get install gcc-arm-linux-gnueabi
 
-sudo apt-get install gcc-4.7-armhf-cross
+
+
+
 STEPS
+------------
 
 1. Download the u-boot Repository for Digilent FPGA Boards from GitHub:
 
 !COPY FROM HERE:
 
->wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master.zip' -O u-boot-Digilent-Dev-master.zip
->unzip u-boot-Digilent-Dev-master.zip -d unzip_folder	
->cd unzip_folder/
->mv u-boot-Digilent-Dev-master/ ../
->cd ..
->rm -rf unzip_folder/
->rm u-boot-Digilent-Dev-master.zip
-
+~~~bash
+wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master.zip' -O u-boot-Digilent-Dev-master.zip
+unzip u-boot-Digilent-Dev-master.zip -d unzip_folder	
+d unzip_folder/
+mv u-boot-Digilent-Dev-master/ ../
+cd ..
+rm -rf unzip_folder/
+rm u-boot-Digilent-Dev-master.zip
+~~~
 !TO HERE
 
 
