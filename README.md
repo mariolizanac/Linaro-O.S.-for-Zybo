@@ -31,21 +31,38 @@ sudo apt-get install gcc-arm-linux-gnueabi
 STEPS
 ------------
 
-1. Download the u-boot Repository for Digilent FPGA Boards from GitHub:
+### 1. Download necessary repositories ###
 
-!COPY FROM HERE:
 
+U-BOOT repository, from Digilent:
 ~~~bash
-wget 'https://github.com/Digilent/u-boot-Digilent-Dev/archive/master.zip' -O u-boot-Digilent-Dev-master.zip
-unzip u-boot-Digilent-Dev-master.zip -d unzip_folder	
-d unzip_folder/
-mv u-boot-Digilent-Dev-master/ ../
+git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
+~~~
+
+Linux repository, from Digilent:
+~~~bash
+git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
+~~~
+
+Linaro image:
+~~~bash
+wget 'https://releases.linaro.org/15.06/ubuntu/vivid-images/gnome/linaro-vivid-gnome-20150618-705.tar.gz'
+sudo tar -xvzf linaro-vivid-gnome-20150618-705.tar.gz
+rm linaro-vivid-gnome-20150618-705.tar.gz
+mv binary LINARO
+cd LINARO/boot/filesystem.dir
+~~~
+
+Zybo base system, from Digilent:
+~~~bash
+wget 'https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip' -O zybo_base_system.zip
+unzip zybo_base_system.zip -d unzip_folder	
+cd unzip_folder/
+mv zybo_base_system/ ../
 cd ..
 rm -rf unzip_folder/
-rm u-boot-Digilent-Dev-master.zip
+rm zybo_base_system.zip
 ~~~
-!TO HERE
-
 
 
 2. Download the Zybo base system for Vivado from the Digilent website 
@@ -129,7 +146,7 @@ project -> build all
 
 The next step is to build the Linux kernel. Navigate to the Linux-Digilent-Dev folder we downloaded earlier. Now we are ready to compile the kernel. Make sure to run make on the xilinx_zynq_defconfig file to set up the configurations for the zynq chip before compiling the kernel.
 
-git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
+
 cd Linux-Digilent-Dev
 
 export ARCH=arm
