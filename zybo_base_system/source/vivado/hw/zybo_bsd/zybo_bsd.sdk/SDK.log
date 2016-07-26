@@ -11,3 +11,7 @@
 16:28:00 INFO  : XSDB server has started successfully.
 16:28:23 INFO  : Processing command line option -hwspec /home/mario/Documents/GNULinradio/zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper.hdf.
 16:28:28 INFO  : Checking for hwspec changes in the project system_wrapper_hw_platform_0.
+17:31:13 INFO  : Launching XSDB server: xsdb -n /home/mario/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+17:31:14 INFO  : XSDB server has started successfully.
+17:31:21 INFO  : Processing command line option -hwspec /home/mario/Documents/GNULinradio/zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper.hdf.
+17:31:23 INFO  : Checking for hwspec changes in the project system_wrapper_hw_platform_0.
