@@ -129,9 +129,24 @@ A ready for work zybo base system has been made so it is not necessary to follow
 git clone https://github.com/MarioLizanaC/Ready_for_Work_Zybo_Base_System.git
 ~~~
 
-Open the project with Vivado. The project file is in the "source/vivado/hw/zybo_bsd" directory. Make sure the bistream has been exported going to File -> Export -> Export Hardware -> Select "Include Bitsream" and OK.
+Open the project with Vivado. The project file is in the "source/vivado/hw/zybo_bsd" directory. Make sure the bistream has been exported, in Vivado: File -> Export -> Export Hardware -> Select "Include Bitsream" and OK.
 
 
+
+### 4. Create the BOOT.bin file ###
+
+
+Launch Xilinx SDK from Vivado (File -> Launch SDK -> OK). Then create a new application project named FSBL: File -> New -> Application project -> Write "FSBL" inside the Project name box -> Next -> Select "Zynq FSBL" -> Finish.
+
+Then replace the fsbl_hooks.c file (allocated in zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/FSBL/src) with the one that can be found in "zybo_base_system/source/vivado/SDK/fsbl/fsbl_hooks.c". We have to rebuild the project: Project -> Clean..., Project -> Build All.
+
+In order to create the boot image (BOOT.bin file), go to Xilinx tools -> Create Boot Image. Select the path in which you want to generate the BOOT.bin file and select, in order, the following files:
+
+	* fsbl.elf
+	* system_wrapper.bit
+	* u-boot.elf
+
+Select create Zynq Boot image under the Xilinx Tools tab. We need to add, in order, the fsbl.elf, system_wrapper.bit, and the u-boot.elf in order to create the BOOT.bin. The fsbl can be found in the zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/debug folder. The system_wrapper.bit can be found in the zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper_hw_platform_0 folder. In an earlier step we moved the u-boot.elf into a the sd_boot folder. Next specify the output path where you want the BOOT.bin to be generated.
 
 
 

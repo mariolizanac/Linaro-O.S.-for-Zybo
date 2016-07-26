@@ -7,3 +7,7 @@
 23:14:05 INFO  : Invoking Bootgen: bootgen -image output.bif -o /home/mario/Documents/GNULinradio/sd_boot/BOOT.bin -w on
 23:14:05 INFO  : Overwriting existing bif file /home/mario/Documents/GNULinradio/sd_boot/output.bif
 23:14:05 INFO  : Bootgen command execution is done.
+16:27:57 INFO  : Launching XSDB server: xsdb -n /home/mario/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+16:28:00 INFO  : XSDB server has started successfully.
+16:28:23 INFO  : Processing command line option -hwspec /home/mario/Documents/GNULinradio/zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper.hdf.
+16:28:28 INFO  : Checking for hwspec changes in the project system_wrapper_hw_platform_0.
