@@ -27,7 +27,7 @@ The following equipment have been employed:
 
 sudo apt-get install gcc-arm-linux-gnueabi
 
-
+ 
 
 
 STEPS
@@ -49,6 +49,7 @@ And also to set up some configuration variables in the terminal:
 export ARCH=arm
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
 export PATH=$PATH:/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
+#Run the following command inside the "u-boot-Digilent-Dev-master" folder
 export echo PATH=$PWD/tools:$PATH
 ~~~
 
