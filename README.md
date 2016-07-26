@@ -108,22 +108,24 @@ make UIMAGE_LOADADDR=0x00008000 uImage modules -j32
 
 You can either generate the bitstream file from the beginning or use my Ready_for_Work_Zybo_Base_System repository.
 
-From the beginning you will have to follow the steps below:
+OPTION A)
+	From the beginning you will have to follow the steps below:
 
-	* Download the zybo base system from "https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip"
-	* Open it with Vivado
-	* Modify the project if you need it
-	* Update the IP Cores from previous versions
-	* Run Synthesis, implementation and generate bitstream
-	* Export hardware including the bitstream when asked.
+		* Download the zybo base system from: "https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip"
+		* Open it with Vivado
+		* Modify the project if you need it
+		* Update the IP Cores from previous versions
+		* Run Synthesis, implementation and generate bitstream
+		* Export hardware including the bitstream when asked.
 
-A ready for work zybo base system has been made so it is not necessary to follow the steps before. You can download it from "https://github.com/MarioLizanaC/Ready_for_Work_Zybo_Base_System", or:
+OPTION B)
+	A ready for work zybo base system has been made so it is not necessary to follow the steps before. You can download it from "https://github.com/MarioLizanaC/Ready_for_Work_Zybo_Base_System", or:
 
-~~~bash
-git clone https://github.com/MarioLizanaC/Ready_for_Work_Zybo_Base_System.git
-~~~
+	~~~bash
+	git clone https://github.com/MarioLizanaC/Ready_for_Work_Zybo_Base_System.git
+	~~~
 
-Open the project with Vivado. The project file is in the "source/vivado/hw/zybo_bsd" directory. Make sure the bistream has been exported going to File -> Export -> Export Hardware -> Select "Include Bitsream" and OK.
+	Open the project with Vivado. The project file is in the "source/vivado/hw/zybo_bsd" directory. Make sure the bistream has been exported going to File -> Export -> Export Hardware -> Select "Include Bitsream" and OK.
 
 
 
