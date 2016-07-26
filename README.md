@@ -5,6 +5,8 @@ GNULinradio
 IMPORTANT
 ------------
 
+Readme not finished!!
+
 The commands are writing in such a way that you should only copy and paste them.
 
 A lot of information have been obtained from: http://www.dbrss.org/zybo/tutorial4.html
@@ -31,6 +33,52 @@ sudo apt-get install gcc-arm-linux-gnueabi
 STEPS
 ------------
 
+### 1. Compile U-Boot ###
+
+
+It is necessary to download the u-boot repository:
+
+~~~bash
+git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
+~~~
+
+
+And also to set up some configuration variables in the terminal:
+
+~~~bash
+export ARCH=arm
+export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
+export PATH=$PATH:/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
+export echo PATH=$PWD/tools:$PATH
+~~~
+
+
+The default zynq_zybo.h (inside "u-boot-Digilent-Dev-master-next" folder) file is configurated will make the zybo load the ramdisk instead the linaro file system. Modify it so we have the following lines:
+
+~~~C
+	"sdboot=if mmcinfo; then " \
+			"run uenvboot; " \
+			"echo Copying Linux from SD to RAM... && " \
+			"fatload mmc 0 0x3000000 ${kernel_image} && " \
+			"fatload mmc 0 0x2A00000 ${devicetree_image} && " \
+			"bootm 0x3000000 - 0x2A00000; " \
+		"fi\0" \
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 1. Download necessary repositories ###
 
 
@@ -39,10 +87,12 @@ U-BOOT repository, from Digilent:
 git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
 ~~~
 
+
 Linux repository, from Digilent:
 ~~~bash
 git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
 ~~~
+
 
 Linaro image:
 ~~~bash
@@ -52,6 +102,7 @@ rm linaro-vivid-gnome-20150618-705.tar.gz
 mv binary LINARO
 cd LINARO/boot/filesystem.dir
 ~~~
+
 
 Zybo base system, from Digilent:
 ~~~bash
