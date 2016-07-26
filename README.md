@@ -46,11 +46,11 @@ git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
 And also to set up some configuration variables in the terminal:
 
 ~~~bash
-export ARCH=arm
+export ARCH=armhf
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-#Run the following command modifying the <path_to_xilinx> so it points to the xilinx installation
+#Modify the <path_to_xilinx> in the following command so it points to the xilinx installation folder
 export PATH=$PATH:<path_to_xilinx>/Xilinx/SDK/2015.4/gnu/arm/lin/bin
-#Run the following command inside the "u-boot-Digilent-Dev-master" folder
+#Run the following command inside the "u-boot-Digilent-Dev" folder
 export echo PATH=$PWD/tools:$PATH
 ~~~
 
@@ -76,10 +76,31 @@ make
 cp u-boot ../sd_boot/u-boot.elf
 ~~~
 
+### 2. Compile the linux Kernel ###
+
+Now we are going to compile the linux kernel and for that we need the repository below:
+~~~bash
+git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
+~~~
+
+
+We need these configuration variables:
+~~~bash
+export ARCH=armhf
+export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
+#Modify the <path_to_xilinx> in the following command so it points to the xilinx installation folder
+export PATH=$PATH:<path_to_xilinx>/Xilinx/SDK/2015.4/gnu/arm/lin/bin
+#Run the following command inside the "Linux-Digilent-Dev" folder
+export echo PATH=$PWD/tools:$PATH
+~~~
 
 
 
-
+Compilation commands:
+~~~bash
+make xilinx_zynq_defconfig
+make UIMAGE_LOADADDR=0x00008000 uImage modules -j32
+~~~
 
 
 
@@ -89,11 +110,6 @@ cp u-boot ../sd_boot/u-boot.elf
 
 ### Download necessary repositories ###
 
-
-Linux repository, from Digilent:
-~~~bash
-git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
-~~~
 
 
 Linaro image:
@@ -135,41 +151,6 @@ rm zybo_base_system.zip
 
 
 
-3. Set necessary variables on the bash shell
-
-mkdir sd_boot
-
-
-
-
-4. Modify zynq_zybo.h, which is inside "u-boot-Digilent-Dev-master-next" folder. We should have the following lines:
-
-	"sdboot=if mmcinfo; then " \
-			"run uenvboot; " \
-			"echo Copying Linux from SD to RAM... && " \
-			"fatload mmc 0 0x3000000 ${kernel_image} && " \
-			"fatload mmc 0 0x2A00000 ${devicetree_image} && " \
-			"bootm 0x3000000 - 0x2A00000; " \
-		"fi\0" \
-
-
-5. Compile u-boot file
-
-
-cd u-boot-Digilent-Dev-master
-
-export ARCH=arm
-export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-export PATH=$PATH:/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
-export echo PATH=$PWD/tools:$PATH
-
-
-
-make zynq_zybo_config
-make
-cp u-boot ../sd_boot/u-boot.elf
-
-
 
 6. 
 
@@ -191,18 +172,7 @@ project -> build all
 
 10.
 
-The next step is to build the Linux kernel. Navigate to the Linux-Digilent-Dev folder we downloaded earlier. Now we are ready to compile the kernel. Make sure to run make on the xilinx_zynq_defconfig file to set up the configurations for the zynq chip before compiling the kernel.
 
-
-cd Linux-Digilent-Dev
-
-export ARCH=arm
-export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-export PATH=$PATH:	/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
-export echo PATH=$PWD/tools:$PATH
-
-make xilinx_zynq_defconfig
-make UIMAGE_LOADADDR=0x00008000 uImage modules -j32
 
 
 11.
