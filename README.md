@@ -18,11 +18,11 @@ REQUIREMENTS
 
 The following equipment have been employed:
 
-1. Linux Mint 18 Sarah
+1. Linux Mint 18 Sarah (64 bits)
 
 2. Zybo board
 
-3. Vivado v2015.4 (64 bits)
+3. Vivado v2015.4
 
 
 sudo apt-get install gcc-arm-linux-gnueabi
@@ -48,13 +48,14 @@ And also to set up some configuration variables in the terminal:
 ~~~bash
 export ARCH=arm
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-export PATH=$PATH:/home/mario/Xilinx/SDK/2015.4/gnu/arm/lin/bin
+#Run the following command modifying the <path_to_xilinx> so it points to the xilinx installation
+export PATH=$PATH:<path_to_xilinx>/Xilinx/SDK/2015.4/gnu/arm/lin/bin
 #Run the following command inside the "u-boot-Digilent-Dev-master" folder
 export echo PATH=$PWD/tools:$PATH
 ~~~
 
 
-The default zynq_zybo.h (inside "u-boot-Digilent-Dev-master-next" folder) file is configurated will make the zybo load the ramdisk instead the linaro file system. Modify it so we have the following lines:
+The default zynq_zybo.h file (inside "u-boot-Digilent-Dev-master-next" folder) will make the zybo load the ramdisk instead the linaro file system. Modify it so we have the following lines:
 
 ~~~C
 	"sdboot=if mmcinfo; then " \
@@ -67,26 +68,26 @@ The default zynq_zybo.h (inside "u-boot-Digilent-Dev-master-next" folder) file i
 ~~~
 
 
+Finally, let's specify the configuration for the zybo board and compile u-boot:
 
-
-
-
-
-
-
-
-
-
-
-
-
-### 1. Download necessary repositories ###
-
-
-U-BOOT repository, from Digilent:
 ~~~bash
-git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
+make zynq_zybo_config
+make
+cp u-boot ../sd_boot/u-boot.elf
 ~~~
+
+
+
+
+
+
+
+
+
+
+
+
+### Download necessary repositories ###
 
 
 Linux repository, from Digilent:
@@ -130,12 +131,6 @@ rm -rf unzip_folder/
 rm zybo_base_system.zip
 
 !TO HERE
-
-!Otra forma mas directa:
-git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
-
-
-
 
 
 
