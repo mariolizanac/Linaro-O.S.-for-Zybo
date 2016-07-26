@@ -33,10 +33,10 @@ sudo apt-get install gcc-arm-linux-gnueabi
 STEPS
 ------------
 
-### 1. Compile U-Boot ###
+### 1. Compiling U-Boot ###
 
 
-It is necessary to download the u-boot repository:
+It is necessary to download the u-boot repository using the master-next brach:
 
 ~~~bash
 git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
@@ -76,9 +76,9 @@ make
 cp u-boot ../sd_boot/u-boot.elf
 ~~~
 
-### 2. Compile the linux Kernel ###
+### 2. Compiling the linux Kernel ###
 
-Now we are going to compile the linux kernel and for that we need the repository below:
+Now we are going to compile the linux kernel and for that we need the repository below, master-next brach:
 ~~~bash
 git clone -b master-next https://github.com/DigilentInc/Linux-Digilent-Dev.git
 ~~~
@@ -104,8 +104,30 @@ make UIMAGE_LOADADDR=0x00008000 uImage modules -j32
 
 
 
+### 2. Generating the bitstream ###
+
+In order to compile the zybo's bitstream, we should follow these steps:
+	* Download the zybo base system from "https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip"
+	* Open it with Vivado
+	* Modify the project if you need it
+	* Update the IP Cores from previous versions
+	* Run Synthesis, implementation and finally generate bitstream
+
+A ready for work zybo base system has been made so it is not necessary to follow the steps before. You can download it from "https://github.com/MarioLizanaC/Ready_for_Work_Zybo_Base_System", or:
+
+~~~bash
+git clone https://github.com/MarioLizanaC/Ready_for_Work_Zybo_Base_System.git
+~~~
 
 
+
+
+
+
+
+
+IN CONSTRUCTION
+============
 
 
 ### Download necessary repositories ###
