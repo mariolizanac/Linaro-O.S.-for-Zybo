@@ -201,11 +201,6 @@ X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!
 IN CONSTRUCTION
 ============
 
-
-### Download necessary repositories ###
-
-
-
 ATENCION A NO FORMARTEAR LO QU NO ES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
 mkdir /tmp/linaro
