@@ -73,7 +73,6 @@ Finally, let's specify the configuration for the zybo board and compile u-boot:
 ~~~bash
 make zynq_zybo_config
 make
-cp u-boot ../sd_boot/u-boot.elf
 ~~~
 
 ### 2. Compiling the linux Kernel ###
@@ -133,7 +132,7 @@ Open the project with Vivado. The project file is in the "source/vivado/hw/zybo_
 
 
 
-### 4. Create the BOOT.bin file ###
+### 4. Generating the BOOT.bin file ###
 
 
 Launch Xilinx SDK from Vivado (File -> Launch SDK -> OK). Then create a new application project named FSBL: File -> New -> Application project -> Write "FSBL" inside the Project name box -> Next -> Select "Zynq FSBL" -> Finish.
@@ -142,12 +141,31 @@ Then replace the fsbl_hooks.c file (allocated in zybo_base_system/source/vivado/
 
 In order to create the boot image (BOOT.bin file), go to Xilinx tools -> Create Boot Image. Select the path in which you want to generate the BOOT.bin file and select, in order, the following files:
 
-	* fsbl.elf
-	* system_wrapper.bit
-	* u-boot.elf
+1. fsbl.elf		->   zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/debug/fsbl.elf
+2. system_wrapper.bit	->   zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+3. u-boot.elf		->   u-boot-Digilent-Dev-master-next/u-boot.elf
 
-Select create Zynq Boot image under the Xilinx Tools tab. We need to add, in order, the fsbl.elf, system_wrapper.bit, and the u-boot.elf in order to create the BOOT.bin. The fsbl can be found in the zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/debug folder. The system_wrapper.bit can be found in the zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper_hw_platform_0 folder. In an earlier step we moved the u-boot.elf into a the sd_boot folder. Next specify the output path where you want the BOOT.bin to be generated.
 
+
+### 5. Generating the devicetree.dtb file ###
+
+
+First, it is important to change three things in the zynq_zybo.dts file in order to solve a clock problem and the correct loading of the linaro root system. This file can be found in the "Linux-Digilent_dev/arch/arm/boot/dts/" directory. You need to change the following lines, or download it from "X!X!X!X!X!X!X!X!X!X!X.com".
+
+~~~
+Change line 42 to:
+		bootargs = "console=ttyPS0,115200 root=/dev/mmcblk0p2 rw earlyprintk rootfstype=ext4 rootwait";
+
+Change line 51 to:
+			clocks = <&clkc 2>;
+
+Change line 60 to:
+			clocks = <&clkc 2>;
+~~~
+
+
+make zynq-zybo.dtb
+Copiar GNULinradio/Linux-Digilent-Dev/arch/arm/boot/dts/zynq-zybo.dtb a sd_boot y renombrarlo a devicetree.dtb
 
 
 
@@ -169,40 +187,6 @@ cd LINARO/boot/filesystem.dir
 ~~~
 
 
-Zybo base system, from Digilent:
-~~~bash
-wget 'https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip' -O zybo_base_system.zip
-unzip zybo_base_system.zip -d unzip_folder	
-cd unzip_folder/
-mv zybo_base_system/ ../
-cd ..
-rm -rf unzip_folder/
-rm zybo_base_system.zip
-~~~
-
-
-2. Download the Zybo base system for Vivado from the Digilent website 
-
-!COPY FROM HERE:
-
-wget 'https://reference.digilentinc.com/_media/zybo:zybo_base_system.zip' -O zybo_base_system.zip
-unzip zybo_base_system.zip -d unzip_folder	
-cd unzip_folder/
-mv zybo_base_system/ ../
-cd ..
-rm -rf unzip_folder/
-rm zybo_base_system.zip
-
-!TO HERE
-
-
-
-
-
-6. 
-
-7. 
-
 
 
 !!! Corregir esto con mi propio github, haciendo un repo nuevo, voy por el paso 4 de http://www.dbrss.org/zybo/tutorial4.html
@@ -212,34 +196,6 @@ Locate the ZYBO specific fsbl_hooks.c file in the zybo_base_system/source/vivado
 project -> clean all
 project -> build all
 
-
-8.
-
-9.
-
-10.
-
-
-
-
-11.
-
-"Before we generate the device tree blob we need to make some slight adjustments to the zynq_zybo.dts file found Linux-Digilent_dev/arch/arm/boot/dts. Particularly line 44, 53, and 62. changing the clock prevented an error that occured after booting up to the root shell."
-
-
-Change line 42 to:
-		bootargs = "console=ttyPS0,115200 root=/dev/mmcblk0p2 rw earlyprintk rootfstype=ext4 rootwait";
-
-Change line 51 to:
-			clocks = <&clkc 2>;
-
-Change line 60 to:
-			clocks = <&clkc 2>;
-
-
-
-make zynq-zybo.dtb
-Copiar GNULinradio/Linux-Digilent-Dev/arch/arm/boot/dts/zynq-zybo.dtb a sd_boot y renombrarlo a devicetree.dtb
 
 
 12.  
