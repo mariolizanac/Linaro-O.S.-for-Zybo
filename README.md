@@ -143,11 +143,13 @@ Then replace the fsbl_hooks.c file (allocated in zybo_base_system/source/vivado/
 
 In order to create the boot image (BOOT.bin file), go to Xilinx tools -> Create Boot Image. Select the path in which you want to generate the BOOT.bin file and select, **in order**, the following files:
 
-~~~
-1. fsbl.elf		->   zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/debug/fsbl.elf
-2. system_wrapper.bit	->   zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
-3. u-boot.elf		->   u-boot-Digilent-Dev-master-next/u-boot.elf
-~~~
+
+Order					Directory
+----					----
+1. fsbl.elf				zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/debug/
+2. system_wrapper.bit			zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper_hw_platform_0/
+3. u-boot.elf				u-boot-Digilent-Dev-master-next/
+
 
 
 ### 5. Generating the devicetree.dtb file ###
