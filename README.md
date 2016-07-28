@@ -198,21 +198,16 @@ mv binary LINARO
 ### 7. Get you microSD ready ###
 
 
-Insert your microSD in which you want to install LINARO and delete all the partitions. Create one fat32 partition of 1 GiB, leaving at the beginning 4 MiB unallocated. Make other partition take the rest of the memory, selecting the ext4 file system. 
+Insert your microSD in which you want to install LINARO, unmount it and delete all the partitions. Create one fat32 partition of 1 GiB, leaving at the beginning 4 MiB unallocated. Make other partition take the rest of the memory, selecting the ext4 file system. 
 
+The copy the files which are inside the sd_boot folder into the first partition of the microSD and finally you will have to make a temporal directory associated with the second partition of the microSD and copy the LINARO file system into it.
 
-
-X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!X!
-IN CONSTRUCTION
-============
-
-ATENCION A NO FORMARTEAR LO QU NO ES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-
+~~~bash
 mkdir /tmp/linaro
 sudo mount /dev/mmcblk0p2 /tmp/linaro
 sudo rsync -a ./ /tmp/linaro
+~~~bash
 
-Copy "uImage" file into the sd_boot folder
  
 
 
