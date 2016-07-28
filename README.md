@@ -40,7 +40,7 @@ STEPS
 
 It is necessary to download the u-boot repository using the master-next brach:
 
-~~~bash
+~~~shell
 git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
 ~~~
 
