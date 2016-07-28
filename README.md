@@ -7,7 +7,7 @@ IMPORTANT
 
 Readme not finished!!
 
-The commands are writing in such a way that you should only copy and paste them.
+The code is written in such a way that you should only copy and paste them.
 
 A lot of information have been obtained from: http://www.dbrss.org/zybo/tutorial4.html
 
@@ -97,7 +97,7 @@ export echo PATH=$PWD/tools:$PATH
 
 
 
-Compilation commands:
+Code for compiling the uImage file:
 ~~~bash
 make xilinx_zynq_defconfig
 make UIMAGE_LOADADDR=0x00008000 uImage modules -j32
@@ -144,13 +144,13 @@ Then replace the fsbl_hooks.c file (allocated in zybo_base_system/source/vivado/
 In order to create the boot image (BOOT.bin file), go to Xilinx tools -> Create Boot Image. Select the path in which you want to generate the BOOT.bin file and select, **in order**, the following files:
 
 
-1. **fsbl.elf**
+1. **fsbl.elf**            
 	zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/debug/fsbl.elf
 
-2. **system_wrapper.bit**
+2. **system_wrapper.bit**            
 	zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
 
-3. **u-boot.elf**
+3. **u-boot.elf**            
 	u-boot-Digilent-Dev-master-next/u-boot.elf
 
 
@@ -183,7 +183,7 @@ Copy the zynq-zybo.dtb file which is in "GNULinradio/Linux-Digilent-Dev/arch/arm
 
 ### 6. Get the Linaro file system ready ###
 
-Download the Linaro file system with the commands below. 
+Download the Linaro file system with the code below. 
 
 Linaro image:
 ~~~bash
