@@ -206,7 +206,7 @@ The copy the files which are inside the sd_boot folder into the first partition 
 mkdir /tmp/linaro
 sudo mount /dev/mmcblk0p2 /tmp/linaro
 sudo rsync -a ./ /tmp/linaro
-~~~bash
+~~~
 
  
 
