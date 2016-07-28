@@ -2,16 +2,6 @@
 GNULinradio
 ============
 
-IMPORTANT
-------------
-
-Readme not finished!!
-
-The code is written in such a way that you should only copy and paste them.
-
-A lot of information have been obtained from: http://www.dbrss.org/zybo/tutorial4.html
-
-!!!!!!!! -> Crear una variable que apunte a la carpeta GNULinradio
 
 REQUIREMENTS
 ------------
