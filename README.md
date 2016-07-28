@@ -17,7 +17,7 @@ The following equipment have been employed:
 4. 16GB microSD
 
 
-sudo apt-get install gcc-arm-linux-gnueabi
+
 
  
 
@@ -203,10 +203,10 @@ REFERENCES
 ------------
 Most of the information have been obtained from the followink links: 
 
-\[1]  http://www.instructables.com/id/Embedded-Linux-Tutorial-Zybo/
-\[2]  http://xillybus.com/xillinux
-\[3]  http://www.dbrss.org/zybo/tutorial4.html
-\[4]  https://ggallagher31.wordpress.com/
+1. http://www.instructables.com/id/Embedded-Linux-Tutorial-Zybo/
+2. http://xillybus.com/xillinux
+3. http://www.dbrss.org/zybo/tutorial4.html
+4. https://ggallagher31.wordpress.com/
 
 
 
