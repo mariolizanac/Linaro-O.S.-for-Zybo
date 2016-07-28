@@ -139,7 +139,7 @@ Open the project with Vivado. The project file is in the "source/vivado/hw/zybo_
 
 Launch Xilinx SDK from Vivado (File -> Launch SDK -> OK). Then create a new application project named FSBL: File -> New -> Application project -> Write "FSBL" inside the Project name box -> Next -> Select "Zynq FSBL" -> Finish.
 
-Then replace the fsbl_hooks.c file (allocated in zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/FSBL/src) with the one that can be found in "zybo_base_system/source/vivado/SDK/fsbl/fsbl_hooks.c". We have to rebuild the project: Project -> Clean..., Project -> Build All.
+Then replace the fsbl_hooks.c file (allocated in zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/FSBL/src) by the one that can be found in "zybo_base_system/source/vivado/SDK/fsbl/fsbl_hooks.c". We have to rebuild the project: Project -> Clean..., Project -> Build All.
 
 In order to create the boot image (BOOT.bin file), go to Xilinx tools -> Create Boot Image. Select the path in which you want to generate the BOOT.bin file and select, **in order**, the following files:
 
@@ -209,8 +209,14 @@ sudo rsync -a ./ /tmp/linaro
 ~~~
 
  
+REFERENCES 
+------------
+Most of the information have been obtained from the followink links: 
 
-
+\[1]  http://www.instructables.com/id/Embedded-Linux-Tutorial-Zybo/
+\[2]  http://xillybus.com/xillinux
+\[3]  http://www.dbrss.org/zybo/tutorial4.html
+\[4]  https://ggallagher31.wordpress.com/
 
 
 
