@@ -16,8 +16,7 @@ The following equipment have been employed:
 
 4. 16GB microSD
 
-5. sudo apt-get install git
-
+5. sudo apt-get install git build-essential
 
  
 
@@ -38,7 +37,7 @@ git clone -b master-next https://github.com/DigilentInc/u-boot-Digilent-Dev.git
 And also to set up some configuration variables in the terminal:
 
 ~~~bash
-export ARCH=arm
+export ARCH=armhf
 export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
 #Modify the <path_to_xilinx> in the following command so it points to the xilinx installation folder
 export PATH=$PATH:<path_to_xilinx>/Xilinx/SDK/2015.4/gnu/arm/lin/bin
