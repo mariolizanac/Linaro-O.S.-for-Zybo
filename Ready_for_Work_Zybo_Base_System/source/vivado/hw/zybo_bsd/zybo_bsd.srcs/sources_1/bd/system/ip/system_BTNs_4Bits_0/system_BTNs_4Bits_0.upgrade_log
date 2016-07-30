@@ -1,0 +1,16 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.4 (lin64) Build 1412921 Wed Nov 18 09:44:32 MST 2015
+| Date         : Thu Apr 21 21:51:43 2016
+| Host         : mario running 64-bit Linux Mint 17.3 Rosa
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_BTNs_4Bits_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_BTNs_4Bits_0 (xilinx.com:ip:axi_gpio:2.0) from (Rev. 3) to (Rev. 9)
+

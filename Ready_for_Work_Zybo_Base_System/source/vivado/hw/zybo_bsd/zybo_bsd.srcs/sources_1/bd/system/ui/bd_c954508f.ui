@@ -1,0 +1,115 @@
+{
+   guistr: "# # String gsaved with Nlview 6.5.5  2015-06-26 bk=1.3371 VDI=38 GEI=35 GUI=JA:1.8
+#  -string -flagsOSRD
+preplace port HDMI_CLK_P -pg 1 -y 1630 -defaultsOSRD
+preplace port DDR -pg 1 -y 460 -defaultsOSRD
+preplace port AC_MCLK -pg 1 -y 20 -defaultsOSRD
+preplace port HDMI_D2_N -pg 1 -y 1690 -defaultsOSRD
+preplace port HDMI_D2_P -pg 1 -y 1670 -defaultsOSRD
+preplace port HDMI_D1_N -pg 1 -y 1730 -defaultsOSRD
+preplace port HDMI_D0_N -pg 1 -y 1770 -defaultsOSRD
+preplace port SWs_4Bits -pg 1 -y 890 -defaultsOSRD
+preplace port HDMI_D1_P -pg 1 -y 1710 -defaultsOSRD
+preplace port HDMI_D0_P -pg 1 -y 1750 -defaultsOSRD
+preplace port IIC_0 -pg 1 -y 500 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 480 -defaultsOSRD
+preplace port BTNs_4Bits -pg 1 -y 400 -defaultsOSRD
+preplace port HSYNC_O -pg 1 -y 650 -defaultsOSRD
+preplace port VSYNC_O -pg 1 -y 670 -defaultsOSRD
+preplace port AC_SDATA_I -pg 1 -y 1500 -defaultsOSRD
+preplace port HDMI_CLK_N -pg 1 -y 1650 -defaultsOSRD
+preplace portBus AC_RECLRC -pg 1 -y 180 -defaultsOSRD
+preplace portBus AC_MUTE_N -pg 1 -y 220 -defaultsOSRD
+preplace portBus AC_SDATA_O -pg 1 -y 200 -defaultsOSRD
+preplace portBus AC_PBLRC -pg 1 -y 160 -defaultsOSRD
+preplace portBus led -pg 1 -y 1020 -defaultsOSRD
+preplace portBus BLUE_O -pg 1 -y 750 -defaultsOSRD
+preplace portBus RED_O -pg 1 -y 710 -defaultsOSRD
+preplace portBus GREEN_O -pg 1 -y 730 -defaultsOSRD
+preplace portBus AC_BCLK -pg 1 -y 140 -defaultsOSRD
+preplace portBus HDMI_OEN -pg 1 -y 1450 -defaultsOSRD
+preplace inst vdd -pg 1 -lvl 7 -y 1450 -defaultsOSRD
+preplace inst hdmi_tx_0 -pg 1 -lvl 7 -y 1700 -defaultsOSRD
+preplace inst axi_vdma_0 -pg 1 -lvl 2 -y 880 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -y 940 -defaultsOSRD
+preplace inst axi_vdma_1 -pg 1 -lvl 2 -y 1350 -defaultsOSRD
+preplace inst axi_protocol_converter_0 -pg 1 -lvl 5 -y 720 -defaultsOSRD
+preplace inst SWs_4Bits -pg 1 -lvl 7 -y 890 -defaultsOSRD
+preplace inst axi_dispctrl_0 -pg 1 -lvl 7 -y 670 -defaultsOSRD
+preplace inst axi_dispctrl_1 -pg 1 -lvl 7 -y 1240 -defaultsOSRD
+preplace inst BTNs_4Bits -pg 1 -lvl 7 -y 400 -defaultsOSRD
+preplace inst myLED_0 -pg 1 -lvl 7 -y 1020 -defaultsOSRD
+preplace inst axi_i2s_adi_1 -pg 1 -lvl 7 -y 170 -defaultsOSRD
+preplace inst ground -pg 1 -lvl 6 -y 1560 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 3 -y 620 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 6 -y 900 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 4 -y 580 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 4 4 NJ 460 NJ 460 NJ 470 NJ
+preplace netloc vdd_const 1 7 1 NJ
+preplace netloc AC_SDATA_I_1 1 0 7 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ
+preplace netloc hdmi_tx_0_HDMI_D2_P 1 7 1 NJ
+preplace netloc hdmi_tx_0_HDMI_D1_N 1 7 1 NJ
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 6 1 2230
+preplace netloc processing_system7_0_axi_periph_M08_AXI 1 6 1 2220
+preplace netloc processing_system7_0_axi_periph_M03_AXI 1 6 1 2250
+preplace netloc axi_i2s_adi_1_DMA_RX_REQ 1 3 5 1040 770 NJ 520 NJ 520 NJ 520 2680
+preplace netloc xlconstant_0_const1 1 1 1 160
+preplace netloc axi_dispctrl_1_HSYNC_O 1 6 2 2280 1550 2710
+preplace netloc axi_dispctrl_1_GREEN_O 1 6 2 2240 1510 2640
+preplace netloc axi_dispctrl_0_PXL_CLK_O 1 1 7 210 700 NJ 790 NJ 820 NJ 570 NJ 570 2270 820 2630
+preplace netloc processing_system7_0_M_AXI_GP0 1 5 1 1860
+preplace netloc axi_vdma_0_M_AXI_MM2S 1 2 1 630
+preplace netloc hdmi_tx_0_HDMI_D1_P 1 7 1 NJ
+preplace netloc processing_system7_0_axi_periph_M05_AXI 1 1 6 230 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 2170
+preplace netloc processing_system7_0_M_AXI_GP1 1 4 1 1560
+preplace netloc axi_vdma_0_M_AXIS_MM2S 1 2 5 N 800 NJ 800 NJ 600 NJ 600 NJ
+preplace netloc rst_processing_system7_0_97M_peripheral_aresetn 1 1 6 170 690 700 870 NJ 870 1520 800 1880 640 2210
+preplace netloc processing_system7_0_IIC_0 1 4 4 NJ 500 NJ 500 NJ 500 NJ
+preplace netloc BTNs_4Bits_GPIO 1 7 1 NJ
+preplace netloc axi_mem_intercon_M00_AXI 1 3 1 1000
+preplace netloc axi_dispctrl_1_PXL_CLK_5X_O 1 6 2 2270 1530 2720
+preplace netloc axi_dispctrl_1_DE_O 1 6 2 2230 1400 2650
+preplace netloc processing_system7_0_axi_periph_M02_AXI 1 6 1 N
+preplace netloc processing_system7_0_DMA0_ACK 1 4 3 NJ 90 NJ 90 N
+preplace netloc xlconstant_0_const 1 4 3 NJ 540 NJ 540 2200
+preplace netloc axi_vdma_0_m_axis_mm2s_tkeep 1 2 5 N 820 NJ 830 NJ 580 NJ 580 NJ
+preplace netloc processing_system7_0_axi_periph_M06_AXI 1 6 1 2190
+preplace netloc processing_system7_0_DMA1_ACK 1 4 3 NJ 110 NJ 110 N
+preplace netloc axi_vdma_1_M_AXIS_MM2S 1 2 5 660 1190 NJ 1190 NJ 1190 NJ 1190 NJ
+preplace netloc axi_dispctrl_1_PXL_CLK_O 1 1 7 220 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 2170 1390 2670
+preplace netloc axi_dispctrl_0_GREEN_O 1 7 1 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 4 4 NJ 490 NJ 490 NJ 490 NJ
+preplace netloc hdmi_tx_0_HDMI_CLK_N 1 7 1 NJ
+preplace netloc axi_i2s_adi_1_LRCLK_O 1 7 1 2720
+preplace netloc axi_dispctrl_1_FSYNC_O 1 1 7 190 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1090 2680
+preplace netloc axi_dispctrl_0_FSYNC_O 1 1 7 220 710 NJ 860 NJ 860 NJ 510 NJ 510 NJ 510 2670
+preplace netloc S01_AXI_1 1 2 1 650
+preplace netloc rst_processing_system7_0_97M_interconnect_aresetn 1 2 4 710 850 NJ 850 1510 790 1890
+preplace netloc axi_i2s_adi_1_MUTEN_O 1 7 1 NJ
+preplace netloc axi_dispctrl_1_VSYNC_O 1 6 2 2290 1560 2700
+preplace netloc axi_dispctrl_1_RED_O 1 6 2 2250 1540 2660
+preplace netloc axi_dispctrl_0_VSYNC_O 1 7 1 NJ
+preplace netloc axi_dispctrl_0_HSYNC_O 1 7 1 NJ
+preplace netloc myLED_0_led 1 7 1 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 6 200 720 NJ 770 1010 840 1540 640 1870 630 2280
+preplace netloc hdmi_tx_0_HDMI_D0_N 1 7 1 NJ
+preplace netloc hdmi_tx_0_HDMI_CLK_P 1 7 1 NJ
+preplace netloc axi_vdma_1_m_axis_mm2s_tkeep 1 2 5 700 1210 NJ 1210 NJ 1210 NJ 1210 NJ
+preplace netloc processing_system7_0_FCLK_CLK1 1 1 4 180 670 660 780 1020 790 1490
+preplace netloc axi_i2s_adi_1_SDATA_O 1 7 1 NJ
+preplace netloc axi_dispctrl_1_LOCKED_O 1 6 2 2260 1520 2690
+preplace netloc SWs_4Bits_GPIO 1 7 1 NJ
+preplace netloc processing_system7_0_axi_periph_M04_AXI 1 1 6 230 730 NJ 810 NJ 810 NJ 610 NJ 610 2170
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 6 1 2240
+preplace netloc axi_i2s_adi_1_DMA_TX_REQ 1 3 5 1030 780 NJ 480 NJ 480 NJ 480 2690
+preplace netloc processing_system7_0_FCLK_CLK2 1 4 4 NJ 130 NJ 130 2290 20 NJ
+preplace netloc hdmi_tx_0_HDMI_D2_N 1 7 1 NJ
+preplace netloc hdmi_tx_0_HDMI_D0_P 1 7 1 NJ
+preplace netloc axi_i2s_adi_1_BCLK_O 1 7 1 NJ
+preplace netloc axi_dispctrl_1_BLUE_O 1 6 2 2220 1500 2630
+preplace netloc axi_dispctrl_0_RED_O 1 7 1 NJ
+preplace netloc axi_dispctrl_0_BLUE_O 1 7 1 NJ
+levelinfo -pg 1 0 90 430 850 1260 1730 2030 2460 2740 -top 0 -bot 1840
+",
+}
+0
