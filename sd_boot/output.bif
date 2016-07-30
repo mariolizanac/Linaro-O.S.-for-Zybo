@@ -1,6 +1,0 @@
-the_ROM_image:
-{
-	[bootloader]/home/mario/Documents/GNULinradio/zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/fsbl/Debug/fsbl.elf
-	/home/mario/Documents/GNULinradio/zybo_base_system/source/vivado/hw/zybo_bsd/zybo_bsd.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
-	/home/mario/Documents/GNULinradio/sd_boot/u-boot.elf
-}
