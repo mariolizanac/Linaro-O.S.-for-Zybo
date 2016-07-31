@@ -147,7 +147,7 @@ In order to create the boot image (BOOT.bin file), go to Xilinx tools -> Create 
 ### 5. Generating the devicetree.dtb file ###
 
 
-First, it is important to change three things in the zynq_zybo.dts file in order to solve a clock problem and the correct loading of the linaro root system. This file can be found in the "Linux-Digilent_dev/arch/arm/boot/dts/" directory. You need to change the following lines, or download it from "X!X!X!X!X!X!X!X!X!X!X.com".
+First, it is important to change three things in the zynq_zybo.dts file in order to solve a clock problem and the correct loading of the linaro root system. This file can be found in the "Linux-Digilent_dev/arch/arm/boot/dts/" directory. You need to change the following lines, or download it from "https://github.com/MarioLizanaC/Linaro-O.S.-for-Zybo/raw/master/sd_boot/devicetree.dtb".
 
 ~~~
 Change line 42 to:
