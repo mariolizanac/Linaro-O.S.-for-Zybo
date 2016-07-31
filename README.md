@@ -6,7 +6,7 @@ Ready for work embedded O.S. (LINARO) for the Zybo Board. It is only necessary t
 
 **Linaro** is a collaborative engineering organization consolidating and optimizing open source operative system and tools for the ARM architecture. **www.linaro.org**
 
-The **Zybo** (Zynq™ Board) is a feature-rich, ready-to-use, entry-level embedded software and digital circuit development platform built around the smallest member of the Xilinx Zynq-7000 family, the Z-7010. **store.digilentinc.com/zybo-zynq-7000-arm-fpga-soc-trainer-board/**
+The **Zybo** (Zynq™ Board) is a feature-rich, ready-to-use, entry-level embedded software and digital circuit development platform built around the smallest member of the Xilinx Zynq-7000 family, the Z-7010. **http://store.digilentinc.com/zybo-zynq-7000-arm-fpga-soc-trainer-board/**
 
 
 
