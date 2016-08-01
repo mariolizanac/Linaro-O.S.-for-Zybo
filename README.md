@@ -1,5 +1,5 @@
 
-GNULinradio
+Linaro O.S. for Zybo
 ============
 
 Ready for work embedded O.S. (LINARO) for the Zybo Board. It is only necessary to make some partitions with GParted and copy some files. **If you need to make some additional configuration or tr changes, you can chek out my post in which it is explained the whole installation process: http://mariolizanac.com/posts/linaro-for-the-zybo-board/**
