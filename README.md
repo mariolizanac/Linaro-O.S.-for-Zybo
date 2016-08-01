@@ -2,7 +2,7 @@
 GNULinradio
 ============
 
-Ready for work embedded O.S. (LINARO) for the Zybo Board. It is only necessary to make some partitions with GParted and copy the files. **If you need to make some additional configuration or tr changes, you can chek out my post in which it is explained the whole installation process: http://mariolizanac.com/posts/linaro-for-the-zybo-board/**
+Ready for work embedded O.S. (LINARO) for the Zybo Board. It is only necessary to make some partitions with GParted and copy some files. **If you need to make some additional configuration or tr changes, you can chek out my post in which it is explained the whole installation process: http://mariolizanac.com/posts/linaro-for-the-zybo-board/**
 
 **Linaro** is a collaborative engineering organization consolidating and optimizing open source operative system and tools for the ARM architecture. **www.linaro.org**
 
